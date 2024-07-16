@@ -20,11 +20,15 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Navigator.pushReplacementNamed(
-          context,
-          OnBoardingView.name,
-        );
+        navigateOnboarding();
       },
+    );
+  }
+
+  void navigateOnboarding() {
+    Navigator.pushReplacementNamed(
+      context,
+      OnBoardingView.name,
     );
   }
 
@@ -35,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Image.asset(
               Assets.imagesSplashtop,
