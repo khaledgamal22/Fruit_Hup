@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
+import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class PageViewTitle extends StatelessWidget {
   const PageViewTitle({super.key, required this.text1, this.text2, this.text3});
@@ -13,27 +15,18 @@ class PageViewTitle extends StatelessWidget {
       children: [
         Text(
           text1,
-          style: TextStyle(
-              fontFamily: 'Cairo',
-              fontSize: 23,
-              fontWeight: FontWeight.w700,
-              color: Color(0xff0C0D0D)),
+          style: AppStyle.styleBold23(context),
         ),
         Text(
           text2 ?? '',
-          style: TextStyle(
-            fontFamily: 'Cairo',
-            fontSize: 23,
-            fontWeight: FontWeight.w700,
-          ),
+          style: AppStyle.styleBold23(context)
+              .copyWith(color: AppColor.priceColor),
         ),
         Text(
           text3 ?? '',
-          style: TextStyle(
-              fontFamily: 'Cairo',
-              fontSize: 23,
-              fontWeight: FontWeight.w700,
-              color: Color(0xff1B5E37)),
+          style: AppStyle.styleBold23(context).copyWith(
+            color: AppColor.primaryColor,
+          ),
         ),
       ],
     );
