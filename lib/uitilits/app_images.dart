@@ -1,15 +1,27 @@
 class Assets {
   Assets._();
 
+  /// Assets for imagesApple
+  /// assets/images/Apple.png
+  static const String imagesApple = "assets/images/Apple.png";
+
   /// Assets for imagesBackgroundonboard
   /// assets/images/backgroundonboard.png
   static const String imagesBackgroundonboard =
       "assets/images/backgroundonboard.png";
 
+  /// Assets for imagesFacbook
+  /// assets/images/facbook.png
+  static const String imagesFacbook = "assets/images/facbook.png";
+
   /// Assets for imagesFruit basketAmico 1
   /// assets/images/fruit basket-amico 1.png
   static const String imagesFruitbasketAmico1 =
       "assets/images/fruit basket-amico 1.png";
+
+  /// Assets for imagesGoogle
+  /// assets/images/google.png
+  static const String imagesGoogle = "assets/images/google.png";
 
   /// Assets for imagesPineappleCuate 1
   /// assets/images/pineapple-cuate 1.png

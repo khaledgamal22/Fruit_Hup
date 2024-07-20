@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/constant.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
+import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 
@@ -17,19 +20,25 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void executeNavigation() {
+    bool isOnboardingSeeen =
+        SharedPreferenceSingleton.getBool(kIsOnBoardingSeen);
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        navigateOnboarding();
+        navigateOnboarding(isOnboardingSeeen);
       },
     );
   }
 
-  void navigateOnboarding() {
-    Navigator.pushReplacementNamed(
-      context,
-      OnBoardingView.name,
-    );
+  void navigateOnboarding(bool isSeen) {
+    if (isSeen) {
+      Navigator.pushReplacementNamed(context, SignInView.name);
+    } else {
+      Navigator.pushReplacementNamed(
+        context,
+        OnBoardingView.name,
+      );
+    }
   }
 
   @override

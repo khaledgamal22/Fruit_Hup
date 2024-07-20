@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/constant.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
+import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class OnBoarddingPageviewItem extends StatelessWidget {
@@ -48,9 +51,16 @@ class OnBoarddingPageviewItem extends StatelessWidget {
                 child: Positioned(
                   right: 12,
                   top: 12,
-                  child: Text(
-                    'تخطى',
-                    style: AppStyle.styleRegular13(context),
+                  child: GestureDetector(
+                    onTap: () {
+                      SharedPreferenceSingleton.setBool(
+                          kIsOnBoardingSeen, true);
+                      Navigator.pushReplacementNamed(context, SignInView.name);
+                    },
+                    child: Text(
+                      'تخطى',
+                      style: AppStyle.styleRegular13(context),
+                    ),
                   ),
                 ),
               ),
