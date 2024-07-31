@@ -40,7 +40,7 @@ abstract class AppStyle {
 
   static TextStyle styleSemibold13(BuildContext context) {
     return TextStyle(
-      color: Color(0xff064061),
+      color: AppColor.priceColor,
       fontSize: 13,
       fontFamily: 'Cairo',
       fontWeight: FontWeight.w600,

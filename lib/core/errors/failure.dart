@@ -13,15 +13,15 @@ class AuthFailure extends Failure {
   factory AuthFailure.firebaseAuth(
       FirebaseAuthException firebaseAuthException) {
     if (firebaseAuthException.code == 'user-not-found') {
-      return AuthFailure('user not found');
+      return AuthFailure('هذا البريد الالكتروني غير موجود');
     } else if (firebaseAuthException.code == 'wrong-password') {
-      return AuthFailure('Wrong password');
+      return AuthFailure('كلمة المرور غير صحيحة');
     } else if (firebaseAuthException.code == 'weak-password') {
-      return AuthFailure('week password');
+      return AuthFailure('كلمة المرور ضعيفة');
     } else if (firebaseAuthException.code == 'email-already-in-use') {
       return AuthFailure('this email already exists');
     } else {
-      return AuthFailure('something went wrong');
+      return AuthFailure('حدث خطأ ما');
     }
   }
 }
@@ -50,12 +50,12 @@ class ServerFailre extends Failure {
         );
       case DioExceptionType.unknown:
         if (dioException.message!.contains('SocketException')) {
-          return ServerFailre('No Internet Connection');
+          return ServerFailre('لا يوجد اتصال بالانترنت');
         } else {
-          return ServerFailre('Unexpected error,please try again');
+          return ServerFailre('حدث خطأ ما, الرجاء المحاولة مرة اخرى');
         }
       default:
-        return ServerFailre('please try again');
+        return ServerFailre('حدث خطأ ما, الرجاء المحاولة مرة اخرى');
     }
   }
   factory ServerFailre.fromResponseError(int statuscode, dynamic response) {

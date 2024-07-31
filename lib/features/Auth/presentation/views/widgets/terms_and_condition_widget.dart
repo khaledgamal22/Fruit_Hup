@@ -3,8 +3,9 @@ import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/cu
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class TermsAndCondition extends StatefulWidget {
-  const TermsAndCondition({super.key});
+  const TermsAndCondition({super.key, required this.onchange});
 
+  final ValueChanged<bool> onchange;
   @override
   State<TermsAndCondition> createState() => _TermsAndConditionState();
 }
@@ -12,6 +13,7 @@ class TermsAndCondition extends StatefulWidget {
 class _TermsAndConditionState extends State<TermsAndCondition> {
   bool boxcheck = false;
 
+  _TermsAndConditionState();
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,6 +22,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
         GestureDetector(
           onTap: () {
             boxcheck = !boxcheck;
+            widget.onchange(boxcheck);
             setState(() {});
           },
           child: CustomCheckBox(

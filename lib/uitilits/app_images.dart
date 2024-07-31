@@ -23,10 +23,18 @@ class Assets {
   /// assets/images/google.png
   static const String imagesGoogle = "assets/images/google.png";
 
+  /// Assets for imagesLinesearchicon
+  /// assets/images/linesearchicon.png
+  static const String imagesLinesearchicon = "assets/images/linesearchicon.png";
+
   /// Assets for imagesPineappleCuate 1
   /// assets/images/pineapple-cuate 1.png
   static const String imagesPineappleCuate1 =
       "assets/images/pineapple-cuate 1.png";
+
+  /// Assets for imagesSearchNormal
+  /// assets/images/search-normal.png
+  static const String imagesSearchNormal = "assets/images/search-normal.png";
 
   /// Assets for imagesSplashBottom
   /// assets/images/splashBottom.png
