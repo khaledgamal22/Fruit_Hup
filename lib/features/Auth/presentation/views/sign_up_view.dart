@@ -20,7 +20,7 @@ class SignUpView extends StatelessWidget {
       ),
       child: SafeArea(
         child: Scaffold(
-          appBar: buildCustomAppBar(context, 'حساب جديد'),
+          appBar: buildCustomAppBar(context, 'حساب جديد', null),
           body: SignUpViewBodyBlocConsumer(),
         ),
       ),

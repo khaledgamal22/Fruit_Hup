@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_notification_icon.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -30,18 +31,7 @@ class CustomHomeAppBar extends StatelessWidget {
           ],
         ),
         Expanded(child: SizedBox()),
-        Container(
-          width: 34,
-          height: 34,
-          decoration: ShapeDecoration(
-            shape: CircleBorder(),
-            color: Color(0xffEEF8ED),
-          ),
-          child: Icon(
-            Icons.notifications_outlined,
-            color: AppColor.primaryColor,
-          ),
-        ),
+        CustomNotificationIcon(),
       ],
     );
   }

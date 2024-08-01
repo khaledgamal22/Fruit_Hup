@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/best_seller_section.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_home_appBar.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/product_card.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/search_text_filed.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -26,28 +26,14 @@ class HomeViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            ProductGridView(),
+            SliverToBoxAdapter(
+              child: BestSellerSection(
+                ishome: true,
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ProductGridView extends StatelessWidget {
-  const ProductGridView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverGrid.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: 0.8,
-      ),
-      itemBuilder: (context, index) => ProductCard(),
-      itemCount: 8,
     );
   }
 }

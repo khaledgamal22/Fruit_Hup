@@ -1,6 +1,23 @@
 class Assets {
   Assets._();
 
+  /// Assets for imagesActivehome
+  /// assets/images/activehome.png
+  static const String imagesActivehome = "assets/images/activehome.png";
+
+  /// Assets for imagesActiveproducts
+  /// assets/images/activeproducts.png
+  static const String imagesActiveproducts = "assets/images/activeproducts.png";
+
+  /// Assets for imagesActiveshoppingcart
+  /// assets/images/activeshoppingcart.png
+  static const String imagesActiveshoppingcart =
+      "assets/images/activeshoppingcart.png";
+
+  /// Assets for imagesActiveuser
+  /// assets/images/activeuser.png
+  static const String imagesActiveuser = "assets/images/activeuser.png";
+
   /// Assets for imagesApple
   /// assets/images/Apple.png
   static const String imagesApple = "assets/images/Apple.png";
@@ -23,6 +40,10 @@ class Assets {
   /// assets/images/google.png
   static const String imagesGoogle = "assets/images/google.png";
 
+  /// Assets for imagesHome
+  /// assets/images/home.png
+  static const String imagesHome = "assets/images/home.png";
+
   /// Assets for imagesLinesearchicon
   /// assets/images/linesearchicon.png
   static const String imagesLinesearchicon = "assets/images/linesearchicon.png";
@@ -32,9 +53,17 @@ class Assets {
   static const String imagesPineappleCuate1 =
       "assets/images/pineapple-cuate 1.png";
 
+  /// Assets for imagesProducts
+  /// assets/images/products.png
+  static const String imagesProducts = "assets/images/products.png";
+
   /// Assets for imagesSearchNormal
   /// assets/images/search-normal.png
   static const String imagesSearchNormal = "assets/images/search-normal.png";
+
+  /// Assets for imagesShoppingCart
+  /// assets/images/shopping-cart.png
+  static const String imagesShoppingCart = "assets/images/shopping-cart.png";
 
   /// Assets for imagesSplashBottom
   /// assets/images/splashBottom.png
@@ -47,4 +76,8 @@ class Assets {
   /// Assets for imagesSplashtop
   /// assets/images/splashtop.png
   static const String imagesSplashtop = "assets/images/splashtop.png";
+
+  /// Assets for imagesUser
+  /// assets/images/user.png
+  static const String imagesUser = "assets/images/user.png";
 }
