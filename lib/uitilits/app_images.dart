@@ -27,6 +27,18 @@ class Assets {
   static const String imagesBackgroundonboard =
       "assets/images/backgroundonboard.png";
 
+  /// Assets for imagesCalender
+  /// assets/images/calender.png
+  static const String imagesCalender = "assets/images/calender.png";
+
+  /// Assets for imagesCalory
+  /// assets/images/calory.png
+  static const String imagesCalory = "assets/images/calory.png";
+
+  /// Assets for imagesEllipse 225
+  /// assets/images/Ellipse 225.png
+  static const String imagesEllipse225 = "assets/images/Ellipse 225.png";
+
   /// Assets for imagesFacbook
   /// assets/images/facbook.png
   static const String imagesFacbook = "assets/images/facbook.png";
@@ -47,6 +59,10 @@ class Assets {
   /// Assets for imagesLinesearchicon
   /// assets/images/linesearchicon.png
   static const String imagesLinesearchicon = "assets/images/linesearchicon.png";
+
+  /// Assets for imagesOrganic
+  /// assets/images/organic.png
+  static const String imagesOrganic = "assets/images/organic.png";
 
   /// Assets for imagesPineappleCuate 1
   /// assets/images/pineapple-cuate 1.png
@@ -76,6 +92,10 @@ class Assets {
   /// Assets for imagesSplashtop
   /// assets/images/splashtop.png
   static const String imagesSplashtop = "assets/images/splashtop.png";
+
+  /// Assets for imagesStarreview
+  /// assets/images/starreview.png
+  static const String imagesStarreview = "assets/images/starreview.png";
 
   /// Assets for imagesUser
   /// assets/images/user.png

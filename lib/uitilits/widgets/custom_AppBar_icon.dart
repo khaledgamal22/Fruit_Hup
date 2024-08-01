@@ -10,6 +10,8 @@ class CustomAppBarIcon extends StatelessWidget {
         horizontal: 16,
       ),
       child: Container(
+        height: 50,
+        width: 50,
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
