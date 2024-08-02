@@ -24,10 +24,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
+        // borderRadius: BorderRadius.only(
+        //   topLeft: Radius.circular(30),
+        //   topRight: Radius.circular(30),
+        // ),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),

@@ -3,7 +3,11 @@ import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/cu
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class increaseDecreaseAmount extends StatefulWidget {
-  const increaseDecreaseAmount({super.key});
+  const increaseDecreaseAmount({
+    super.key,
+    required this.Size,
+  });
+  final double Size;
 
   @override
   State<increaseDecreaseAmount> createState() => _increaseDecreaseAmountState();
@@ -21,8 +25,8 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
               count = value;
             });
           },
-          width: 40,
-          height: 40,
+          width: widget.Size,
+          height: widget.Size,
         ),
         SizedBox(
           width: 16,
@@ -37,8 +41,8 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           width: 16,
         ),
         CustomFloatingNegativeButton(
-          width: 40,
-          height: 40,
+          width: widget.Size,
+          height: widget.Size,
           valueChanged: (value) {
             setState(() {
               count = value;

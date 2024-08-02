@@ -73,7 +73,9 @@ class ProductDetailsViewBody extends StatelessWidget {
                         ],
                       ),
                       Spacer(),
-                      increaseDecreaseAmount(),
+                      increaseDecreaseAmount(
+                        Size: 45,
+                      ),
                     ],
                   ),
                   SizedBox(height: 10),
