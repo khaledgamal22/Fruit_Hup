@@ -5,9 +5,9 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class BestSellerSection extends StatelessWidget {
-  const BestSellerSection({super.key, required this.ishome});
+  const BestSellerSection({super.key, required this.isvisible});
 
-  final bool ishome;
+  final bool isvisible;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class BestSellerSection extends StatelessWidget {
                 Navigator.pushNamed(context, AllBestSellerView.name);
               },
               child: Visibility(
-                visible: ishome,
+                visible: isvisible,
                 child: Text(
                   'المزيد',
                   style: AppStyle.styleRegular13(context),

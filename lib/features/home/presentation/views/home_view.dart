@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/all_products/presentation/views/all_products_view_body.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/cart_view_body.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/home_view_body.dart';
 
@@ -18,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
 
   final List<Widget> pages = [
     const HomeViewBody(),
-    const productView(),
+    const AllProductsViewBody(),
     const CartViewBody(),
     const ProfileView(),
   ];
@@ -35,21 +36,6 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
     );
-  }
-}
-
-class productView extends StatelessWidget {
-  const productView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Text(
-      'Product View',
-      style: TextStyle(
-        fontSize: 50,
-      ),
-    ));
   }
 }
 

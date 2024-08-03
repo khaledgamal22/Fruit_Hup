@@ -22,6 +22,11 @@ class Assets {
   /// assets/images/Apple.png
   static const String imagesApple = "assets/images/Apple.png";
 
+  /// Assets for imagesArrowSwapHorizontal
+  /// assets/images/arrow-swap-horizontal.png
+  static const String imagesArrowSwapHorizontal =
+      "assets/images/arrow-swap-horizontal.png";
+
   /// Assets for imagesBackgroundonboard
   /// assets/images/backgroundonboard.png
   static const String imagesBackgroundonboard =

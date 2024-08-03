@@ -17,7 +17,7 @@ class AllBestSellerViewBody extends StatelessWidget {
               children: [
                 SizedBox(height: 20),
                 BestSellerSection(
-                  ishome: false,
+                  isvisible: false,
                 ),
               ],
             ),

@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: BestSellerSection(
-                ishome: true,
+                isvisible: true,
               ),
             ),
           ],
