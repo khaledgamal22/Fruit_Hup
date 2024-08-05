@@ -4,9 +4,8 @@ import 'package:fruits_ecommerce_app/features/all_products/presentation/views/al
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/cart_view_body.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/all_best_seller_view_body.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_notification_icon.dart';
+import 'package:fruits_ecommerce_app/features/profile/presentation/views/profile_details_view_body.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_Bottom_Navigation_Bar.dart';
-
-import 'home_view.dart';
 
 class AllBestSellerView extends StatefulWidget {
   const AllBestSellerView({super.key});
@@ -23,7 +22,7 @@ final List<Widget> pages = [
   const AllBestSellerViewBody(),
   const AllProductsViewBody(),
   const CartViewBody(),
-  const ProfileView(),
+  const ProfileDetailsViewBody(),
 ];
 
 class _AllBestSellerViewState extends State<AllBestSellerView> {
@@ -40,6 +39,7 @@ class _AllBestSellerViewState extends State<AllBestSellerView> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: CustomBottomNavigationBar(
+        currentIndex: currentIndex,
         indexChanged: (value) {
           setState(() {
             currentIndex = value;

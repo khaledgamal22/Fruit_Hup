@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-
 import '../app_images.dart';
 import '../app_style.dart';
 import 'active_icon_bottom_navigation.dart';
 
+// ignore: must_be_immutable
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key, required this.indexChanged});
-
+  CustomBottomNavigationBar(
+      {super.key, required this.indexChanged, required this.currentIndex});
+  int currentIndex;
   final ValueChanged<int> indexChanged;
 
   @override
@@ -15,8 +16,6 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,11 +39,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         mouseCursor: SystemMouseCursors.basic,
         elevation: 30,
         onTap: (value) {
-          currentIndex = value;
-          widget.indexChanged(currentIndex);
+          widget.currentIndex = value;
+          widget.indexChanged(widget.currentIndex);
           setState(() {});
         },
-        currentIndex: currentIndex,
+        currentIndex: widget.currentIndex,
         showSelectedLabels: false,
         selectedLabelStyle: AppStyle.styleSemibold11(context),
         items: [

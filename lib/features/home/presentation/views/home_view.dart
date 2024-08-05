@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/all_products/presentation/views/all_products_view_body.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/cart_view_body.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:fruits_ecommerce_app/features/profile/presentation/views/profile_details_view_body.dart';
 
 import '../../../../uitilits/widgets/custom_Bottom_Navigation_Bar.dart';
 
@@ -21,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
     const HomeViewBody(),
     const AllProductsViewBody(),
     const CartViewBody(),
-    const ProfileView(),
+    const ProfileDetailsViewBody(),
   ];
 
   @override
@@ -29,6 +30,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: CustomBottomNavigationBar(
+        currentIndex: currentIndex,
         indexChanged: (value) {
           setState(() {
             currentIndex = value;
@@ -36,20 +38,5 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
     );
-  }
-}
-
-class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Text(
-      'Profile View',
-      style: TextStyle(
-        fontSize: 50,
-      ),
-    ));
   }
 }

@@ -32,6 +32,10 @@ class Assets {
   static const String imagesBackgroundonboard =
       "assets/images/backgroundonboard.png";
 
+  /// Assets for imagesBox
+  /// assets/images/box.png
+  static const String imagesBox = "assets/images/box.png";
+
   /// Assets for imagesCalender
   /// assets/images/calender.png
   static const String imagesCalender = "assets/images/calender.png";
@@ -40,9 +44,21 @@ class Assets {
   /// assets/images/calory.png
   static const String imagesCalory = "assets/images/calory.png";
 
+  /// Assets for imagesCamera
+  /// assets/images/Camera.png
+  static const String imagesCamera = "assets/images/Camera.png";
+
+  /// Assets for imagesEdit
+  /// assets/images/Edit.png
+  static const String imagesEdit = "assets/images/Edit.png";
+
   /// Assets for imagesEllipse 225
   /// assets/images/Ellipse 225.png
   static const String imagesEllipse225 = "assets/images/Ellipse 225.png";
+
+  /// Assets for imagesEmptyWallet
+  /// assets/images/empty-wallet.png
+  static const String imagesEmptyWallet = "assets/images/empty-wallet.png";
 
   /// Assets for imagesFacbook
   /// assets/images/facbook.png
@@ -53,17 +69,37 @@ class Assets {
   static const String imagesFruitbasketAmico1 =
       "assets/images/fruit basket-amico 1.png";
 
+  /// Assets for imagesGlobal
+  /// assets/images/global.png
+  static const String imagesGlobal = "assets/images/global.png";
+
   /// Assets for imagesGoogle
   /// assets/images/google.png
   static const String imagesGoogle = "assets/images/google.png";
+
+  /// Assets for imagesHeart
+  /// assets/images/heart.png
+  static const String imagesHeart = "assets/images/heart.png";
 
   /// Assets for imagesHome
   /// assets/images/home.png
   static const String imagesHome = "assets/images/home.png";
 
+  /// Assets for imagesInfoCircle
+  /// assets/images/info-circle.png
+  static const String imagesInfoCircle = "assets/images/info-circle.png";
+
   /// Assets for imagesLinesearchicon
   /// assets/images/linesearchicon.png
   static const String imagesLinesearchicon = "assets/images/linesearchicon.png";
+
+  /// Assets for imagesMagicpen
+  /// assets/images/magicpen.png
+  static const String imagesMagicpen = "assets/images/magicpen.png";
+
+  /// Assets for imagesNotification
+  /// assets/images/notification.png
+  static const String imagesNotification = "assets/images/notification.png";
 
   /// Assets for imagesOrganic
   /// assets/images/organic.png

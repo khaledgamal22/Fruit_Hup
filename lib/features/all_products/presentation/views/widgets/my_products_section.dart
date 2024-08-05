@@ -20,8 +20,20 @@ class MyProductsSection extends StatelessWidget {
               ),
             ),
             Spacer(),
-            Image.asset(
-              Assets.imagesArrowSwapHorizontal,
+            Container(
+              width: 44,
+              height: 31,
+              decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+                side: BorderSide(
+                  width: 1,
+                  color: Color(0xffCACECE),
+                ),
+              )),
+              child: Image.asset(
+                Assets.imagesArrowSwapHorizontal,
+              ),
             ),
           ],
         ),
