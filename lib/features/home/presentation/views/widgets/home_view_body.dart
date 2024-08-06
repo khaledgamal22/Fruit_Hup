@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/best_seller_section.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_home_appBar.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/search_text_filed.dart';
+import 'package:fruits_ecommerce_app/features/search/presentation/views/search_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -23,7 +24,12 @@ class HomeViewBody extends StatelessWidget {
                 children: [
                   CustomHomeAppBar(),
                   SizedBox(height: 20),
-                  SearchTextField(),
+                  SearchTextField(
+                    isReadOnly: true,
+                    onTap: () {
+                      Navigator.pushNamed(context, SearchView.name);
+                    },
+                  ),
                   SizedBox(height: 20),
                 ],
               ),

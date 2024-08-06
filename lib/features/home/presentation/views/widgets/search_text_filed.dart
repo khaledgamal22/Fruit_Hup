@@ -5,7 +5,10 @@ import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key});
+  const SearchTextField({super.key, this.isReadOnly = false, this.onTap});
+
+  final bool isReadOnly;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,8 @@ class SearchTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextField(
+        onTap: onTap,
+        readOnly: isReadOnly,
         decoration: InputDecoration(
             enabledBorder: buildBorder(
               Colors.white,

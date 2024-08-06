@@ -32,9 +32,7 @@ class OldNotificationSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20),
-        NotificationItem(
-          isRead: true,
-        ),
+        NotificationItem(),
         NotificationItem(),
         NotificationItem(),
         NotificationItem(),
