@@ -3,6 +3,7 @@ import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.d
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/widgets/cart_list_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -32,8 +33,23 @@ class CartViewBody extends StatelessWidget {
             ],
           ),
         ),
+        SliverToBoxAdapter(
+          child: CartListView(),
+        ),
         SliverFillRemaining(
-          child: Expanded(child: CartListView()),
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              Expanded(
+                child: SizedBox(height: 50),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: CustomButton(title: 'الدفع  120جنيه'),
+              ),
+              SizedBox(height: 50),
+            ],
+          ),
         ),
       ],
     );
