@@ -11,8 +11,10 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
+        padding: const EdgeInsets.only(
+          top: 20,
+          right: 16,
+          left: 16,
         ),
         child: CustomScrollView(
           slivers: [

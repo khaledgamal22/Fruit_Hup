@@ -4,6 +4,7 @@ import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_up_vi
 import 'package:fruits_ecommerce_app/features/home/presentation/views/all_best_seller_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/product_details_view.dart';
+import 'package:fruits_ecommerce_app/features/notification/presentation/views/notification_view.dart';
 import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/about_us_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/information_profile_view.dart';
@@ -49,6 +50,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case InformationProfileView.name:
       return MaterialPageRoute(
         builder: (context) => InformationProfileView(),
+      );
+    case NotificationView.name:
+      return MaterialPageRoute(
+        builder: (context) => NotificationView(),
       );
     default:
       return MaterialPageRoute(

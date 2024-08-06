@@ -101,6 +101,11 @@ class Assets {
   /// assets/images/notification.png
   static const String imagesNotification = "assets/images/notification.png";
 
+  /// Assets for imagesNotificationimage
+  /// assets/images/notificationimage.png
+  static const String imagesNotificationimage =
+      "assets/images/notificationimage.png";
+
   /// Assets for imagesOrganic
   /// assets/images/organic.png
   static const String imagesOrganic = "assets/images/organic.png";

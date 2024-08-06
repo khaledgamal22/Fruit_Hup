@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/all_products/presentation/views/widgets/my_products_section.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/best_seller_section.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_notification_icon.dart';
+import 'package:fruits_ecommerce_app/uitilits/widgets/custom_notification_icon.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/search_text_filed.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
