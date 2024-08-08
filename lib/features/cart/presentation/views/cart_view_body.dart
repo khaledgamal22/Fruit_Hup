@@ -16,7 +16,7 @@ class CartViewBody extends StatelessWidget {
           child: Column(
             children: [
               buildCustomAppBar(context, 'سلة التسوق', null),
-              SizedBox(height: 30),
+              SizedBox(height: 40),
               Container(
                 width: double.infinity,
                 height: 41,
