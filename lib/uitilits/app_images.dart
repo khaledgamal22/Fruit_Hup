@@ -60,6 +60,10 @@ class Assets {
   /// assets/images/empty-wallet.png
   static const String imagesEmptyWallet = "assets/images/empty-wallet.png";
 
+  /// Assets for imagesEmptysearch
+  /// assets/images/emptysearch.png
+  static const String imagesEmptysearch = "assets/images/emptysearch.png";
+
   /// Assets for imagesFacbook
   /// assets/images/facbook.png
   static const String imagesFacbook = "assets/images/facbook.png";
@@ -96,6 +100,10 @@ class Assets {
   /// Assets for imagesMagicpen
   /// assets/images/magicpen.png
   static const String imagesMagicpen = "assets/images/magicpen.png";
+
+  /// Assets for imagesMyordericon
+  /// assets/images/myordericon.png
+  static const String imagesMyordericon = "assets/images/myordericon.png";
 
   /// Assets for imagesNotification
   /// assets/images/notification.png

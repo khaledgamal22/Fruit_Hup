@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/presentation/views/my_orders_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/about_us_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/information_profile_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/profile_info_item.dart';
@@ -27,6 +28,9 @@ class ProfileInFoList extends StatelessWidget {
           ),
         ),
         ProfileInfoItem(
+          onTap: () {
+            Navigator.pushNamed(context, MyOrdersView.name);
+          },
           image: Assets.imagesBox,
           title: 'طلباتي',
           trailing: Icon(

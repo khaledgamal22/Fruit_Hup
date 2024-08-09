@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 
 abstract class AppStyle {
+  static TextStyle styleRegular11(BuildContext context) {
+    return TextStyle(
+      color: Color(0xff949D9E),
+      fontSize: 11,
+      fontFamily: 'Cairo',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   static TextStyle styleRegular12(BuildContext context) {
     return TextStyle(
       color: Color(0xffAAAAAA),
