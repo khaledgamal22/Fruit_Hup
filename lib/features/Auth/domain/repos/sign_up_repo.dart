@@ -8,4 +8,6 @@ abstract class SignUpRepo {
     required String password,
     required String name,
   });
+
+  Future addUser({required UserEntity userEntity});
 }

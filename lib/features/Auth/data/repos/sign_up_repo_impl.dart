@@ -5,10 +5,15 @@ import 'package:fruits_ecommerce_app/features/Auth/data/models/user_model.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/entites/user_entity.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_up_repo.dart';
 
+import '../../../../core/services/database_service.dart';
+import '../../../../uitilits/backend_endpoints.dart';
+
 class SignUpRepoImpl implements SignUpRepo {
   final FirebaseAuthService firebaseAuthService;
+  final DatabaseServices databaseServices;
 
-  SignUpRepoImpl({required this.firebaseAuthService});
+  SignUpRepoImpl(
+      {required this.databaseServices, required this.firebaseAuthService});
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword({
@@ -21,9 +26,21 @@ class SignUpRepoImpl implements SignUpRepo {
 
     return response.fold(
       (failure) => left(failure),
-      (user) => right(
-        UserModel.fromfirbase(user),
-      ),
+      (user) async {
+        UserEntity userEntity = UserModel.fromfirbase(user);
+        await addUser(userEntity: userEntity);
+        return right(
+          userEntity,
+        );
+      },
+    );
+  }
+
+  @override
+  Future addUser({required UserEntity userEntity}) async {
+    await databaseServices.addData(
+      path: BackendEndpoints.addUserData,
+      data: userEntity.toMap(),
     );
   }
 }

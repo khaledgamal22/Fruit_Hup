@@ -1,3 +1,5 @@
+// ignore_for_file: constant_pattern_never_matches_value_type
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dio/dio.dart';
 

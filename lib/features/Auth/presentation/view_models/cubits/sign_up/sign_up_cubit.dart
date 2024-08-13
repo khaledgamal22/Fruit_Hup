@@ -20,14 +20,17 @@ class SignUpCubit extends Cubit<SignUpState> {
       password: password,
       name: name,
     );
-    response.fold((failure) {
-      emit(
-        SignUpFailure(errorMessage: failure.errorMessage),
-      );
-    }, (user) {
-      emit(
-        SignUpSuccess(user: user),
-      );
-    });
+    response.fold(
+      (failure) {
+        emit(
+          SignUpFailure(errorMessage: failure.errorMessage),
+        );
+      },
+      (user) {
+        emit(
+          SignUpSuccess(user: user),
+        );
+      },
+    );
   }
 }
