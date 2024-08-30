@@ -10,8 +10,6 @@ import 'widgets/sign_up_view_body_bloc_consumer.dart';
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
-  static const name = 'signup';
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

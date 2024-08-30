@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/widgets/cart_list_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -15,7 +14,14 @@ class CartViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              buildCustomAppBar(context, 'سلة التسوق', null),
+              AppBar(
+                centerTitle: true,
+                backgroundColor: Colors.transparent,
+                title: Text(
+                  'سلة التسوق',
+                  style: AppStyle.styleBold19(context),
+                ),
+              ),
               SizedBox(height: 30),
               Container(
                 width: double.infinity,

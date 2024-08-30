@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_up_view.dart';
+import 'package:fruits_ecommerce_app/features/forget_password/presentation/views/forget_password_view.dart';
+import 'package:fruits_ecommerce_app/features/forget_password/presentation/views/otp_verfication_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/all_best_seller_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/product_details_view.dart';
@@ -11,59 +13,77 @@ import 'package:fruits_ecommerce_app/features/profile/presentation/views/about_u
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/information_profile_view.dart';
 import 'package:fruits_ecommerce_app/features/search/presentation/views/search_view.dart';
 import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_view.dart';
+import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
+
+import '../../features/forget_password/presentation/views/new_password_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
-    case SplashView.name:
+    case RoutingName.splash:
       return MaterialPageRoute(
         builder: (context) => SplashView(),
       );
-    case OnBoardingView.name:
+    case RoutingName.onBoarding:
       return MaterialPageRoute(
         builder: (context) => OnBoardingView(),
       );
-    case SignInView.name:
+    case RoutingName.signIn:
       return MaterialPageRoute(
         builder: (context) => SignInView(),
       );
-    case SignUpView.name:
+    case RoutingName.signUp:
       return MaterialPageRoute(
         builder: (context) => SignUpView(),
       );
-    case HomeView.name:
+    case RoutingName.home:
       return MaterialPageRoute(
         builder: (context) => HomeView(),
       );
-    case AllBestSellerView.name:
+    case RoutingName.allBestSeller:
       return MaterialPageRoute(
         builder: (context) => AllBestSellerView(),
       );
-    case ProductDetailsView.name:
+    case RoutingName.productDetails:
       final String image = settings.arguments as String;
       return MaterialPageRoute(
         builder: (context) => ProductDetailsView(
           image: image,
         ),
       );
-    case AboutUsView.name:
+    case RoutingName.aboutUs:
       return MaterialPageRoute(
         builder: (context) => AboutUsView(),
       );
-    case InformationProfileView.name:
+    case RoutingName.informationProfile:
       return MaterialPageRoute(
         builder: (context) => InformationProfileView(),
       );
-    case NotificationView.name:
+    case RoutingName.notification:
       return MaterialPageRoute(
         builder: (context) => NotificationView(),
       );
-    case SearchView.name:
+    case RoutingName.search:
       return MaterialPageRoute(
         builder: (context) => SearchView(),
       );
-    case MyOrdersView.name:
+    case RoutingName.myOrders:
       return MaterialPageRoute(
         builder: (context) => MyOrdersView(),
+      );
+    case RoutingName.forgetPass:
+      return MaterialPageRoute(
+        builder: (context) => ForgetPasswordView(),
+      );
+    case RoutingName.otpVerficationView:
+      final String phone = settings.arguments as String;
+      return MaterialPageRoute(
+        builder: (context) => OtpVerficationView(
+          phoneNumber: phone,
+        ),
+      );
+    case RoutingName.newPass:
+      return MaterialPageRoute(
+        builder: (context) => NewPasswordView(),
       );
     default:
       return MaterialPageRoute(

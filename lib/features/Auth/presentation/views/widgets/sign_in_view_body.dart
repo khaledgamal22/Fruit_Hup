@@ -9,6 +9,8 @@ import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
+import '../../../../../uitilits/routing_name.dart';
+
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
 
@@ -60,10 +62,15 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'نسيت كلمة المرور؟',
-                    style: AppStyle.styleSemibold13(context).copyWith(
-                      color: Color(0xff2D9F5D),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RoutingName.forgetPass);
+                    },
+                    child: Text(
+                      'نسيت كلمة المرور؟',
+                      style: AppStyle.styleSemibold13(context).copyWith(
+                        color: Color(0xff2D9F5D),
+                      ),
                     ),
                   ),
                 ],

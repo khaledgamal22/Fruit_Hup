@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/feature_product_card.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/increase_decrease_amount.dart';
+import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/price_per_amount_widget.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/rating_row_widget.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';

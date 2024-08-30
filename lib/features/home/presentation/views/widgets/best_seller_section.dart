@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/all_best_seller_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/product_grid_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
 class BestSellerSection extends StatelessWidget {
   const BestSellerSection({super.key, required this.isvisible});
@@ -24,7 +24,7 @@ class BestSellerSection extends StatelessWidget {
             const Spacer(),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, AllBestSellerView.name);
+                Navigator.pushNamed(context, RoutingName.allBestSeller);
               },
               child: Visibility(
                 visible: isvisible,

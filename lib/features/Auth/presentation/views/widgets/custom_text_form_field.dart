@@ -44,22 +44,24 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
         hintText: widget.hintText,
         hintStyle: AppStyle.styleBold13(context),
-        suffixIcon: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 30,
-          ),
-          child: IconButton(
-            onPressed: () {
-              setState(() {
-                isSecurePass = !isSecurePass;
-              });
-            },
-            icon: Icon(
-              widget.icon,
-            ),
-            color: Color(0xffC9CECF),
-          ),
-        ),
+        suffixIcon: widget.icon != null
+            ? Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isSecurePass = !isSecurePass;
+                    });
+                  },
+                  icon: Icon(
+                    isSecurePass ? Icons.visibility_off : widget.icon,
+                  ),
+                  color: Color(0xffC9CECF),
+                ),
+              )
+            : null,
         filled: true,
         fillColor: Color(0xffF9FAFA),
         enabledBorder: buildBorder(Color(0xffE6E9EA)),

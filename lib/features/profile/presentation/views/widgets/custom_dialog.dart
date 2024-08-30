@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
-import '../../../../Auth/presentation/views/sign_in_view.dart';
+import '../../../../../uitilits/routing_name.dart';
 
 class CustomDialog extends StatelessWidget {
   const CustomDialog({
@@ -56,7 +56,7 @@ class CustomDialog extends StatelessWidget {
                         await FirebaseAuth.instance.signOut();
                         Navigator.pop(context);
                         Navigator.pushReplacementNamed(
-                            context, SignInView.name);
+                            context, RoutingName.signIn);
                       },
                       child: Container(
                         height: 48,

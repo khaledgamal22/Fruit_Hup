@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/increase_decrease_amount.dart';
+import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 

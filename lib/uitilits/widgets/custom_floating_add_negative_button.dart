@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 
-int count = 0;
-
+// ignore: must_be_immutable
 class CustomFloatingAddButton extends StatefulWidget {
-  const CustomFloatingAddButton({
+  CustomFloatingAddButton({
     super.key,
     required this.width,
     required this.height,
     required this.valueChange,
+    this.count = 0,
   });
   final double width;
   final double height;
   final ValueChanged<int> valueChange;
+  int count;
 
   @override
   State<CustomFloatingAddButton> createState() =>
@@ -28,8 +29,8 @@ class _CustomFloatingAddButtonState extends State<CustomFloatingAddButton> {
       child: FloatingActionButton(
         onPressed: () {
           setState(() {
-            count++;
-            widget.valueChange(count);
+            widget.count++;
+            widget.valueChange(widget.count);
           });
         },
         child: Icon(
@@ -45,16 +46,19 @@ class _CustomFloatingAddButtonState extends State<CustomFloatingAddButton> {
   }
 }
 
+// ignore: must_be_immutable
 class CustomFloatingNegativeButton extends StatefulWidget {
-  const CustomFloatingNegativeButton({
+  CustomFloatingNegativeButton({
     super.key,
     required this.width,
     required this.height,
     required this.valueChanged,
+    this.count = 0,
   });
   final double width;
   final double height;
   final ValueChanged<int> valueChanged;
+  int count;
 
   @override
   State<CustomFloatingNegativeButton> createState() =>
@@ -71,10 +75,10 @@ class _CustomFloatingNegativeButtonState
       child: FloatingActionButton(
         onPressed: () {
           setState(() {
-            if (count != 0) {
-              count--;
+            if (widget.count != 0) {
+              widget.count--;
             }
-            widget.valueChanged(count);
+            widget.valueChanged(widget.count);
           });
         },
         child: Icon(

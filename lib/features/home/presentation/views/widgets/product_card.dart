@@ -1,71 +1,75 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/product_details_view.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_floating_add_negative_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
+import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
+import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/add_to_cart_button.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/price_per_amount_widget.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../../../../uitilits/routing_name.dart';
+import '../../../../cart/domain/repos/cart_repo.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, ProductDetailsView.name,
-            arguments:
-                'https://s3-alpha-sig.figma.com/img/ef82/d0cd/ebee76c7b68ea88b37ea00a90933a728?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pha2V42DpjLxM5pmNfBZl3VxqE9A5xEN6DPQ6K3mDTGmXxN3DUXmb1v3TvnJB7E-UOkepTr2Y~qeBxZZyZH2lNiVnkyqJHKWyhs8fhMN4kOC2W~5L6FgT8paq81tghIzzV3~XEHy-u3C9rJOzEdklf38cxafwwv3vKlZyBr9i3lzFAipfpt665J2qZ-4VCsDZXJ9shZSaniTAULpzM1JrBx54QkhS7HxYj4SdyqGj5TEJLXKdJI74GgVCFnYCXdohxkJ9E36sZzIdqgFE393J6pJExuvrPoFvUQcWtKNsOUmXmrI4y7IESSDb1D7h-VCmxbKN9yn2fWwDO09uYz1hw__');
-      },
-      child: Container(
-        color: const Color(0xffF3F5F7),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 12,
-            vertical: 12,
-          ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.favorite_outline,
-                  ),
-                ],
-              ),
-              Expanded(
-                flex: 4,
-                child: SizedBox(
-                  child: Image.network(
-                    'https://s3-alpha-sig.figma.com/img/ef82/d0cd/ebee76c7b68ea88b37ea00a90933a728?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pha2V42DpjLxM5pmNfBZl3VxqE9A5xEN6DPQ6K3mDTGmXxN3DUXmb1v3TvnJB7E-UOkepTr2Y~qeBxZZyZH2lNiVnkyqJHKWyhs8fhMN4kOC2W~5L6FgT8paq81tghIzzV3~XEHy-u3C9rJOzEdklf38cxafwwv3vKlZyBr9i3lzFAipfpt665J2qZ-4VCsDZXJ9shZSaniTAULpzM1JrBx54QkhS7HxYj4SdyqGj5TEJLXKdJI74GgVCFnYCXdohxkJ9E36sZzIdqgFE393J6pJExuvrPoFvUQcWtKNsOUmXmrI4y7IESSDb1D7h-VCmxbKN9yn2fWwDO09uYz1hw__',
+    return BlocProvider(
+      create: (context) => CartCubit(getIt.get<CartRepo>()),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, RoutingName.productDetails,
+              arguments:
+                  'https://s3-alpha-sig.figma.com/img/d8be/3d59/ab143bf1dd908919438d5e148d1cb383?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FDZ7Hjr6Vf7H3VlwTadr-gcUejK0er~o94-ViM4Zmega9439wOpHn4fxt827oFOe9HfmZ3yOFOO9t8gY1wkSbQlhepnzta6Z~sH3fT7e8Fnw1251OOlgL0Cfp0hHeb2rZxs7fPhYV4JKYP5L7bP6yqI93YDXzKYYDDEMXXJlnp9larK8dAld8D1IQnpfx16E678U~qGBKdhWVkAeSeME-FV-7MnYRDP2hfG9DCMtEv7rE6oaOdqUMjncD16UdKygyHfOJ4uXEdMG3OdbKJzI4FAQCUU7e4R8U7p7rJFgVyl7FqS9pAxMOlMzgNA7RGfZ7inRdd3ZF6Y43bPDWmOJgw__');
+        },
+        child: Container(
+          color: const Color(0xffF3F5F7),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
+              vertical: 12,
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.favorite_outline,
+                    ),
+                  ],
+                ),
+                Expanded(
+                  flex: 4,
+                  child: SizedBox(
+                    child: Image.network(
+                      'https://s3-alpha-sig.figma.com/img/d8be/3d59/ab143bf1dd908919438d5e148d1cb383?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FDZ7Hjr6Vf7H3VlwTadr-gcUejK0er~o94-ViM4Zmega9439wOpHn4fxt827oFOe9HfmZ3yOFOO9t8gY1wkSbQlhepnzta6Z~sH3fT7e8Fnw1251OOlgL0Cfp0hHeb2rZxs7fPhYV4JKYP5L7bP6yqI93YDXzKYYDDEMXXJlnp9larK8dAld8D1IQnpfx16E678U~qGBKdhWVkAeSeME-FV-7MnYRDP2hfG9DCMtEv7rE6oaOdqUMjncD16UdKygyHfOJ4uXEdMG3OdbKJzI4FAQCUU7e4R8U7p7rJFgVyl7FqS9pAxMOlMzgNA7RGfZ7inRdd3ZF6Y43bPDWmOJgw__',
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: SizedBox(height: 10),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'فراولة',
-                        style: AppStyle.styleSemibold13(context)
-                            .copyWith(color: AppColor.headerTextColor),
-                      ),
-                      PricePerAmountWidget(),
-                    ],
-                  ),
-                  CustomFloatingAddButton(
-                    width: 36,
-                    height: 36,
-                    valueChange: (value) {},
-                  ),
-                ],
-              )
-            ],
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(height: 10),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'فراولة',
+                          style: AppStyle.styleSemibold13(context)
+                              .copyWith(color: AppColor.headerTextColor),
+                        ),
+                        PricePerAmountWidget(),
+                      ],
+                    ),
+                    AddToCartButton(),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

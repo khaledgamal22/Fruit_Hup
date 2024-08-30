@@ -4,8 +4,6 @@ import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/pr
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key, required this.image});
 
-  static const name = 'productdetailsview';
-
   final String image;
 
   @override

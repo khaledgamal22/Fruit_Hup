@@ -2,10 +2,11 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/constant.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/widgets/on_boarding_pageview.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
+
+import '../../../../../uitilits/routing_name.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -70,7 +71,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: GestureDetector(
               onTap: () {
                 SharedPreferenceSingleton.setBool(kIsOnBoardingSeen, true);
-                Navigator.pushReplacementNamed(context, SignInView.name);
+                Navigator.pushReplacementNamed(context, RoutingName.signIn);
               },
               child: CustomButton(
                 title: 'ابدأ الان',

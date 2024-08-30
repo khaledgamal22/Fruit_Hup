@@ -4,8 +4,6 @@ import 'package:fruits_ecommerce_app/features/splash/presentation/views/widgets/
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
-  static const name = 'splash';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

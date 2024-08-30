@@ -11,8 +11,6 @@ import 'widgets/sign_in_view_body_bloc_consumer.dart';
 class SignInView extends StatelessWidget {
   const SignInView({super.key});
 
-  static const name = 'signin';
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

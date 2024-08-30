@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_up_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../../../../uitilits/routing_name.dart';
 
 class DontHaveAccountWidget extends StatelessWidget {
   const DontHaveAccountWidget({super.key});
@@ -24,7 +25,7 @@ class DontHaveAccountWidget extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(
               context,
-              SignUpView.name,
+              RoutingName.signUp,
             );
           },
           child: Text(

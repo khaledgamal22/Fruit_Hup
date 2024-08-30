@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/custom_floating_add_negative_button.dart';
+import 'package:fruits_ecommerce_app/uitilits/widgets/custom_floating_add_negative_button.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class increaseDecreaseAmount extends StatefulWidget {
@@ -20,6 +20,7 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
     return Row(
       children: [
         CustomFloatingAddButton(
+          count: count,
           valueChange: (value) {
             setState(() {
               count = value;
@@ -43,6 +44,7 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
         CustomFloatingNegativeButton(
           width: widget.Size,
           height: widget.Size,
+          count: count,
           valueChanged: (value) {
             setState(() {
               count = value;

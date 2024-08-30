@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/my_orders/presentation/views/my_orders_view.dart';
-import 'package:fruits_ecommerce_app/features/profile/presentation/views/about_us_view.dart';
-import 'package:fruits_ecommerce_app/features/profile/presentation/views/information_profile_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/profile_info_item.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/switch_button.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
 class ProfileInFoList extends StatelessWidget {
   const ProfileInFoList({super.key});
@@ -18,7 +16,7 @@ class ProfileInFoList extends StatelessWidget {
       children: [
         ProfileInfoItem(
           onTap: () {
-            Navigator.pushNamed(context, InformationProfileView.name);
+            Navigator.pushNamed(context, RoutingName.informationProfile);
           },
           image: Assets.imagesUser,
           title: 'الملف الشخصي',
@@ -29,7 +27,7 @@ class ProfileInFoList extends StatelessWidget {
         ),
         ProfileInfoItem(
           onTap: () {
-            Navigator.pushNamed(context, MyOrdersView.name);
+            Navigator.pushNamed(context, RoutingName.myOrders);
           },
           image: Assets.imagesBox,
           title: 'طلباتي',
@@ -85,7 +83,7 @@ class ProfileInFoList extends StatelessWidget {
         SizedBox(height: 10),
         ProfileInfoItem(
           onTap: () {
-            Navigator.pushNamed(context, AboutUsView.name);
+            Navigator.pushNamed(context, RoutingName.aboutUs);
           },
           image: Assets.imagesInfoCircle,
           title: 'من نحن',

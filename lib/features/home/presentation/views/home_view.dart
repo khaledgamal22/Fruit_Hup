@@ -9,8 +9,6 @@ import '../../../../uitilits/widgets/custom_Bottom_Navigation_Bar.dart';
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
-  static const name = 'home';
-
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -28,7 +26,10 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[currentIndex],
+      body: IndexedStack(
+        index: currentIndex,
+        children: pages,
+      ),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: currentIndex,
         indexChanged: (value) {

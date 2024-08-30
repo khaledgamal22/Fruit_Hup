@@ -8,6 +8,8 @@ import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_v
 import 'package:fruits_ecommerce_app/firebase_options.dart';
 import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
+import 'uitilits/routing_name.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -36,7 +38,7 @@ class FruitHup extends StatelessWidget {
       locale: Locale('ar'),
       home: SplashView(),
       onGenerateRoute: onGenerateRoutes,
-      initialRoute: SplashView.name,
+      initialRoute: RoutingName.splash,
     );
   }
 }

@@ -81,4 +81,29 @@ class FirebaseAuthService {
       return left(AuthFailure('حدث خطاء في تسجيل الدخول'));
     }
   }
+
+  Future<String> phoneVerification(String phoneNumber, String smsCode) async {
+    String verfiyId = '';
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      timeout: const Duration(seconds: 60),
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {},
+      codeSent: (String verificationId, int? resendToken) {
+        verfiyId = verificationId;
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        verificationId = verificationId;
+      },
+    );
+    return verfiyId;
+  }
+
+  void sendCodeVerification(String smsCode, String verificationId) {
+    String verificationCode = smsCode;
+    PhoneAuthProvider.credential(
+      verificationId: verificationId,
+      smsCode: verificationCode,
+    );
+  }
 }

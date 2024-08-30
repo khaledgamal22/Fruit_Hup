@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/notification/presentation/views/notification_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
+
+import '../routing_name.dart';
 
 class CustomNotificationIcon extends StatelessWidget {
   const CustomNotificationIcon({
@@ -11,7 +12,7 @@ class CustomNotificationIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, NotificationView.name);
+        Navigator.pushNamed(context, RoutingName.notification);
       },
       child: Container(
         width: 34,

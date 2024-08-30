@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/constant.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_in_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../../../../uitilits/routing_name.dart';
 
 class OnBoarddingPageviewItem extends StatelessWidget {
   const OnBoarddingPageviewItem(
@@ -55,7 +56,8 @@ class OnBoarddingPageviewItem extends StatelessWidget {
                     onTap: () {
                       SharedPreferenceSingleton.setBool(
                           kIsOnBoardingSeen, true);
-                      Navigator.pushReplacementNamed(context, SignInView.name);
+                      Navigator.pushReplacementNamed(
+                          context, RoutingName.signIn);
                     },
                     child: Text(
                       'تخطى',

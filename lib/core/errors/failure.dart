@@ -21,7 +21,9 @@ class AuthFailure extends Failure {
     } else if (firebaseAuthException.code == 'weak-password') {
       return AuthFailure('كلمة المرور ضعيفة');
     } else if (firebaseAuthException.code == 'email-already-in-use') {
-      return AuthFailure('this email already exists');
+      return AuthFailure('هذا البريد الالكتروني مستخدم بالفعل');
+    } else if (firebaseAuthException.code == 'invalid-phone-number') {
+      return AuthFailure('هذا الرقم غير صالح');
     } else {
       return AuthFailure('حدث خطأ ما');
     }
