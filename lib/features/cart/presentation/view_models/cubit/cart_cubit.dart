@@ -10,8 +10,7 @@ class CartCubit extends Cubit<CartState> {
   CartCubit(this.cartRepo) : super(CartInitial());
 
   final CartRepo cartRepo;
-
-  List<CartEntity> cartList = [];
+  List<CartEntity> data = [];
 
   Future<void> addCartData({required CartEntity cartEntity}) async {
     await cartRepo.addCartData(cartEntity: cartEntity);
@@ -21,5 +20,21 @@ class CartCubit extends Cubit<CartState> {
   Future<void> deleteCartData({required String id}) async {
     await cartRepo.deleteCartData(id: id);
     emit(CartRemoved());
+  }
+
+  Future<void> getAllCartData() async {
+    emit(CartLoading());
+    try {
+      data = await cartRepo.getAllCartData();
+      emit(
+        CartSuccess(cartList: data),
+      );
+    } catch (e) {
+      emit(
+        CartFailure(
+          errorMessage: e.toString(),
+        ),
+      );
+    }
   }
 }

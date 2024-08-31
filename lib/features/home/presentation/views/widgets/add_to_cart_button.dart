@@ -6,7 +6,9 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import '../../../../cart/presentation/view_models/cubit/cart_cubit.dart';
 
 class AddToCartButton extends StatelessWidget {
-  const AddToCartButton({super.key});
+  const AddToCartButton({super.key, required this.cartEntity});
+
+  final CartEntity cartEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +19,8 @@ class AddToCartButton extends StatelessWidget {
           onTap: () {
             if (!(state is CartAdded)) {
               BlocProvider.of<CartCubit>(context).addCartData(
-                  cartEntity: CartEntity(
-                      nameProduct: 'khuyt',
-                      imageProduct: 'kiyhgtr',
-                      priceProduct: 15));
+                cartEntity: cartEntity,
+              );
             }
           },
           child: Container(

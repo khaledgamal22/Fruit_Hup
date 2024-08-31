@@ -8,7 +8,7 @@ class CustomFloatingAddButton extends StatefulWidget {
     required this.width,
     required this.height,
     required this.valueChange,
-    this.count = 0,
+    this.count = 1,
   });
   final double width;
   final double height;

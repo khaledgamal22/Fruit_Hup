@@ -12,8 +12,10 @@ class SignUpRepoImpl implements SignUpRepo {
   final FirebaseAuthService firebaseAuthService;
   final DatabaseServices databaseServices;
 
-  SignUpRepoImpl(
-      {required this.databaseServices, required this.firebaseAuthService});
+  SignUpRepoImpl({
+    required this.databaseServices,
+    required this.firebaseAuthService,
+  });
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword({
@@ -22,7 +24,9 @@ class SignUpRepoImpl implements SignUpRepo {
     required String name,
   }) async {
     var response = await firebaseAuthService.createUserWithEmailAndPassword(
-        email: email, password: password);
+      email: email,
+      password: password,
+    );
 
     return response.fold(
       (failure) => left(failure),
@@ -38,9 +42,28 @@ class SignUpRepoImpl implements SignUpRepo {
 
   @override
   Future addUser({required UserEntity userEntity}) async {
-    await databaseServices.addData(
-      path: BackendEndpoints.addUserData,
-      data: userEntity.toMap(),
-    );
+    try {
+      var isUserExsist = await databaseServices.checkIfDataExists(
+        path: BackendEndpoints.isUserExsist,
+        documentId: userEntity.userId,
+      );
+      if (isUserExsist) {
+        await databaseServices.getData(
+          path: BackendEndpoints.getUser,
+          documentId: userEntity.userId,
+        );
+      } else {
+        await databaseServices.addData(
+          path: BackendEndpoints.addUserData,
+          data: userEntity.toMap(),
+          documentId: userEntity.userId,
+        );
+      }
+    } on Exception catch (e) {
+      databaseServices.deleteData(
+        path: BackendEndpoints.getUser,
+        id: userEntity.userId,
+      );
+    }
   }
 }

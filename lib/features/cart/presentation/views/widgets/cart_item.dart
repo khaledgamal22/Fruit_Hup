@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
-class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+class CartItem extends StatefulWidget {
+  const CartItem({super.key, required this.cartEntity, this.priceChange});
 
+  final CartEntity cartEntity;
+  final ValueChanged<num>? priceChange;
+  @override
+  State<CartItem> createState() => _CartItemState();
+}
+
+class _CartItemState extends State<CartItem> {
+  int count = 1;
+  late num totalPrice;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +38,8 @@ class CartItem extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.network(
-                  'https://s3-alpha-sig.figma.com/img/ef82/d0cd/ebee76c7b68ea88b37ea00a90933a728?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pha2V42DpjLxM5pmNfBZl3VxqE9A5xEN6DPQ6K3mDTGmXxN3DUXmb1v3TvnJB7E-UOkepTr2Y~qeBxZZyZH2lNiVnkyqJHKWyhs8fhMN4kOC2W~5L6FgT8paq81tghIzzV3~XEHy-u3C9rJOzEdklf38cxafwwv3vKlZyBr9i3lzFAipfpt665J2qZ-4VCsDZXJ9shZSaniTAULpzM1JrBx54QkhS7HxYj4SdyqGj5TEJLXKdJI74GgVCFnYCXdohxkJ9E36sZzIdqgFE393J6pJExuvrPoFvUQcWtKNsOUmXmrI4y7IESSDb1D7h-VCmxbKN9yn2fWwDO09uYz1hw__'),
+                widget.cartEntity.imageProduct,
+              ),
             ),
           ),
           SizedBox(width: 16),
@@ -40,7 +51,7 @@ class CartItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'فراولة',
+                  widget.cartEntity.nameProduct,
                   style: AppStyle.styleBold13(context).copyWith(
                     color: AppColor.headerTextColor,
                   ),
@@ -55,6 +66,13 @@ class CartItem extends StatelessWidget {
                 SizedBox(height: 6),
                 increaseDecreaseAmount(
                   Size: 30,
+                  amountChange: (value) {
+                    setState(() {
+                      count = value;
+                      totalPrice = widget.cartEntity.priceProduct * count;
+                      print(totalPrice);
+                    });
+                  },
                 ),
               ],
             ),
@@ -71,7 +89,7 @@ class CartItem extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                  '60 جنيه ',
+                  '${widget.cartEntity.priceProduct * count}',
                   style: AppStyle.styleBold16(context).copyWith(
                     color: AppColor.priceColor,
                   ),

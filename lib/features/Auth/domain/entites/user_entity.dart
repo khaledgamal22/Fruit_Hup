@@ -3,7 +3,11 @@ class UserEntity {
   final String email;
   final String userId;
 
-  UserEntity({required this.name, required this.email, required this.userId});
+  UserEntity({
+    required this.name,
+    required this.email,
+    required this.userId,
+  });
 
   toMap() {
     return {

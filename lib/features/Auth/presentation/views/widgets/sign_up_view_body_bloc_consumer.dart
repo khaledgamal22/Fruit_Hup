@@ -19,6 +19,9 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
         if (state is SignUpFailure) {
           showSnackBarMessage(context, state.errorMessage);
         }
+        if (state is SignUpSuccess) {
+          Navigator.pop(context);
+        }
       },
       builder: (context, state) {
         return ModalProgressHUD(

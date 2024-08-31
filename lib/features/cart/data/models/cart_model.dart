@@ -1,19 +1,17 @@
-class CartModel {
-  final String nameProduct;
-  final String imageProduct;
-  final num priceProduct;
+import '../../domain/entities/cart_entity.dart';
 
+class CartModel extends CartEntity {
   CartModel({
-    required this.nameProduct,
-    required this.imageProduct,
-    required this.priceProduct,
+    required super.nameProduct,
+    required super.imageProduct,
+    required super.priceProduct,
   });
 
-  factory CartModel.fromMap(Map<String, dynamic> map) {
+  factory CartModel.fromFirebase(Map<String, dynamic> map) {
     return CartModel(
-      nameProduct: map['nameProduct'],
-      imageProduct: map['imageProduct'],
-      priceProduct: map['priceProduct'],
+      nameProduct: map['nameProduct'] as String,
+      imageProduct: map['imageProduct'] as String,
+      priceProduct: map['priceProduct'] as num,
     );
   }
 }

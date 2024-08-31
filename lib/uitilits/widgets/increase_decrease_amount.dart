@@ -6,15 +6,25 @@ class increaseDecreaseAmount extends StatefulWidget {
   const increaseDecreaseAmount({
     super.key,
     required this.Size,
+    this.amountChange,
   });
   final double Size;
+  final ValueChanged<int>? amountChange;
 
   @override
   State<increaseDecreaseAmount> createState() => _increaseDecreaseAmountState();
 }
 
 class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
-  int count = 0;
+  int count = 1;
+  // @override
+  // void didUpdateWidget(covariant increaseDecreaseAmount oldWidget) {
+  //   widget.amountChange!(count);
+  //   setState(() {
+
+  //   });
+  //   super.didUpdateWidget(oldWidget);
+  // }
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,6 +34,7 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           valueChange: (value) {
             setState(() {
               count = value;
+              widget.amountChange!(count);
             });
           },
           width: widget.Size,
@@ -48,6 +59,7 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           valueChanged: (value) {
             setState(() {
               count = value;
+              widget.amountChange!(count);
             });
           },
         ),
