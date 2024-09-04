@@ -5,23 +5,32 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 
 import '../../../../cart/presentation/view_models/cubit/cart_cubit.dart';
 
-class AddToCartButton extends StatelessWidget {
+class AddToCartButton extends StatefulWidget {
   const AddToCartButton({super.key, required this.cartEntity});
 
   final CartEntity cartEntity;
 
   @override
+  State<AddToCartButton> createState() => _AddToCartButtonState();
+}
+
+class _AddToCartButtonState extends State<AddToCartButton> {
+  bool isexists = false;
+
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<CartCubit, CartState>(
-      listener: (context, state) {},
+      listener: (context, state) async {
+        isexists = await context
+            .read<CartCubit>()
+            .checkIfCartDataExists(id: widget.cartEntity.id);
+      },
       builder: (context, state) {
         return GestureDetector(
           onTap: () {
-            if (!(state is CartAdded)) {
-              BlocProvider.of<CartCubit>(context).addCartData(
-                cartEntity: cartEntity,
-              );
-            }
+            BlocProvider.of<CartCubit>(context).addCartData(
+              cartEntity: widget.cartEntity,
+            );
           },
           child: Container(
             width: 36,
@@ -31,7 +40,7 @@ class AddToCartButton extends StatelessWidget {
               color: AppColor.primaryColor,
             ),
             child: Center(
-              child: state is CartAdded
+              child: isexists || state is CartAdded
                   ? Icon(
                       Icons.check,
                       size: 26,

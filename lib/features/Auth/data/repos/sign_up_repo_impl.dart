@@ -32,7 +32,13 @@ class SignUpRepoImpl implements SignUpRepo {
       (failure) => left(failure),
       (user) async {
         UserEntity userEntity = UserModel.fromfirbase(user);
-        await addUser(userEntity: userEntity);
+        await addUser(
+          userEntity: UserEntity(
+            name: name,
+            email: email,
+            userId: user.uid,
+          ),
+        );
         return right(
           userEntity,
         );
@@ -59,9 +65,9 @@ class SignUpRepoImpl implements SignUpRepo {
           documentId: userEntity.userId,
         );
       }
-    } on Exception catch (e) {
+    } on Exception {
       databaseServices.deleteData(
-        path: BackendEndpoints.getUser,
+        path: BackendEndpoints.deleteUser,
         id: userEntity.userId,
       );
     }

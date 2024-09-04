@@ -17,10 +17,13 @@ class CartListView extends StatelessWidget {
       builder: (context, state) {
         if (state is CartSuccess) {
           if (state.cartList.isEmpty) {
-            return Center(
-              child: Text(
-                'لا يوجد منتجات في سلة التسوق',
-                style: AppStyle.styleBold19(context),
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              child: Center(
+                child: Text(
+                  'لا يوجد منتجات في سلة التسوق',
+                  style: AppStyle.styleBold19(context),
+                ),
               ),
             );
           }
@@ -36,8 +39,11 @@ class CartListView extends StatelessWidget {
           return Center(child: Text(state.errorMessage));
         } else {
           return const Center(
-            child: CircularProgressIndicator(
-              color: AppColor.primaryColor,
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: CircularProgressIndicator(
+                color: AppColor.primaryColor,
+              ),
             ),
           );
         }

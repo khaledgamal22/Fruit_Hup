@@ -5,6 +5,8 @@ class CartModel extends CartEntity {
     required super.nameProduct,
     required super.imageProduct,
     required super.priceProduct,
+    required super.id,
+    super.amount = 1,
   });
 
   factory CartModel.fromFirebase(Map<String, dynamic> map) {
@@ -12,6 +14,8 @@ class CartModel extends CartEntity {
       nameProduct: map['nameProduct'] as String,
       imageProduct: map['imageProduct'] as String,
       priceProduct: map['priceProduct'] as num,
+      amount: map['amount'] as int,
+      id: map['id'] as String,
     );
   }
 }

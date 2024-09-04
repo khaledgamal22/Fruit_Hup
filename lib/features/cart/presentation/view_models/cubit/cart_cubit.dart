@@ -11,6 +11,7 @@ class CartCubit extends Cubit<CartState> {
 
   final CartRepo cartRepo;
   List<CartEntity> data = [];
+  num total = 0;
 
   Future<void> addCartData({required CartEntity cartEntity}) async {
     await cartRepo.addCartData(cartEntity: cartEntity);
@@ -19,13 +20,19 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> deleteCartData({required String id}) async {
     await cartRepo.deleteCartData(id: id);
-    emit(CartRemoved());
+    await getAllCartData();
+    emit(CartSuccess(cartList: data));
+  }
+
+  Future<bool> checkIfCartDataExists({required String id}) async {
+    return await cartRepo.checkIfCartDataExists(id: id);
   }
 
   Future<void> getAllCartData() async {
     emit(CartLoading());
     try {
       data = await cartRepo.getAllCartData();
+      total = getTotalPayment(data);
       emit(
         CartSuccess(cartList: data),
       );
@@ -36,5 +43,13 @@ class CartCubit extends Cubit<CartState> {
         ),
       );
     }
+  }
+
+  getTotalPayment(List<CartEntity> data) {
+    total = 0;
+    for (var element in data) {
+      total += element.priceProduct;
+    }
+    return total;
   }
 }

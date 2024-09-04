@@ -5,10 +5,11 @@ import 'database_service.dart';
 class FirebaseStoreService implements DatabaseServices {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   @override
-  Future<void> addData(
-      {required String path,
-      required Map<String, dynamic> data,
-      String? documentId}) async {
+  Future<void> addData({
+    required String path,
+    required Map<String, dynamic> data,
+    String? documentId,
+  }) async {
     if (documentId != null) {
       await firestore.collection(path).doc(documentId).set(data);
     } else {
@@ -34,15 +35,12 @@ class FirebaseStoreService implements DatabaseServices {
   }
 
   @override
-  Future<Map<String, dynamic>?> getData({
+  Future<Map<String, dynamic>> getData({
     required String path,
     required String documentId,
   }) async {
-    return await firestore
-        .collection(path)
-        .doc(documentId)
-        .get()
-        .then((value) => value.data());
+    var data = await firestore.collection(path).doc(documentId).get();
+    return data.data()!;
   }
 
   @override

@@ -106,4 +106,7 @@ class FirebaseAuthService {
       smsCode: verificationCode,
     );
   }
+ Future deleteUser() async {
+    await FirebaseAuth.instance.currentUser!.delete();
+  }
 }

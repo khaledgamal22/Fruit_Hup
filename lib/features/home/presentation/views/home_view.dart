@@ -33,10 +33,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: currentIndex,
-        children: pages,
-      ),
+      body: pages[currentIndex],
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: currentIndex,
         indexChanged: (value) {

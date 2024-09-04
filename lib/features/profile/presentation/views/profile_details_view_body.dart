@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_dialog.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/information_header_widget.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/profile_info_list.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../../../uitilits/routing_name.dart';
 
 class ProfileDetailsViewBody extends StatelessWidget {
   const ProfileDetailsViewBody({super.key});
@@ -37,7 +40,12 @@ class ProfileDetailsViewBody extends StatelessWidget {
         SizedBox(height: 25),
         GestureDetector(
           onTap: () {
-            buildDialog(context);
+            buildDialog(context, title: 'هل ترغب في تسجيل الخروج ؟',
+                onTap: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, RoutingName.signIn);
+            });
           },
           child: Container(
             width: double.infinity,

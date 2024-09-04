@@ -12,8 +12,6 @@ final class CartSuccess extends CartState {
 
 final class CartAdded extends CartState {}
 
-final class CartRemoved extends CartState {}
-
 final class CartLoading extends CartState {}
 
 final class CartFailure extends CartState {

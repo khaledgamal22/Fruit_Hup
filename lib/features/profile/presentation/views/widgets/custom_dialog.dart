@@ -1,14 +1,17 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
-import '../../../../../uitilits/routing_name.dart';
 
 class CustomDialog extends StatelessWidget {
   const CustomDialog({
     super.key,
+    required this.title,
+    required this.onTap,
   });
+
+  final String title;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class CustomDialog extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                'هل ترغب في تسجيل الخروج ؟',
+                title,
                 style: AppStyle.styleBold16(context).copyWith(
                   color: AppColor.headerTextColor,
                 ),
@@ -52,12 +55,7 @@ class CustomDialog extends StatelessWidget {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: () async {
-                        await FirebaseAuth.instance.signOut();
-                        Navigator.pop(context);
-                        Navigator.pushReplacementNamed(
-                            context, RoutingName.signIn);
-                      },
+                      onTap: onTap,
                       child: Container(
                         height: 48,
                         decoration: BoxDecoration(

@@ -13,10 +13,17 @@ class CartRepoImpl implements CartRepo {
   CartRepoImpl({required this.databaseServices});
   @override
   Future addCartData({required CartEntity cartEntity}) async {
-    await databaseServices.addData(
-      path: BackendEndpoints.addCartData,
-      data: cartEntity.toMap(),
+    bool isExists = await databaseServices.checkIfDataExists(
+      path: BackendEndpoints.isCartExsist,
+      documentId: cartEntity.id,
     );
+    if (!isExists) {
+      await databaseServices.addData(
+        path: BackendEndpoints.addCartData,
+        data: cartEntity.toMap(),
+        documentId: cartEntity.id,
+      );
+    }
   }
 
   @override

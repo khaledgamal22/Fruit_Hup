@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/build_dialog.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../view_models/cubit/cart_cubit.dart';
 
 class CartItem extends StatefulWidget {
   const CartItem({super.key, required this.cartEntity, this.priceChange});
@@ -70,7 +74,6 @@ class _CartItemState extends State<CartItem> {
                     setState(() {
                       count = value;
                       totalPrice = widget.cartEntity.priceProduct * count;
-                      print(totalPrice);
                     });
                   },
                 ),
@@ -83,9 +86,23 @@ class _CartItemState extends State<CartItem> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Icon(
-                  Icons.delete_outline,
-                  color: Color(0xff949D9E),
+                GestureDetector(
+                  onTap: () {
+                    buildDialog(
+                      context,
+                      title: 'هل ترغب في حذف المنتج ؟',
+                      onTap: () {
+                        context
+                            .read<CartCubit>()
+                            .deleteCartData(id: widget.cartEntity.id);
+                        Navigator.pop(context);
+                      },
+                    );
+                  },
+                  child: Icon(
+                    Icons.delete_outline,
+                    color: Color(0xff949D9E),
+                  ),
                 ),
                 Spacer(),
                 Text(
