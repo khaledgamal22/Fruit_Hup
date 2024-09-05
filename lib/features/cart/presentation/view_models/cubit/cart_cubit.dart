@@ -10,7 +10,7 @@ class CartCubit extends Cubit<CartState> {
   CartCubit(this.cartRepo) : super(CartInitial());
 
   final CartRepo cartRepo;
-  List<CartEntity> data = [];
+  List<CartEntity> dataCart = [];
   num total = 0;
 
   Future<void> addCartData({required CartEntity cartEntity}) async {
@@ -21,7 +21,7 @@ class CartCubit extends Cubit<CartState> {
   Future<void> deleteCartData({required String id}) async {
     await cartRepo.deleteCartData(id: id);
     await getAllCartData();
-    emit(CartSuccess(cartList: data));
+    emit(CartSuccess(cartList: dataCart));
   }
 
   Future<bool> checkIfCartDataExists({required String id}) async {
@@ -31,10 +31,10 @@ class CartCubit extends Cubit<CartState> {
   Future<void> getAllCartData() async {
     emit(CartLoading());
     try {
-      data = await cartRepo.getAllCartData();
-      total = getTotalPayment(data);
+      dataCart = await cartRepo.getAllCartData();
+      total = getTotalPayment(dataCart);
       emit(
-        CartSuccess(cartList: data),
+        CartSuccess(cartList: dataCart),
       );
     } catch (e) {
       emit(
@@ -48,8 +48,21 @@ class CartCubit extends Cubit<CartState> {
   getTotalPayment(List<CartEntity> data) {
     total = 0;
     for (var element in data) {
-      total += element.priceProduct;
+      int amount = element.amount ?? 1;
+      total += element.priceProduct * amount;
     }
     return total;
+  }
+
+  Future<void> updateCartData({
+    required String id,
+    required Map<String, dynamic> data,
+  }) async {
+    await cartRepo.updateCartData(
+      id: id,
+      data: data,
+    );
+    total = getTotalPayment(dataCart);
+    await getAllCartData();
   }
 }

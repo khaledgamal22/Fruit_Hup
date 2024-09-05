@@ -6,4 +6,5 @@ class BackendEndpoints {
   static const getCartData = 'cart';
   static const getUser = 'users';
   static const deleteUser = 'users';
+  static const editCartData = 'cart';
 }

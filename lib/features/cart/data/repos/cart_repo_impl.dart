@@ -60,4 +60,20 @@ class CartRepoImpl implements CartRepo {
       return [];
     }
   }
+
+  @override
+  Future<void> updateCartData({
+    required String id,
+    required Map<String, dynamic> data,
+  }) async {
+    try {
+      return await databaseServices.updateData(
+        path: BackendEndpoints.editCartData,
+        documentId: id,
+        data: data,
+      );
+    } on Exception catch (e) {
+      print(e.toString());
+    }
+  }
 }

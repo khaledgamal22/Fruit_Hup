@@ -6,4 +6,9 @@ abstract class CartRepo {
   Future<void> deleteCartData({required String id});
   Future<bool> checkIfCartDataExists({required String id});
   Future<List<CartEntity>> getAllCartData();
+
+  Future<void> updateCartData({
+    required String id,
+    required Map<String, dynamic> data,
+  });
 }

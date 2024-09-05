@@ -5,6 +5,7 @@ import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.d
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../view_models/cubit/cart_cubit.dart';
 
@@ -19,7 +20,12 @@ class CartItem extends StatefulWidget {
 
 class _CartItemState extends State<CartItem> {
   int count = 1;
-  late num totalPrice;
+  @override
+  void initState() {
+    count = widget.cartEntity.amount!;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,8 +47,10 @@ class _CartItemState extends State<CartItem> {
             color: Color(0xffF3F5F7),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.network(
-                widget.cartEntity.imageProduct,
+              child: Skeleton.ignore(
+                child: Image.network(
+                  widget.cartEntity.imageProduct,
+                ),
               ),
             ),
           ),
@@ -70,10 +78,13 @@ class _CartItemState extends State<CartItem> {
                 SizedBox(height: 6),
                 increaseDecreaseAmount(
                   Size: 30,
+                  cartEntity: widget.cartEntity,
                   amountChange: (value) {
                     setState(() {
                       count = value;
-                      totalPrice = widget.cartEntity.priceProduct * count;
+                      //don't need this function at this time
+                      widget
+                          .priceChange!(widget.cartEntity.priceProduct * count);
                     });
                   },
                 ),
@@ -106,7 +117,7 @@ class _CartItemState extends State<CartItem> {
                 ),
                 Spacer(),
                 Text(
-                  '${widget.cartEntity.priceProduct * count}',
+                  '${widget.cartEntity.priceProduct * count}جنيه',
                   style: AppStyle.styleBold16(context).copyWith(
                     color: AppColor.priceColor,
                   ),

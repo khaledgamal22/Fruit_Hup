@@ -17,4 +17,9 @@ abstract class DatabaseServices {
     required String documentId,
   });
   Future getAllData({required String path});
+  Future updateData({
+    required String path,
+    required String documentId,
+    required Map<String, dynamic> data,
+  });
 }

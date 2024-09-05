@@ -2,7 +2,7 @@ class CartEntity {
   final String nameProduct;
   final String imageProduct;
   final num priceProduct;
-  final int amount;
+  final int? amount;
   final String id;
 
   CartEntity({
@@ -10,7 +10,7 @@ class CartEntity {
     required this.imageProduct,
     required this.priceProduct,
     required this.id,
-    this.amount = 1,
+    this.amount,
   });
 
   toMap() {
@@ -18,7 +18,7 @@ class CartEntity {
       'nameProduct': nameProduct,
       'imageProduct': imageProduct,
       'priceProduct': priceProduct,
-      'amount': amount,
+      'amount': amount ?? 1,
       'id': id,
     };
   }

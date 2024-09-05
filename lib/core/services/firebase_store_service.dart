@@ -47,4 +47,13 @@ class FirebaseStoreService implements DatabaseServices {
   Future<QuerySnapshot> getAllData({required String path}) async {
     return await firestore.collection(path).get();
   }
+
+  @override
+  Future updateData({
+    required String path,
+    required String documentId,
+    required Map<String, dynamic> data,
+  }) async {
+    return await firestore.collection(path).doc(documentId).update(data);
+  }
 }
