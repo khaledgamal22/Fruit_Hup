@@ -15,9 +15,8 @@ class ProfileInFoList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ProfileInfoItem(
-          onTap: () {
-            Navigator.pushNamed(context, RoutingName.informationProfile);
-          },
+          onTap: () =>
+              Navigator.pushNamed(context, RoutingName.informationProfile),
           image: Assets.imagesUser,
           title: 'الملف الشخصي',
           trailing: Icon(
@@ -26,9 +25,7 @@ class ProfileInFoList extends StatelessWidget {
           ),
         ),
         ProfileInfoItem(
-          onTap: () {
-            Navigator.pushNamed(context, RoutingName.myOrders);
-          },
+          onTap: () => Navigator.pushNamed(context, RoutingName.myOrders),
           image: Assets.imagesBox,
           title: 'طلباتي',
           trailing: Icon(
@@ -45,6 +42,8 @@ class ProfileInFoList extends StatelessWidget {
           ),
         ),
         ProfileInfoItem(
+          onTap: () =>
+              Navigator.pushNamed(context, RoutingName.favoriteProducts),
           image: Assets.imagesHeart,
           title: 'المفضلة',
           trailing: Icon(
@@ -82,9 +81,7 @@ class ProfileInFoList extends StatelessWidget {
         ),
         SizedBox(height: 10),
         ProfileInfoItem(
-          onTap: () {
-            Navigator.pushNamed(context, RoutingName.aboutUs);
-          },
+          onTap: () => Navigator.pushNamed(context, RoutingName.aboutUs),
           image: Assets.imagesInfoCircle,
           title: 'من نحن',
           trailing: Icon(

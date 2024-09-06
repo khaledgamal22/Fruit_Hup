@@ -14,4 +14,5 @@ class RoutingName {
   static const informationProfile = 'informationprofileview';
   static const otpVerficationView = 'OtpVerficationView';
   static const newPass = 'newpasswordview';
+  static const favoriteProducts = 'MyFaviorteProductsView';
 }

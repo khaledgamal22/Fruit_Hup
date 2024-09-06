@@ -16,6 +16,7 @@ import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_v
 import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
 import '../../features/forget_password/presentation/views/new_password_view.dart';
+import '../../features/profile/presentation/views/my_faviorte_products_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
@@ -84,6 +85,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case RoutingName.newPass:
       return MaterialPageRoute(
         builder: (context) => NewPasswordView(),
+      );
+    case RoutingName.favoriteProducts:
+      return MaterialPageRoute(
+        builder: (context) => MyFaviorteProductsView(),
       );
     default:
       return MaterialPageRoute(
