@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/build_border.dart';
+import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
-import '../../../../../core/helper_functions/build_border.dart';
-import '../../../../../uitilits/app_style.dart';
-
-class CustomTextFormField extends StatefulWidget {
-  const CustomTextFormField(
+class CustomTextPasswordFormField extends StatefulWidget {
+  const CustomTextPasswordFormField(
       {super.key,
       required this.hintText,
       this.icon,
@@ -19,10 +18,12 @@ class CustomTextFormField extends StatefulWidget {
   final void Function(String?)? onSaved;
 
   @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+  State<CustomTextPasswordFormField> createState() =>
+      _CustomTextFormFieldState();
 }
 
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
+class _CustomTextFormFieldState extends State<CustomTextPasswordFormField> {
+  bool isSecurePass = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -36,6 +37,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onChanged: widget.onChanged,
       onSaved: widget.onSaved,
       style: AppStyle.styleSemibold16(context),
+      obscureText: widget.icon != null ? isSecurePass : false,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
           horizontal: 24,
@@ -48,8 +50,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 padding: const EdgeInsets.symmetric(
                   horizontal: 30,
                 ),
-                child: Icon(
-                  widget.icon,
+                child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isSecurePass = !isSecurePass;
+                    });
+                  },
+                  icon: Icon(
+                    isSecurePass ? Icons.visibility_off : widget.icon,
+                  ),
                   color: Color(0xffC9CECF),
                 ),
               )

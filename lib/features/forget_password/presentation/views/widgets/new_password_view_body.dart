@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_password_form_field.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 class NewPasswordViewBody extends StatelessWidget {
@@ -11,13 +11,13 @@ class NewPasswordViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
       child: Column(
         children: [
-          CustomTextFormField(
+          CustomTextPasswordFormField(
             hintText: 'كلمة المرور الجديدة',
             keyboardType: TextInputType.visiblePassword,
             icon: Icons.remove_red_eye,
           ),
           SizedBox(height: 20),
-          CustomTextFormField(
+          CustomTextPasswordFormField(
             hintText: 'تاكيد كلمة المرور الجديدة',
             keyboardType: TextInputType.visiblePassword,
             icon: Icons.remove_red_eye,

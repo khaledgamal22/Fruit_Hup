@@ -15,4 +15,6 @@ class RoutingName {
   static const otpVerficationView = 'OtpVerficationView';
   static const newPass = 'newpasswordview';
   static const favoriteProducts = 'MyFaviorteProductsView';
+  static const payments = 'PaymentsView';
+  static const addNewPaymentMethodView = 'AddNewPaymentMethodView';
 }

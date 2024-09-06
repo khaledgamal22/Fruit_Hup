@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_password_form_field.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -20,19 +20,19 @@ class ChangePasswordSection extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          CustomTextFormField(
+          CustomTextPasswordFormField(
             icon: Icons.remove_red_eye,
             hintText: 'كلمة المرور الحالي',
             keyboardType: TextInputType.visiblePassword,
           ),
           SizedBox(height: 10),
-          CustomTextFormField(
+          CustomTextPasswordFormField(
             icon: Icons.remove_red_eye,
             hintText: 'كلمة المرور الجديدة',
             keyboardType: TextInputType.visiblePassword,
           ),
           SizedBox(height: 10),
-          CustomTextFormField(
+          CustomTextPasswordFormField(
             icon: Icons.remove_red_eye,
             hintText: 'تاكيد كلمة المرور الجديدة',
             keyboardType: TextInputType.visiblePassword,

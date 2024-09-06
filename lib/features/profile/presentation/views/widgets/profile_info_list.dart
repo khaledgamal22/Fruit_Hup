@@ -34,6 +34,7 @@ class ProfileInFoList extends StatelessWidget {
           ),
         ),
         ProfileInfoItem(
+          onTap: () => Navigator.pushNamed(context, RoutingName.payments),
           image: Assets.imagesEmptyWallet,
           title: 'المدفوعات',
           trailing: Icon(

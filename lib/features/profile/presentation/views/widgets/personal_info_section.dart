@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../../../Auth/presentation/views/widgets/custom_text_form_field.dart';
 
 class PersonalInfoSection extends StatelessWidget {
   const PersonalInfoSection({super.key});

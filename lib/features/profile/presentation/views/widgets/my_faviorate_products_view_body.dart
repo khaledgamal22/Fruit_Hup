@@ -10,18 +10,16 @@ class MyFaviorateProductsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: 10),
-            buildCustomAppBar(context, 'المفضلة', null),
-            SizedBox(height: 20),
-            MyFaviorateGridView(),
-          ],
-        ),
+      child: Column(
+        children: [
+          SizedBox(height: 10),
+          buildCustomAppBar(context, 'المفضلة', null),
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: MyFaviorateGridView(),
+          ),
+        ],
       ),
     );
   }

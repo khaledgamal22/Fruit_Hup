@@ -3,13 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/view_models/cubits/sign_in/sign_in_cubit.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_divider.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_sign_with_Button.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_password_form_field.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/dont_have_account.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 import '../../../../../uitilits/routing_name.dart';
+import 'custom_text_form_field.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -47,7 +48,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              CustomTextPasswordFormField(
                 hintText: 'كلمة المرور',
                 keyboardType: TextInputType.visiblePassword,
                 icon: Icons.remove_red_eye,

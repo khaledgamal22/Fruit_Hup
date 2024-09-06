@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/show_snack_bar_message.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/view_models/cubits/sign_up/sign_up_cubit.dart';
-import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_password_form_field.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/have_already_account.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/terms_and_condition_widget.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
+
+import 'custom_text_form_field.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
@@ -57,7 +59,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              CustomTextPasswordFormField(
                 hintText: 'كلمة المرور',
                 icon: Icons.remove_red_eye,
                 keyboardType: TextInputType.visiblePassword,
