@@ -35,7 +35,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                 Row(
                   children: [
                     GestureDetector(
-                      onTap: () => Navigator.pop(context),
+                      onTap: () => Navigator.of(context).pop(),
                       child: CustomAppBarIcon(),
                     ),
                   ],
@@ -74,6 +74,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                       ),
                       Spacer(),
                       increaseDecreaseAmount(
+                        amountChange: (value) => {},
                         Size: 45,
                       ),
                     ],

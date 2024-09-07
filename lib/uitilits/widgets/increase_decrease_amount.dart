@@ -24,7 +24,7 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
   int count = 1;
   @override
   void initState() {
-    count = widget.cartEntity!.amount!;
+    count = widget.cartEntity != null ? widget.cartEntity!.amount! : count;
     super.initState();
   }
   // @override
@@ -43,12 +43,14 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           count: count,
           valueChange: (value) {
             setState(() {
-              count = widget.cartEntity!.amount!;
+              //count = widget.cartEntity!.amount!;
               count = value;
-              context.read<CartCubit>().updateCartData(
-                id: widget.cartEntity!.id,
-                data: {'amount': count},
-              );
+              if (widget.cartEntity != null) {
+                context.read<CartCubit>().updateCartData(
+                  id: widget.cartEntity!.id,
+                  data: {'amount': count},
+                );
+              }
               widget.amountChange!(count);
             });
           },
@@ -73,12 +75,14 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           count: count,
           valueChanged: (value) {
             setState(() {
-              count = widget.cartEntity!.amount!;
+              //count = widget.cartEntity!.amount!;
               count = value;
-              context.read<CartCubit>().updateCartData(
-                id: widget.cartEntity!.id,
-                data: {'amount': count},
-              );
+              if (widget.cartEntity != null) {
+                context.read<CartCubit>().updateCartData(
+                  id: widget.cartEntity!.id,
+                  data: {'amount': count},
+                );
+              }
               widget.amountChange!(count);
             });
           },
