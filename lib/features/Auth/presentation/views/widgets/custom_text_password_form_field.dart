@@ -39,7 +39,7 @@ class _CustomTextFormFieldState extends State<CustomTextPasswordFormField> {
       style: AppStyle.styleSemibold16(context),
       obscureText: widget.icon != null ? isSecurePass : false,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(
+        contentPadding: const EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 16,
         ),
@@ -59,17 +59,17 @@ class _CustomTextFormFieldState extends State<CustomTextPasswordFormField> {
                   icon: Icon(
                     isSecurePass ? Icons.visibility_off : widget.icon,
                   ),
-                  color: Color(0xffC9CECF),
+                  color: const Color(0xffC9CECF),
                 ),
               )
             : null,
         filled: true,
-        fillColor: Color(0xffF9FAFA),
-        enabledBorder: buildBorder(Color(0xffE6E9EA)),
-        errorBorder: buildBorder(Color(0xffE6E9EA)),
-        focusedErrorBorder: buildBorder(Color(0xffE6E9EA)),
-        disabledBorder: buildBorder(Color(0xffE6E9EA)),
-        focusedBorder: buildBorder(Color(0xffE6E9EA)),
+        fillColor: const Color(0xffF9FAFA),
+        enabledBorder: buildBorder(const Color(0xffE6E9EA)),
+        errorBorder: buildBorder(const Color(0xffE6E9EA)),
+        focusedErrorBorder: buildBorder(const Color(0xffE6E9EA)),
+        disabledBorder: buildBorder(const Color(0xffE6E9EA)),
+        focusedBorder: buildBorder(const Color(0xffE6E9EA)),
       ),
     );
   }

@@ -17,7 +17,7 @@ import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
 import '../../features/forget_password/presentation/views/new_password_view.dart';
 import '../../features/profile/presentation/views/add_new_payment_method_view.dart';
-import '../../features/profile/presentation/views/my_faviorte_products_view.dart';
+import '../../features/profile/presentation/views/my_favorite_products_view.dart';
 import '../../features/profile/presentation/views/payments_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
@@ -90,7 +90,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     case RoutingName.favoriteProducts:
       return MaterialPageRoute(
-        builder: (context) => MyFaviorteProductsView(),
+        builder: (context) => MyFavoriteProductsView(),
       );
     case RoutingName.payments:
       return MaterialPageRoute(

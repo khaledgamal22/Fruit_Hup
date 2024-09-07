@@ -4,8 +4,8 @@ import '../../../../../core/helper_functions/build_custom_appBar.dart';
 
 import 'my_faviorate_gridview.dart';
 
-class MyFaviorateProductsViewBody extends StatelessWidget {
-  const MyFaviorateProductsViewBody({super.key});
+class MyFavoriteProductsViewBody extends StatelessWidget {
+  const MyFavoriteProductsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

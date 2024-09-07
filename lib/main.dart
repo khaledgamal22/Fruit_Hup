@@ -7,10 +7,16 @@ import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.d
 import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:fruits_ecommerce_app/firebase_options.dart';
 import 'package:fruits_ecommerce_app/generated/l10n.dart';
+import 'package:fruits_ecommerce_app/uitilits/backend_endpoints.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'features/profile/data/models/favorite_model.dart';
 import 'uitilits/routing_name.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(BackendEndpoints.favoriteBox);
+  Hive.registerAdapter(FavoriteModelAdapter());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

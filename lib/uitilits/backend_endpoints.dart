@@ -7,4 +7,5 @@ class BackendEndpoints {
   static const getUser = 'users';
   static const deleteUser = 'users';
   static const editCartData = 'cart';
+  static const favoriteBox = 'favorite';
 }
