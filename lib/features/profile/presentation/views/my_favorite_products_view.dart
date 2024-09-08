@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'widgets/my_faviorate_products_view_body.dart';
 
 class MyFavoriteProductsView extends StatelessWidget {
