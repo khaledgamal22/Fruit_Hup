@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
 import 'package:fruits_ecommerce_app/features/checkout/presentation/views/widgets/row_check.dart';
+import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 import 'payment_method_widget.dart';
 
@@ -77,6 +78,10 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
                   price: 'مجاني',
                   isChecked: issecond,
                 ),
+              ),
+              SizedBox(height: 100),
+              CustomButton(
+                title: 'التالي',
               ),
             ],
           ),
