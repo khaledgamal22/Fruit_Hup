@@ -10,10 +10,10 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../../../core/services/hive_service.dart';
 import '../../../../../uitilits/routing_name.dart';
 import '../../../../cart/domain/entities/cart_entity.dart';
 import '../../../../cart/domain/repos/cart_repo.dart';
+import '../../../../profile/domain/repos/favorite_repo.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
@@ -39,7 +39,7 @@ class ProductCard extends StatelessWidget {
               children: [
                 BlocProvider(
                   create: (context) => FavoriteCubit(
-                    hiveService: getIt.get<HiveService>(),
+                    favoriteRepo: getIt.get<FavoriteRepo>(),
                   ),
                   child: favoriteIcon(
                     favoriteModel: FavoriteModel(
@@ -131,7 +131,7 @@ class _favoriteIconState extends State<favoriteIcon> {
                 color: isClicked
                     ? Colors.red
                     : AppColor.headerTextColor.withOpacity(0.5),
-                size: 20,
+                size: 24,
               ),
             ),
           ],
