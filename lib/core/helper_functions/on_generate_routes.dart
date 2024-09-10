@@ -15,6 +15,7 @@ import 'package:fruits_ecommerce_app/features/search/presentation/views/search_v
 import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
+import '../../features/checkout/presentation/views/checkout_view.dart';
 import '../../features/forget_password/presentation/views/new_password_view.dart';
 import '../../features/profile/presentation/views/add_new_payment_method_view.dart';
 import '../../features/profile/presentation/views/my_favorite_products_view.dart';
@@ -99,6 +100,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case RoutingName.addNewPaymentMethodView:
       return MaterialPageRoute(
         builder: (context) => AddNewPaymentMethodView(),
+      );
+    case RoutingName.checkout:
+      return MaterialPageRoute(
+        builder: (context) => CheckoutView(),
       );
     default:
       return MaterialPageRoute(

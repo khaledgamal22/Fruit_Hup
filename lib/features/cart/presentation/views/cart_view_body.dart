@@ -6,6 +6,8 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
+import '../../../../uitilits/routing_name.dart';
+
 class CartViewBody extends StatefulWidget {
   const CartViewBody({super.key});
 
@@ -66,7 +68,11 @@ class _CartViewBodyState extends State<CartViewBody> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: CustomButton(title: 'الدفع  $total جنيه'),
+                    child: CustomButton(
+                      title: 'الدفع  $total جنيه',
+                      onTap: () =>
+                          Navigator.of(context).pushNamed(RoutingName.checkout),
+                    ),
                   ),
                   SizedBox(height: 50),
                 ],
