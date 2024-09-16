@@ -14,16 +14,23 @@ class _SwitchButtonState extends State<SwitchButton> {
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
-      scale: 0.75,
+      scale: 0.6,
       child: Switch(
         value: isSelected,
         onChanged: (value) {
           isSelected = !isSelected;
           setState(() {});
         },
-        activeColor: AppColor.primaryColor,
-        inactiveThumbColor: Colors.white,
+        activeColor: Colors.white,
         inactiveTrackColor: Color(0xff888FA0),
+        inactiveThumbColor: Colors.white,
+        activeTrackColor: AppColor.primaryColor,
+        thumbIcon: WidgetStatePropertyAll(
+          Icon(
+            Icons.circle,
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }

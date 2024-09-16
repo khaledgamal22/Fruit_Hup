@@ -15,6 +15,8 @@ class AddNewPaymentMethodViewBody extends StatefulWidget {
 
 class _AddNewPaymentMethodViewBodyState
     extends State<AddNewPaymentMethodViewBody> {
+  GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -27,37 +29,41 @@ class _AddNewPaymentMethodViewBodyState
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
           ),
-          child: Column(
-            children: [
-              CustomTextFormField(
-                  hintText: 'اسم حامل البطاقه',
-                  keyboardType: TextInputType.name),
-              SizedBox(height: 10),
-              CustomTextFormField(
-                  hintText: 'رقم البطاقه', keyboardType: TextInputType.number),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomTextFormField(
-                        hintText: 'تاريخ الانتهاء',
-                        keyboardType: TextInputType.datetime),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: CustomTextFormField(
-                        hintText: 'CVV', keyboardType: TextInputType.number),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              CheckTypeCredit(
-                onchange: (value) {
-                  isChecked = value;
-                  setState(() {});
-                },
-              ),
-            ],
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                CustomTextFormField(
+                    hintText: 'اسم حامل البطاقه',
+                    keyboardType: TextInputType.name),
+                SizedBox(height: 10),
+                CustomTextFormField(
+                    hintText: 'رقم البطاقه',
+                    keyboardType: TextInputType.number),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextFormField(
+                          hintText: 'تاريخ الانتهاء',
+                          keyboardType: TextInputType.datetime),
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: CustomTextFormField(
+                          hintText: 'CVV', keyboardType: TextInputType.number),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                CheckTypeCredit(
+                  onchange: (value) {
+                    isChecked = value;
+                    setState(() {});
+                  },
+                ),
+              ],
+            ),
           ),
         ),
         Expanded(
@@ -69,7 +75,13 @@ class _AddNewPaymentMethodViewBodyState
                 ),
                 child: CustomButton(
                   title: 'أضف وسيلة دفع جديده',
-                  onTap: () {},
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                    }
+                  },
                 ),
               ),
             ),

@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
 
@@ -97,9 +98,17 @@ class Assets {
   /// assets/images/linesearchicon.png
   static const String imagesLinesearchicon = "assets/images/linesearchicon.png";
 
+  /// Assets for imagesLocation
+  /// assets/images/location.png
+  static const String imagesLocation = "assets/images/location.png";
+
   /// Assets for imagesMagicpen
   /// assets/images/magicpen.png
   static const String imagesMagicpen = "assets/images/magicpen.png";
+
+  /// Assets for imagesMastercard
+  /// assets/images/Mastercard.png
+  static const String imagesMastercard = "assets/images/Mastercard.png";
 
   /// Assets for imagesMyordericon
   /// assets/images/myordericon.png
@@ -117,6 +126,10 @@ class Assets {
   /// Assets for imagesOrganic
   /// assets/images/organic.png
   static const String imagesOrganic = "assets/images/organic.png";
+
+  /// Assets for imagesPaypal
+  /// assets/images/Paypal.png
+  static const String imagesPaypal = "assets/images/Paypal.png";
 
   /// Assets for imagesPineappleCuate 1
   /// assets/images/pineapple-cuate 1.png
@@ -154,4 +167,12 @@ class Assets {
   /// Assets for imagesUser
   /// assets/images/user.png
   static const String imagesUser = "assets/images/user.png";
+
+  /// Assets for imagesVisa
+  /// assets/images/Visa.png
+  static const String imagesVisa = "assets/images/Visa.png";
+
+  /// Assets for images Pay
+  /// assets/images/ Pay.png
+  static const String imagesPay = "assets/images/ Pay.png";
 }

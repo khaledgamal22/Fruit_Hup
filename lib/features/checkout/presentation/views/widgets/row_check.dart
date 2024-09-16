@@ -5,23 +5,60 @@ import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
 
 class RowCheck extends StatelessWidget {
-  const RowCheck({super.key, required this.items});
-  final List<RowcheckItem> items;
+  const RowCheck({
+    super.key,
+    required this.currentIndex,
+  });
+
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: items,
+      children: [
+        RowcheckItem(
+          label: 'الشحن',
+          title: '1',
+          itemIndex: 0,
+          currentIndex: currentIndex,
+        ),
+        RowcheckItem(
+          label: 'العنوان',
+          title: '2',
+          itemIndex: 1,
+          currentIndex: currentIndex,
+        ),
+        RowcheckItem(
+          label: 'الدفع',
+          title: '3',
+          itemIndex: 2,
+          currentIndex: currentIndex,
+        ),
+        RowcheckItem(
+          label: 'المراجعه',
+          title: '4',
+          itemIndex: 3,
+          currentIndex: currentIndex,
+        ),
+      ],
     );
   }
 }
 
 class RowcheckItem extends StatelessWidget {
-  const RowcheckItem({super.key, this.title, required this.label});
+  const RowcheckItem({
+    super.key,
+    this.title,
+    required this.label,
+    required this.itemIndex,
+    required this.currentIndex,
+  });
 
   final String? title;
   final String label;
+  final int itemIndex;
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +69,11 @@ class RowcheckItem extends StatelessWidget {
           height: 23,
           decoration: ShapeDecoration(
             shape: CircleBorder(),
-            color: title != null ? Color(0xffF2F3F3) : AppColor.primaryColor,
+            color: currentIndex < itemIndex
+                ? Color(0xffF2F3F3)
+                : AppColor.primaryColor,
           ),
-          child: title != null
+          child: currentIndex < itemIndex
               ? Center(
                   child: Text(
                     title!,
@@ -52,7 +91,7 @@ class RowcheckItem extends StatelessWidget {
         SizedBox(width: 5),
         Text(
           label,
-          style: title != null
+          style: currentIndex < itemIndex
               ? AppStyle.styleSemibold13(context).copyWith(
                   color: Color(0xffAAAAAA),
                 )
