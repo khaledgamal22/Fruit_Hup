@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -51,13 +52,13 @@ class InformationHeaderWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'محمد جمال',
+              getUser().name,
               style: AppStyle.styleBold13(context).copyWith(
                 color: Color(0xff131F46),
               ),
             ),
             Text(
-              'mohamedgemy135@gmail.com',
+              getUser().email,
               style: AppStyle.styleRegular13(context).copyWith(
                 color: Color(0xff888FA0),
               ),

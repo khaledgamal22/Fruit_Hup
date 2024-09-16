@@ -10,4 +10,7 @@ abstract class SignInRepo {
 
   Future<Either<Failure, UserEntity>> signInWithGoogle();
   Future<Either<Failure, UserEntity>> signInWithFacebook();
+
+  Future<void> saveUserData(UserEntity user);
+  Future<UserEntity> getUserData({required String userId});
 }

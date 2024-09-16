@@ -11,11 +11,15 @@ class SharedPreferenceSingleton {
     _instance.setBool(key, value);
   }
 
-  static setString(String key, String value) {
-    _instance.setString(key, value);
+  static setString(String key, String data) async {
+    await _instance.setString(key, data);
   }
 
   static getBool(String key) {
     return _instance.getBool(key) ?? false;
+  }
+
+  static getString(String key) {
+    return _instance.getString(key) ?? '';
   }
 }
