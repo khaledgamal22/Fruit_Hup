@@ -11,7 +11,7 @@ class FirebaseStoreService implements DatabaseServices {
     String? documentId,
   }) async {
     if (documentId != null) {
-      await firestore.collection(path).doc(documentId).set(data);
+      await firestore.doc('$path/$documentId').set(data);
     } else {
       await firestore.collection(path).add(data);
     }
@@ -22,7 +22,7 @@ class FirebaseStoreService implements DatabaseServices {
     required String path,
     required String id,
   }) async {
-    await firestore.collection(path).doc(id).delete();
+    await firestore.doc('$path/$id').delete();
   }
 
   @override
@@ -30,7 +30,7 @@ class FirebaseStoreService implements DatabaseServices {
     required String path,
     required String documentId,
   }) async {
-    var data = await firestore.collection(path).doc(documentId).get();
+    var data = await firestore.doc('$path/$documentId').get();
     return data.exists;
   }
 
@@ -39,7 +39,7 @@ class FirebaseStoreService implements DatabaseServices {
     required String path,
     required String documentId,
   }) async {
-    var data = await firestore.collection(path).doc(documentId).get();
+    var data = await firestore.doc('$path/$documentId').get();
     return data.data()!;
   }
 
@@ -54,6 +54,6 @@ class FirebaseStoreService implements DatabaseServices {
     required String documentId,
     required Map<String, dynamic> data,
   }) async {
-    return await firestore.collection(path).doc(documentId).update(data);
+    return await firestore.doc('$path/$documentId').update(data);
   }
 }

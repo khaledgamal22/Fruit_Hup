@@ -53,10 +53,11 @@ class ProductCard extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: Image.network(
-                    'https://media.gettyimages.com/id/162487071/photo/banana-bunch.jpg?s=612x612&w=0&k=20&c=2qvrsexfY-5qCqYvSly-V-Cm8eQ4hveXrunIpBdrIEE=',
+                    'https://static.vecteezy.com/system/resources/previews/029/333/904/original/muskmelon-transparent-background-png.png',
+                    fit: BoxFit.fill,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
                   child: SizedBox(height: 10),
                 ),
