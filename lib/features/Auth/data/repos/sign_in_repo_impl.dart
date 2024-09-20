@@ -40,9 +40,26 @@ class SignInRepoImpl implements SignInRepo {
     var response = await firebaseAuthService.signInWithGoogle();
     return response.fold(
       (failure) => left(failure),
-      (user) => right(
-        UserModel.fromfirbase(user),
-      ),
+      (user) async {
+        bool isExsist = await FirebaseStoreService().checkIfDataExists(
+          path: BackendEndpoints.isUserExsist,
+          documentId: user.uid,
+        );
+
+        if (!isExsist) {
+          await FirebaseStoreService().addData(
+            path: BackendEndpoints.addUserData,
+            data: UserModel.fromfirbase(user).toMap(),
+            documentId: user.uid,
+          );
+        }
+
+        var userEntity = await getUserData(userId: user.uid);
+        await saveUserData(userEntity);
+        return right(
+          userEntity,
+        );
+      },
     );
   }
 
