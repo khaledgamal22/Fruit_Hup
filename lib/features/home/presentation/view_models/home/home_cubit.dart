@@ -24,4 +24,8 @@ class HomeCubit extends Cubit<HomeState> {
       );
     }
   }
+
+  Future<bool> isProdutInCart({required String id}) async {
+    return await homeRepo.isProductInCart(id: id);
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_ecommerce_app/core/services/database_service.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 
@@ -10,6 +11,7 @@ class HomeRepoImpl implements HomeRepo {
   final DatabaseServices databaseServices;
 
   HomeRepoImpl({required this.databaseServices});
+  String currentUser = FirebaseAuth.instance.currentUser!.uid;
 
   @override
   Future<List<ProductEntity>> fetechHomeProducts() async {
@@ -27,5 +29,14 @@ class HomeRepoImpl implements HomeRepo {
       print(e.toString());
       return [];
     }
+  }
+
+  @override
+  Future<bool> isProductInCart({required String id}) {
+    return databaseServices.checkIfDataExists(
+      path:
+          '${BackendEndpoints.getUser}/$currentUser/${BackendEndpoints.getCartData}',
+      documentId: id,
+    );
   }
 }
