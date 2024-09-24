@@ -6,6 +6,7 @@ class ProductEntity {
   final int ratingCount;
   final String description;
   final String id;
+  final int calory;
 
   ProductEntity({
     required this.name,
@@ -15,6 +16,7 @@ class ProductEntity {
     required this.ratingCount,
     required this.description,
     required this.id,
+    required this.calory,
   });
 
   Map<String, dynamic> toMap() {
@@ -26,6 +28,7 @@ class ProductEntity {
       'ratingCount': ratingCount,
       'description': description,
       'id': id,
+      'calory': calory,
     };
   }
 }

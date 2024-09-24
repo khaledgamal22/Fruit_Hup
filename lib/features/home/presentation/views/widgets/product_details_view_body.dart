@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/feature_product_card.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/price_per_amount_widget.dart';
@@ -10,8 +11,11 @@ import 'package:fruits_ecommerce_app/uitilits/widgets/custom_AppBar_icon.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
-  const ProductDetailsViewBody({super.key, required this.image});
-  final String image;
+  const ProductDetailsViewBody({
+    super.key,
+    required this.productEntity,
+  });
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                 SizedBox(height: 20),
                 Flexible(
                   child: Image.network(
-                    image,
+                    productEntity.image,
                     height: 220,
                   ),
                 ),
@@ -64,13 +68,13 @@ class ProductDetailsViewBody extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'فراولة',
+                            productEntity.name,
                             style: AppStyle.styleBold16(context).copyWith(
                               color: AppColor.headerTextColor,
                             ),
                           ),
                           PricePerAmountWidget(
-                            price: 20,
+                            price: productEntity.price,
                           ),
                         ],
                       ),
@@ -82,11 +86,13 @@ class ProductDetailsViewBody extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 10),
-                  RatingRowWidget(),
+                  RatingRowWidget(
+                    productEntity: productEntity,
+                  ),
                   SizedBox(height: 10),
                   Text(
-                    'ينتمي إلى الفصيلة القرعية ولثمرته لُب حلو المذاق وقابل للأكل، وبحسب علم النبات فهي تعتبر ثمار لبيّة، تستعمل لفظة البطيخ للإشارة إلى النبات نفسه أو إلى الثمرة تحديداً',
-                    style: AppStyle.styleRegular13(context).copyWith(
+                    productEntity.description,
+                    style: AppStyle.styleRegular11(context).copyWith(
                       color: Color(0xff979899),
                     ),
                   ),
@@ -94,10 +100,14 @@ class ProductDetailsViewBody extends StatelessWidget {
                   Row(
                     children: [
                       FeatureProductCard(
+                        title: 'الصلاحيه',
+                        info: 'عام',
                         image: Assets.imagesCalender,
                       ),
                       Spacer(),
                       FeatureProductCard(
+                        title: 'أورجانيك',
+                        info: '100%',
                         image: Assets.imagesOrganic,
                       ),
                     ],
@@ -106,11 +116,16 @@ class ProductDetailsViewBody extends StatelessWidget {
                   Row(
                     children: [
                       FeatureProductCard(
+                        title: '100 جرام',
+                        info: '${productEntity.calory} كالورى',
                         image: Assets.imagesCalory,
                       ),
                       Spacer(),
                       FeatureProductCard(
-                        image: Assets.imagesOrganic,
+                        supInfo: '(${productEntity.ratingCount})',
+                        title: 'Reviews',
+                        info: '${productEntity.rating}',
+                        image: Assets.imagesStarreview,
                       ),
                     ],
                   ),

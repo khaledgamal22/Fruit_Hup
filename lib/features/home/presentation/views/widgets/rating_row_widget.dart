@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class RatingRowWidget extends StatelessWidget {
-  const RatingRowWidget({super.key});
+  const RatingRowWidget({super.key, required this.productEntity});
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class RatingRowWidget extends StatelessWidget {
         Icon(Icons.star, color: Colors.amber),
         SizedBox(width: 6),
         Text(
-          '4.5',
+          '${productEntity.rating}',
           style: AppStyle.styleSemibold13(context).copyWith(
             color: Color(
               0xff111719,
@@ -21,7 +23,7 @@ class RatingRowWidget extends StatelessWidget {
         ),
         SizedBox(width: 10),
         Text(
-          '(30+)',
+          '(+${productEntity.ratingCount})',
           style: AppStyle.styleRegular13(context).copyWith(
             color: Color(
               0xff9796A1,

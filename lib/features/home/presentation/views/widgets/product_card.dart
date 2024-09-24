@@ -28,8 +28,7 @@ class ProductCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.pushNamed(context, RoutingName.productDetails,
-              arguments:
-                  'https://media.istockphoto.com/id/1400057530/photo/bananas-isolated.jpg?s=612x612&w=0&k=20&c=KLtV4quCnxwWOOx_uUJTQUTl9VVJzA72ykrQlc8P6a0=');
+              arguments: productEntity);
         },
         child: Container(
           color: const Color(0xffF3F5F7),

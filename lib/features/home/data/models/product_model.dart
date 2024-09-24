@@ -9,6 +9,7 @@ class ProductModel extends ProductEntity {
     required super.ratingCount,
     required super.description,
     required super.id,
+    required super.calory,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -20,6 +21,7 @@ class ProductModel extends ProductEntity {
       ratingCount: json['ratingCount'] as int,
       description: json['description'] as String,
       id: json['id'] as String,
+      calory: json['calory'] as int,
     );
   }
 }

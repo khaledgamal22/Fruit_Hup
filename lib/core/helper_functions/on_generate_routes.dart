@@ -3,6 +3,7 @@ import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_in_vi
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/sign_up_view.dart';
 import 'package:fruits_ecommerce_app/features/forget_password/presentation/views/forget_password_view.dart';
 import 'package:fruits_ecommerce_app/features/forget_password/presentation/views/otp_verfication_view.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/all_best_seller_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/product_details_view.dart';
@@ -48,10 +49,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         builder: (context) => AllBestSellerView(),
       );
     case RoutingName.productDetails:
-      final String image = settings.arguments as String;
+      final ProductEntity productEntity = settings.arguments as ProductEntity;
       return MaterialPageRoute(
         builder: (context) => ProductDetailsView(
-          image: image,
+          productEntity: productEntity,
         ),
       );
     case RoutingName.aboutUs:

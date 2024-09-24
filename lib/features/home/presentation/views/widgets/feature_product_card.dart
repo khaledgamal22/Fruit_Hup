@@ -3,9 +3,18 @@ import 'package:flutter/material.dart';
 import '../../../../../uitilits/app_style.dart';
 
 class FeatureProductCard extends StatelessWidget {
-  const FeatureProductCard({super.key, required this.image});
+  const FeatureProductCard({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.info,
+    this.supInfo,
+  });
 
   final String image;
+  final String title;
+  final String info;
+  final String? supInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +36,27 @@ class FeatureProductCard extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'عام',
-                  style: AppStyle.styleBold16(context).copyWith(
-                    color: Color(0xff23AA49),
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      supInfo ?? "",
+                      style: AppStyle.styleRegular12(context).copyWith(
+                        color: Color(0xff979899),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      info,
+                      style: AppStyle.styleBold16(context).copyWith(
+                        color: Color(0xff23AA49),
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
-                  'الصلاحيه',
+                  title,
                   style: AppStyle.styleSemibold13(context).copyWith(
                     color: Color(0xff979899),
                   ),
