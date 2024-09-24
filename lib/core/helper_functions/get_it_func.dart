@@ -24,6 +24,7 @@ void setupGetIt() {
   getIt.registerSingleton<HomeRepo>(
     HomeRepoImpl(
       databaseServices: getIt.get<DatabaseServices>(),
+      hiveService: getIt.get<HiveService>(),
     ),
   );
   getIt.registerSingleton<FavoriteRepo>(

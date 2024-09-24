@@ -17,6 +17,12 @@ class HiveService {
   bool doesFavoriteExist(FavoriteModel favoriteModel) {
     var favoriteBox = Hive.box<FavoriteModel>(BackendEndpoints.favoriteBox);
     return favoriteBox.values
-        .any((existingFavorite) => existingFavorite.id == favoriteModel.id);
+        .where((existingFavorite) => existingFavorite.id == favoriteModel.id)
+        .isNotEmpty;
+  }
+
+  Future<void> deleteFavorite({required String id}) async {
+    var favoriteBox = Hive.box<FavoriteModel>(BackendEndpoints.favoriteBox);
+    await favoriteBox.delete(id);
   }
 }

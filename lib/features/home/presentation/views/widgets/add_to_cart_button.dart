@@ -38,6 +38,8 @@ class _AddToCartButtonState extends State<AddToCartButton> {
           BlocProvider.of<CartCubit>(context).addCartData(
             cartEntity: widget.cartEntity,
           );
+          isInCart = true;
+          setState(() {});
         }
       },
       child: Container(

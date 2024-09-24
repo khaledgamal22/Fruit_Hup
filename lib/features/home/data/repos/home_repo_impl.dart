@@ -1,16 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_ecommerce_app/core/services/database_service.dart';
+import 'package:fruits_ecommerce_app/core/services/hive_service.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 
 import '../../../../uitilits/backend_endpoints.dart';
+import '../../../profile/data/models/favorite_model.dart';
 import '../../domain/repos/home_repo.dart';
 import '../models/product_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final DatabaseServices databaseServices;
+  final HiveService hiveService;
 
-  HomeRepoImpl({required this.databaseServices});
+  HomeRepoImpl({required this.hiveService, required this.databaseServices});
   String currentUser = FirebaseAuth.instance.currentUser!.uid;
 
   @override
@@ -38,5 +41,15 @@ class HomeRepoImpl implements HomeRepo {
           '${BackendEndpoints.getUser}/$currentUser/${BackendEndpoints.getCartData}',
       documentId: id,
     );
+  }
+
+  @override
+  bool checkIfProductIsFavorite({required FavoriteModel favoriteModel}) {
+    return hiveService.doesFavoriteExist(favoriteModel);
+  }
+
+  @override
+  void deletProductFromFavorite({required String id}) {
+    hiveService.deleteFavorite(id: id);
   }
 }

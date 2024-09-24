@@ -3,6 +3,8 @@ import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entit
 import 'package:fruits_ecommerce_app/features/home/domain/repos/home_repo.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../profile/data/models/favorite_model.dart';
+
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -27,5 +29,13 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<bool> isProdutInCart({required String id}) async {
     return await homeRepo.isProductInCart(id: id);
+  }
+
+  bool isProductFavorite({required FavoriteModel favoriteModel}) {
+    return homeRepo.checkIfProductIsFavorite(favoriteModel: favoriteModel);
+  }
+
+  void deletProductFromFavorite({required String id}) {
+    homeRepo.deletProductFromFavorite(id: id);
   }
 }

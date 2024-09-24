@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
+import 'package:fruits_ecommerce_app/features/home/presentation/view_models/home/home_cubit.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/add_to_cart_button.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/price_per_amount_widget.dart';
 import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
@@ -113,7 +114,18 @@ class favoriteIcon extends StatefulWidget {
 }
 
 class _favoriteIconState extends State<favoriteIcon> {
-  bool isClicked = false;
+  bool isfavorite = false;
+  @override
+  void initState() {
+    checkIsProductFavorite();
+    super.initState();
+  }
+
+  checkIsProductFavorite() {
+    isfavorite = context
+        .read<HomeCubit>()
+        .isProductFavorite(favoriteModel: widget.favoriteModel);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,16 +135,16 @@ class _favoriteIconState extends State<favoriteIcon> {
           children: [
             GestureDetector(
               onTap: () {
-                context
-                    .read<FavoriteCubit>()
-                    .addFavorite(favoriteModel: widget.favoriteModel);
-                setState(() {
-                  isClicked = !isClicked;
-                });
+                if (!isfavorite) {
+                  context
+                      .read<FavoriteCubit>()
+                      .addFavorite(favoriteModel: widget.favoriteModel);
+                  isfavorite = true;
+                }
               },
               child: Icon(
-                isClicked ? Icons.favorite : Icons.favorite_outline,
-                color: isClicked
+                isfavorite ? Icons.favorite : Icons.favorite_outline,
+                color: isfavorite
                     ? Colors.red
                     : AppColor.headerTextColor.withOpacity(0.5),
                 size: 24,
