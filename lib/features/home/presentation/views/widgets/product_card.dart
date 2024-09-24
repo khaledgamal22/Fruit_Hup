@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/add_to_cart_button.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/price_per_amount_widget.dart';
 import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/view_models/favorite/favorite_cubit.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
-import 'package:uuid/uuid.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../uitilits/routing_name.dart';
 import '../../../../cart/domain/entities/cart_entity.dart';
@@ -16,7 +17,8 @@ import '../../../../cart/domain/repos/cart_repo.dart';
 import '../../../../profile/domain/repos/favorite_repo.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  const ProductCard({super.key, required this.productEntity});
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +45,17 @@ class ProductCard extends StatelessWidget {
                   ),
                   child: favoriteIcon(
                     favoriteModel: FavoriteModel(
-                        name: 'فراولة',
-                        image:
-                            'https://media.istockphoto.com/id/1400057530/photo/bananas-isolated.jpg?s=612x612&w=0&k=20&c=KLtV4quCnxwWOOx_uUJTQUTl9VVJzA72ykrQlc8P6a0=',
-                        price: 100,
-                        id: const Uuid().v4()),
+                      name: productEntity.name,
+                      image: productEntity.image,
+                      price: productEntity.price,
+                      id: productEntity.id,
+                    ),
                   ),
                 ),
                 Expanded(
                   flex: 4,
                   child: Image.network(
-                    'https://static.vecteezy.com/system/resources/previews/029/333/904/original/muskmelon-transparent-background-png.png',
+                    productEntity.image,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -68,20 +70,23 @@ class ProductCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'فراولة',
+                          productEntity.name,
                           style: AppStyle.styleSemibold13(context)
                               .copyWith(color: AppColor.headerTextColor),
                         ),
-                        PricePerAmountWidget(),
+                        PricePerAmountWidget(
+                          price: productEntity.price,
+                        ),
                       ],
                     ),
-                    AddToCartButton(
-                      cartEntity: CartEntity(
-                        nameProduct: 'فراولة',
-                        priceProduct: 100,
-                        imageProduct:
-                            'https://media.istockphoto.com/id/1400057530/photo/bananas-isolated.jpg?s=612x612&w=0&k=20&c=KLtV4quCnxwWOOx_uUJTQUTl9VVJzA72ykrQlc8P6a0=',
-                        id: const Uuid().v4(),
+                    Skeleton.ignore(
+                      child: AddToCartButton(
+                        cartEntity: CartEntity(
+                          nameProduct: productEntity.name,
+                          priceProduct: productEntity.price,
+                          imageProduct: productEntity.image,
+                          id: productEntity.id,
+                        ),
                       ),
                     ),
                   ],

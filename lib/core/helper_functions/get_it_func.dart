@@ -5,6 +5,8 @@ import 'package:fruits_ecommerce_app/core/services/hive_service.dart';
 import 'package:fruits_ecommerce_app/features/Auth/data/repos/sign_up_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_in_repo.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_up_repo.dart';
+import 'package:fruits_ecommerce_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/repos/home_repo.dart';
 import 'package:fruits_ecommerce_app/features/profile/data/repos/favorite_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/profile/domain/repos/favorite_repo.dart';
 import 'package:get_it/get_it.dart';
@@ -19,6 +21,11 @@ void setupGetIt() {
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   getIt.registerSingleton<DatabaseServices>(FirebaseStoreService());
   getIt.registerSingleton<HiveService>(HiveService());
+  getIt.registerSingleton<HomeRepo>(
+    HomeRepoImpl(
+      databaseServices: getIt.get<DatabaseServices>(),
+    ),
+  );
   getIt.registerSingleton<FavoriteRepo>(
     FavoriteRepoImpl(
       hiveService: getIt.get<HiveService>(),

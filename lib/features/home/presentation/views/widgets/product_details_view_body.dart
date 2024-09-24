@@ -69,7 +69,9 @@ class ProductDetailsViewBody extends StatelessWidget {
                               color: AppColor.headerTextColor,
                             ),
                           ),
-                          PricePerAmountWidget(),
+                          PricePerAmountWidget(
+                            price: 20,
+                          ),
                         ],
                       ),
                       Spacer(),

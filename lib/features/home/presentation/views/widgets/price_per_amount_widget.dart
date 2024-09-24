@@ -5,7 +5,9 @@ import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 class PricePerAmountWidget extends StatelessWidget {
   const PricePerAmountWidget({
     super.key,
+    required this.price,
   });
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class PricePerAmountWidget extends StatelessWidget {
       TextSpan(
         children: [
           TextSpan(
-            text: '20 جنيه',
+            text: '$price',
             style: AppStyle.styleBold13(context).copyWith(
               color: AppColor.priceColor,
             ),

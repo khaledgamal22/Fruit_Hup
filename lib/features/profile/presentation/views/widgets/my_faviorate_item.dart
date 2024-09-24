@@ -65,7 +65,9 @@ class MyFaviorateItem extends StatelessWidget {
                       style: AppStyle.styleSemibold13(context)
                           .copyWith(color: AppColor.headerTextColor),
                     ),
-                    PricePerAmountWidget(),
+                    PricePerAmountWidget(
+                      price: favoriteModel.price,
+                    ),
                   ],
                 ),
                 BlocProvider(
