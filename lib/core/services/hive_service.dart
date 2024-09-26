@@ -1,28 +1,27 @@
+import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:hive/hive.dart';
 
-import '../../uitilits/backend_endpoints.dart';
-
 class HiveService {
   Future<void> addFavorite({required FavoriteModel favoriteModel}) async {
-    var favoriteBox = Hive.box<FavoriteModel>(BackendEndpoints.favoriteBox);
+    var favoriteBox = await Hive.openBox<FavoriteModel>(getUser().userId);
     await favoriteBox.add(favoriteModel);
   }
 
-  List<FavoriteModel> getFavorite() {
-    var favoriteBox = Hive.box<FavoriteModel>(BackendEndpoints.favoriteBox);
+  Future<List<FavoriteModel>> getFavorite() async {
+    var favoriteBox = await Hive.openBox<FavoriteModel>(getUser().userId);
     return favoriteBox.values.toList();
   }
 
-  bool doesFavoriteExist(FavoriteModel favoriteModel) {
-    var favoriteBox = Hive.box<FavoriteModel>(BackendEndpoints.favoriteBox);
+  Future<bool> doesFavoriteExist({required String id}) async {
+    var favoriteBox = await Hive.openBox<FavoriteModel>(getUser().userId);
     return favoriteBox.values
-        .where((existingFavorite) => existingFavorite.id == favoriteModel.id)
+        .where((existingFavorite) => existingFavorite.id == id)
         .isNotEmpty;
   }
 
   Future<void> deleteFavorite({required String id}) async {
-    var favoriteBox = Hive.box<FavoriteModel>(BackendEndpoints.favoriteBox);
+    var favoriteBox = await Hive.openBox<FavoriteModel>(getUser().userId);
     await favoriteBox.delete(id);
   }
 }

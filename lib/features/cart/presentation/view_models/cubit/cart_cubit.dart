@@ -13,25 +13,30 @@ class CartCubit extends Cubit<CartState> {
   List<CartEntity> dataCart = [];
   num total = 0;
 
-  Future<void> addCartData({required CartEntity cartEntity}) async {
-    await cartRepo.addCartData(cartEntity: cartEntity);
+  Future<void> addCartData(
+      {required CartEntity cartEntity, required String currentUser}) async {
+    await cartRepo.addCartData(
+        cartEntity: cartEntity, currentUser: currentUser);
     emit(CartAdded());
   }
 
-  Future<void> deleteCartData({required String id}) async {
-    await cartRepo.deleteCartData(id: id);
-    await getAllCartData();
+  Future<void> deleteCartData(
+      {required String id, required String currentUser}) async {
+    await cartRepo.deleteCartData(id: id, currentUser: currentUser);
+    await getAllCartData(currentUser: currentUser);
     emit(CartSuccess(cartList: dataCart));
   }
 
-  Future<bool> checkIfCartDataExists({required String id}) async {
-    return await cartRepo.checkIfCartDataExists(id: id);
+  Future<bool> checkIfCartDataExists(
+      {required String id, required String currentUser}) async {
+    return await cartRepo.checkIfCartDataExists(
+        id: id, currentUser: currentUser);
   }
 
-  Future<void> getAllCartData() async {
+  Future<void> getAllCartData({required String currentUser}) async {
     emit(CartLoading());
     try {
-      dataCart = await cartRepo.getAllCartData();
+      dataCart = await cartRepo.getAllCartData(currentUser: currentUser);
       total = getTotalPayment(dataCart);
       emit(
         CartSuccess(cartList: dataCart),
@@ -57,12 +62,14 @@ class CartCubit extends Cubit<CartState> {
   Future<void> updateCartData({
     required String id,
     required Map<String, dynamic> data,
+    required String currentUser,
   }) async {
     await cartRepo.updateCartData(
       id: id,
       data: data,
+      currentUser: currentUser,
     );
     total = getTotalPayment(dataCart);
-    await getAllCartData();
+    await getAllCartData(currentUser: currentUser);
   }
 }

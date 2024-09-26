@@ -114,16 +114,17 @@ class favoriteIcon extends StatefulWidget {
 
 class _favoriteIconState extends State<favoriteIcon> {
   bool isfavorite = false;
+  checkIsProductFavorite() async {
+    isfavorite = await context.read<HomeCubit>().isProductFavorite(
+          id: widget.favoriteModel.id,
+        );
+    setState(() {});
+  }
+
   @override
   void initState() {
     checkIsProductFavorite();
     super.initState();
-  }
-
-  checkIsProductFavorite() {
-    isfavorite = context
-        .read<HomeCubit>()
-        .isProductFavorite(favoriteModel: widget.favoriteModel);
   }
 
   @override

@@ -11,8 +11,8 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   final FavoriteRepo favoriteRepo;
   List<FavoriteModel> favoriteList = [];
 
-  void getFavorite() {
-    favoriteList = favoriteRepo.getFavorite();
+  Future<void> getFavorite() async {
+    favoriteList = await favoriteRepo.getFavorite();
     emit(FavoriteSuccess(favoriteList: favoriteList));
   }
 

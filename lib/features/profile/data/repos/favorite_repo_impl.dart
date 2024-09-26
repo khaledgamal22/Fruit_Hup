@@ -13,13 +13,7 @@ class FavoriteRepoImpl implements FavoriteRepo {
   }
 
   @override
-  bool doesFavoriteExist(FavoriteModel favoriteModel) {
-    // TODO: implement doesFavoriteExist
-    throw UnimplementedError();
-  }
-
-  @override
-  List<FavoriteModel> getFavorite() {
-    return hiveService.getFavorite();
+  Future<List<FavoriteModel>> getFavorite() async {
+    return await hiveService.getFavorite();
   }
 }

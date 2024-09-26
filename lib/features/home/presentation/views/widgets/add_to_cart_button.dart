@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/view_models/home/home_cubit.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
@@ -19,8 +20,10 @@ class _AddToCartButtonState extends State<AddToCartButton> {
   bool isInCart = false;
 
   checkIsProductInCart() async {
-    isInCart = await BlocProvider.of<HomeCubit>(context)
-        .isProdutInCart(id: widget.cartEntity.id);
+    isInCart = await BlocProvider.of<HomeCubit>(context).isProdutInCart(
+      id: widget.cartEntity.id,
+      currentUser: getUser().userId,
+    );
     setState(() {});
   }
 
@@ -36,8 +39,7 @@ class _AddToCartButtonState extends State<AddToCartButton> {
       onTap: () {
         if (!isInCart) {
           BlocProvider.of<CartCubit>(context).addCartData(
-            cartEntity: widget.cartEntity,
-          );
+              cartEntity: widget.cartEntity, currentUser: getUser().userId);
           isInCart = true;
           setState(() {});
         }

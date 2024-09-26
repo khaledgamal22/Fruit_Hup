@@ -9,6 +9,7 @@ import 'package:fruits_ecommerce_app/features/Auth/data/models/user_model.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/entites/user_entity.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_in_repo.dart';
 import 'package:fruits_ecommerce_app/uitilits/backend_endpoints.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class SignInRepoImpl implements SignInRepo {
   final FirebaseAuthService firebaseAuthService;
@@ -27,6 +28,7 @@ class SignInRepoImpl implements SignInRepo {
       (failure) => left(failure),
       (user) async {
         var userEntity = await getUserData(userId: user.uid);
+        //openHiveBox(boxName: userEntity.userId);
         await saveUserData(userEntity);
         return right(
           userEntity,
@@ -87,5 +89,9 @@ class SignInRepoImpl implements SignInRepo {
       documentId: userId,
     );
     return UserModel.fromJson(data);
+  }
+
+  openHiveBox({required String boxName}) async {
+    await Hive.openBox(boxName);
   }
 }

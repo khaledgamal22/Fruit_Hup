@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_ecommerce_app/core/services/database_service.dart';
 import 'package:fruits_ecommerce_app/core/services/hive_service.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 
 import '../../../../uitilits/backend_endpoints.dart';
-import '../../../profile/data/models/favorite_model.dart';
 import '../../domain/repos/home_repo.dart';
 import '../models/product_model.dart';
 
@@ -14,7 +12,6 @@ class HomeRepoImpl implements HomeRepo {
   final HiveService hiveService;
 
   HomeRepoImpl({required this.hiveService, required this.databaseServices});
-  String currentUser = FirebaseAuth.instance.currentUser!.uid;
 
   @override
   Future<List<ProductEntity>> fetechHomeProducts() async {
@@ -35,7 +32,8 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<bool> isProductInCart({required String id}) {
+  Future<bool> isProductInCart(
+      {required String id, required String currentUser}) {
     return databaseServices.checkIfDataExists(
       path:
           '${BackendEndpoints.getUser}/$currentUser/${BackendEndpoints.getCartData}',
@@ -44,8 +42,8 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  bool checkIfProductIsFavorite({required FavoriteModel favoriteModel}) {
-    return hiveService.doesFavoriteExist(favoriteModel);
+  Future<bool> checkIfProductIsFavorite({required String id}) async {
+    return await hiveService.doesFavoriteExist(id: id);
   }
 
   @override

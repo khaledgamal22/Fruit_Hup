@@ -16,7 +16,7 @@ import 'uitilits/routing_name.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(FavoriteModelAdapter());
-  await Hive.openBox<FavoriteModel>(BackendEndpoints.favoriteBox);
+  //await Hive.openBox<FavoriteModel>(BackendEndpoints.favoriteBox);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
