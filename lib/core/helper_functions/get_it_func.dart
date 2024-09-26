@@ -21,12 +21,7 @@ void setupGetIt() {
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   getIt.registerSingleton<DatabaseServices>(FirebaseStoreService());
   getIt.registerSingleton<HiveService>(HiveService());
-  getIt.registerSingleton<HomeRepo>(
-    HomeRepoImpl(
-      databaseServices: getIt.get<DatabaseServices>(),
-      hiveService: getIt.get<HiveService>(),
-    ),
-  );
+
   getIt.registerSingleton<FavoriteRepo>(
     FavoriteRepoImpl(
       hiveService: getIt.get<HiveService>(),
@@ -46,6 +41,12 @@ void setupGetIt() {
   getIt.registerSingleton<SignInRepo>(
     SignInRepoImpl(
       firebaseAuthService: getIt.get<FirebaseAuthService>(),
+    ),
+  );
+  getIt.registerSingleton<HomeRepo>(
+    HomeRepoImpl(
+      databaseServices: getIt.get<DatabaseServices>(),
+      hiveService: getIt.get<HiveService>(),
     ),
   );
 }
