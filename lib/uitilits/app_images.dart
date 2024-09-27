@@ -114,6 +114,10 @@ class Assets {
   /// assets/images/myordericon.png
   static const String imagesMyordericon = "assets/images/myordericon.png";
 
+  /// Assets for imagesNoresult
+  /// assets/images/noresult.png
+  static const String imagesNoresult = "assets/images/noresult.png";
+
   /// Assets for imagesNotification
   /// assets/images/notification.png
   static const String imagesNotification = "assets/images/notification.png";

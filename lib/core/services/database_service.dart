@@ -22,4 +22,8 @@ abstract class DatabaseServices {
     required String documentId,
     required Map<String, dynamic> data,
   });
+  Future searchForData(
+      {required String path,
+      required String searchKey,
+      required String searchValue});
 }

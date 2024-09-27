@@ -56,4 +56,17 @@ class FirebaseStoreService implements DatabaseServices {
   }) async {
     return await firestore.doc('$path/$documentId').update(data);
   }
+
+  @override
+  Future<QuerySnapshot> searchForData({
+    required String path,
+    required String searchKey,
+    required String searchValue,
+  }) async {
+    var data = await firestore
+        .collection(path)
+        .where(searchKey, isEqualTo: searchValue)
+        .get();
+    return data;
+  }
 }
