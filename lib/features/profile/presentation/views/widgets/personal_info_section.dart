@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -23,13 +24,13 @@ class PersonalInfoSection extends StatelessWidget {
           SizedBox(height: 10),
           CustomTextFormField(
             icon: Icons.edit,
-            hintText: 'محمد جمال',
+            hintText: getUser().name,
             keyboardType: TextInputType.name,
           ),
           SizedBox(height: 10),
           CustomTextFormField(
             icon: Icons.edit,
-            hintText: 'mohamedgemy135@gmail.com',
+            hintText: getUser().email,
             keyboardType: TextInputType.emailAddress,
           ),
         ],

@@ -16,7 +16,7 @@ class SearchEmpty extends StatelessWidget {
           height: 80,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Color(0xffFFFFFF),
+              color: const Color(0xffFFFFFF),
               borderRadius: BorderRadius.circular(5),
               boxShadow: [
                 BoxShadow(
