@@ -11,10 +11,13 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../view_models/cubit/cart_cubit.dart';
 
 class CartItem extends StatefulWidget {
-  const CartItem({super.key, required this.cartEntity, this.priceChange});
+  const CartItem({
+    super.key,
+    required this.cartEntity,
+  });
 
   final CartEntity cartEntity;
-  final ValueChanged<num>? priceChange;
+
   @override
   State<CartItem> createState() => _CartItemState();
 }
@@ -78,14 +81,11 @@ class _CartItemState extends State<CartItem> {
                 ),
                 SizedBox(height: 6),
                 increaseDecreaseAmount(
-                  Size: 30,
+                  size: 30,
                   cartEntity: widget.cartEntity,
                   amountChange: (value) {
                     setState(() {
                       count = value;
-                      //don't need this function at this time
-                      widget
-                          .priceChange!(widget.cartEntity.priceProduct * count);
                     });
                   },
                 ),

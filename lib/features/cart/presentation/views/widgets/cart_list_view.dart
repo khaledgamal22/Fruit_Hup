@@ -7,17 +7,11 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../uitilits/app_style.dart';
 import '../../view_models/cubit/cart_cubit.dart';
 
-class CartListView extends StatefulWidget {
+class CartListView extends StatelessWidget {
   const CartListView({
     super.key,
   });
 
-  @override
-  State<CartListView> createState() => _CartListViewState();
-}
-
-class _CartListViewState extends State<CartListView> {
-  num total = 0;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
@@ -40,9 +34,6 @@ class _CartListViewState extends State<CartListView> {
             shrinkWrap: true,
             itemBuilder: (context, index) => CartItem(
               cartEntity: state.cartList[index],
-              priceChange: (price) {
-                setState(() {});
-              },
             ),
           );
         } else if (state is CartFailure) {
@@ -63,9 +54,6 @@ class _CartListViewState extends State<CartListView> {
                     priceProduct: 100,
                     imageProduct:
                         'https://s3-alpha-sig.figma.com/img/d8be/3d59/ab143bf1dd908919438d5e148d1cb383?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FDZ7Hjr6Vf7H3VlwTadr-gcUejK0er~o94-ViM4Zmega9439wOpHn4fxt827oFOe9HfmZ3yOFOO9t8gY1wkSbQlhepnzta6Z~sH3fT7e8Fnw1251OOlgL0Cfp0hHeb2rZxs7fPhYV4JKYP5L7bP6yqI93YDXzKYYDDEMXXJlnp9larK8dAld8D1IQnpfx16E678U~qGBKdhWVkAeSeME-FV-7MnYRDP2hfG9DCMtEv7rE6oaOdqUMjncD16UdKygyHfOJ4uXEdMG3OdbKJzI4FAQCUU7e4R8U7p7rJFgVyl7FqS9pAxMOlMzgNA7RGfZ7inRdd3ZF6Y43bPDWmOJgw__'),
-                priceChange: (price) {
-                  setState(() {});
-                },
               ),
             ),
           );

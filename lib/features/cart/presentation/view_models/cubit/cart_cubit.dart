@@ -24,7 +24,7 @@ class CartCubit extends Cubit<CartState> {
       {required String id, required String currentUser}) async {
     await cartRepo.deleteCartData(id: id, currentUser: currentUser);
     await getAllCartData(currentUser: currentUser);
-    emit(CartSuccess(cartList: dataCart));
+    emit(CartSuccess(cartList: dataCart, total: total));
   }
 
   Future<bool> checkIfCartDataExists(
@@ -39,7 +39,7 @@ class CartCubit extends Cubit<CartState> {
       dataCart = await cartRepo.getAllCartData(currentUser: currentUser);
       total = getTotalPayment(dataCart);
       emit(
-        CartSuccess(cartList: dataCart),
+        CartSuccess(cartList: dataCart, total: total),
       );
     } catch (e) {
       emit(
@@ -69,7 +69,9 @@ class CartCubit extends Cubit<CartState> {
       data: data,
       currentUser: currentUser,
     );
+    List<CartEntity> dataCart =
+        await cartRepo.getAllCartData(currentUser: currentUser);
     total = getTotalPayment(dataCart);
-    await getAllCartData(currentUser: currentUser);
+    emit(CartSuccess(cartList: dataCart, total: total));
   }
 }

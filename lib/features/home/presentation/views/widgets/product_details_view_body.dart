@@ -81,7 +81,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                       Spacer(),
                       increaseDecreaseAmount(
                         amountChange: (value) => {},
-                        Size: 45,
+                        size: 45,
                       ),
                     ],
                   ),

@@ -7,7 +7,8 @@ final class CartInitial extends CartState {}
 
 final class CartSuccess extends CartState {
   final List<CartEntity> cartList;
-  CartSuccess({required this.cartList});
+  final num total;
+  CartSuccess({required this.total, required this.cartList});
 }
 
 final class CartAdded extends CartState {}

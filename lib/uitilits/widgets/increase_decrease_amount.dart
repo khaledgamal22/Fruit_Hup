@@ -9,11 +9,11 @@ import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 class increaseDecreaseAmount extends StatefulWidget {
   const increaseDecreaseAmount({
     super.key,
-    required this.Size,
+    required this.size,
     this.amountChange,
     this.cartEntity,
   });
-  final double Size;
+  final double size;
   final CartEntity? cartEntity;
   final ValueChanged<int>? amountChange;
 
@@ -44,7 +44,6 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           count: count,
           valueChange: (value) {
             setState(() {
-              //count = widget.cartEntity!.amount!;
               count = value;
               if (widget.cartEntity != null) {
                 context.read<CartCubit>().updateCartData(
@@ -55,8 +54,8 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
               widget.amountChange!(count);
             });
           },
-          width: widget.Size,
-          height: widget.Size,
+          width: widget.size,
+          height: widget.size,
         ),
         SizedBox(
           width: 16,
@@ -71,12 +70,11 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           width: 16,
         ),
         CustomFloatingNegativeButton(
-          width: widget.Size,
-          height: widget.Size,
+          width: widget.size,
+          height: widget.size,
           count: count,
           valueChanged: (value) {
             setState(() {
-              //count = widget.cartEntity!.amount!;
               count = value;
               if (widget.cartEntity != null) {
                 context.read<CartCubit>().updateCartData(

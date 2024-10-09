@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 
@@ -33,7 +31,6 @@ class _CustomFloatingAddButtonState extends State<CustomFloatingAddButton> {
           setState(() {
             widget.count++;
             widget.valueChange(widget.count);
-            log(widget.count.toString());
           });
         },
         child: Icon(
