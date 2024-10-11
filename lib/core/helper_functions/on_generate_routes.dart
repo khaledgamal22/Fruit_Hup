@@ -18,6 +18,7 @@ import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
 import '../../features/checkout/presentation/views/checkout_view.dart';
 import '../../features/forget_password/presentation/views/new_password_view.dart';
+import '../../features/home/presentation/views/product_reviews_view.dart';
 import '../../features/profile/presentation/views/add_new_payment_method_view.dart';
 import '../../features/profile/presentation/views/my_favorite_products_view.dart';
 import '../../features/profile/presentation/views/payments_view.dart';
@@ -105,6 +106,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case RoutingName.checkout:
       return MaterialPageRoute(
         builder: (context) => CheckoutView(),
+      );
+    case RoutingName.productReviews:
+      return MaterialPageRoute(
+        builder: (context) => ProductReviewsView(),
       );
     default:
       return MaterialPageRoute(

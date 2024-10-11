@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
 class RatingRowWidget extends StatelessWidget {
   const RatingRowWidget({super.key, required this.productEntity});
@@ -31,10 +32,14 @@ class RatingRowWidget extends StatelessWidget {
           ),
         ),
         SizedBox(width: 10),
-        Text(
-          'المراجعه',
-          style: AppStyle.styleBold13(context).copyWith(
-            color: AppColor.primaryColor,
+        GestureDetector(
+          onTap: () => Navigator.pushNamed(context, RoutingName.productReviews),
+          child: Text(
+            'المراجعه',
+            style: AppStyle.styleBold13(context).copyWith(
+              color: AppColor.primaryColor,
+              decoration: TextDecoration.underline,
+            ),
           ),
         ),
       ],

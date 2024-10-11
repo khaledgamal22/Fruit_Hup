@@ -1,0 +1,109 @@
+import 'package:flutter/material.dart';
+
+import '../../../../../uitilits/app_colors.dart';
+import '../../../../../uitilits/app_style.dart';
+import 'rating_bar.dart';
+
+class SummeryProductReview extends StatelessWidget {
+  const SummeryProductReview({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'الملخص',
+          style: AppStyle.styleSemibold16(context),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Color(0xffFFB400),
+                      ),
+                      Text(
+                        '4.5',
+                        style: AppStyle.styleBold13(context).copyWith(
+                          color: AppColor.headerTextColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    '88%',
+                    style: AppStyle.styleRegular16(context).copyWith(
+                      color: AppColor.headerTextColor,
+                    ),
+                  ),
+                  Text(
+                    'موصي بها',
+                    style: AppStyle.styleRegular13(context).copyWith(
+                      color: AppColor.headerTextColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 30,
+            ),
+            Expanded(
+              flex: 5,
+              child: Column(
+                children: [
+                  RatingBar(
+                    value: 1,
+                    text: '5',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  RatingBar(
+                    value: 0.8,
+                    text: '4',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  RatingBar(
+                    value: 0.6,
+                    text: '3',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  RatingBar(
+                    value: 0.4,
+                    text: '2',
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  RatingBar(
+                    value: 0.2,
+                    text: '1',
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}

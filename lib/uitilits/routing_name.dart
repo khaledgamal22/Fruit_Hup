@@ -18,4 +18,5 @@ class RoutingName {
   static const payments = 'PaymentsView';
   static const addNewPaymentMethodView = 'AddNewPaymentMethodView';
   static const checkout = 'checkout_view';
+  static const productReviews = 'ProductReviewsView';
 }
