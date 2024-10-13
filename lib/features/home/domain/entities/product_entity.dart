@@ -10,6 +10,7 @@ class ProductEntity {
   final String id;
   final int calory;
   final List<ReviewEntity> reviews;
+  final bool isFeatured;
 
   ProductEntity({
     required this.name,
@@ -21,6 +22,7 @@ class ProductEntity {
     required this.id,
     required this.calory,
     required this.reviews,
+    required this.isFeatured,
   });
 
   Map<String, dynamic> toMap() {
@@ -34,6 +36,7 @@ class ProductEntity {
       'id': id,
       'calory': calory,
       'reviews': reviews.map((x) => x.toMap()).toList(),
+      'isFeatured': isFeatured,
     };
   }
 }

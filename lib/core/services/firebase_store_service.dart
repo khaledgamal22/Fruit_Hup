@@ -61,7 +61,7 @@ class FirebaseStoreService implements DatabaseServices {
   Future<QuerySnapshot> searchForData({
     required String path,
     required String searchKey,
-    required String searchValue,
+    required dynamic searchValue,
   }) async {
     var data = await firestore
         .collection(path)

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
+import 'package:fruits_ecommerce_app/features/all_products/presentation/view_models/featured_products/featured_products_cubit.dart';
 import 'package:fruits_ecommerce_app/features/all_products/presentation/views/widgets/my_products_list_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
+
+import '../../../domain/repos/all_product_repo.dart';
 
 class MyProductsSection extends StatelessWidget {
   const MyProductsSection({super.key});
@@ -42,7 +47,12 @@ class MyProductsSection extends StatelessWidget {
         ),
         SizedBox(
           height: 70,
-          child: MyProductsListView(),
+          child: BlocProvider(
+            create: (context) => FeaturedProductsCubit(
+              allProductRepo: getIt.get<AllProductRepo>(),
+            )..getFeaturedProducts(),
+            child: MyProductsListView(),
+          ),
         ),
       ],
     );

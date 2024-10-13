@@ -25,5 +25,5 @@ abstract class DatabaseServices {
   Future searchForData(
       {required String path,
       required String searchKey,
-      required String searchValue});
+      required dynamic searchValue});
 }

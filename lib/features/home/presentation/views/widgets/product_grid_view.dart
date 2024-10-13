@@ -52,6 +52,7 @@ class ProductGridView extends StatelessWidget {
                   id: '',
                   calory: 0,
                   reviews: [],
+                  isFeatured: true,
                 ),
               ),
               itemCount: 8,

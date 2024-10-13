@@ -13,6 +13,7 @@ class ProductModel extends ProductEntity {
     required super.id,
     required super.calory,
     required super.reviews,
+    required super.isFeatured,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -29,29 +30,31 @@ class ProductModel extends ProductEntity {
               ?.map((e) => ReviewModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      isFeatured: json['isFeatured'] as bool,
     );
   }
-  ProductModel copyWith({
-    String? name,
-    String? image,
-    double? price,
-    double? rating,
-    int? ratingCount,
-    String? description,
-    String? id,
-    int? calory,
-    List<ReviewModel>? reviews,
-  }) {
-    return ProductModel(
-      name: name ?? this.name,
-      image: image ?? this.image,
-      price: price ?? this.price,
-      rating: rating ?? this.rating,
-      ratingCount: ratingCount ?? this.ratingCount,
-      description: description ?? this.description,
-      id: id ?? this.id,
-      calory: calory ?? this.calory,
-      reviews: reviews ?? this.reviews,
-    );
-  }
+  // ProductModel copyWith({
+  //   String? name,
+  //   String? image,
+  //   double? price,
+  //   double? rating,
+  //   int? ratingCount,
+  //   String? description,
+  //   String? id,
+  //   int? calory,
+  //   List<ReviewModel>? reviews,
+  // }) {
+  //   return ProductModel(
+  //     name: name ?? this.name,
+  //     image: image ?? this.image,
+  //     price: price ?? this.price,
+  //     rating: rating ?? this.rating,
+  //     ratingCount: ratingCount ?? this.ratingCount,
+  //     description: description ?? this.description,
+  //     id: id ?? this.id,
+  //     calory: calory ?? this.calory,
+  //     reviews: reviews ?? this.reviews,
+  //     isFeatured: isFeatured ?? this.isFeatured,
+  //   );
+  // }
 }

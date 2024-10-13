@@ -5,6 +5,8 @@ import 'package:fruits_ecommerce_app/core/services/hive_service.dart';
 import 'package:fruits_ecommerce_app/features/Auth/data/repos/sign_up_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_in_repo.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_up_repo.dart';
+import 'package:fruits_ecommerce_app/features/all_products/data/repos/all_product_repo_impl.dart';
+import 'package:fruits_ecommerce_app/features/all_products/domain/repos/all_product_repo.dart';
 import 'package:fruits_ecommerce_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/home/data/repos/reviews_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/repos/home_repo.dart';
@@ -59,6 +61,13 @@ void setupGetIt() {
     ),
   );
   getIt.registerSingleton<ReviewsRepo>(
-    ReviewsRepoImpl(databaseServices: getIt.get<DatabaseServices>()),
+    ReviewsRepoImpl(
+      databaseServices: getIt.get<DatabaseServices>(),
+    ),
+  );
+  getIt.registerSingleton<AllProductRepo>(
+    AllProductRepoImpl(
+      databaseServices: getIt.get<DatabaseServices>(),
+    ),
   );
 }
