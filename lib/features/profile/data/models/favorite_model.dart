@@ -9,7 +9,7 @@ class FavoriteModel extends HiveObject {
   @HiveField(1)
   final String image;
   @HiveField(2)
-  final double price;
+  final num price;
   @HiveField(3)
   final String id;
 

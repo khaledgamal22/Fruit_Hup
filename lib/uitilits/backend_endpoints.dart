@@ -9,4 +9,5 @@ class BackendEndpoints {
   static const editCartData = 'cart';
   static const favoriteBox = 'favorite';
   static const getproducts = 'products';
+  static const getReviews = 'reviews';
 }

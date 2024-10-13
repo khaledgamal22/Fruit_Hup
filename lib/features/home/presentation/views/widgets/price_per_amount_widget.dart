@@ -7,7 +7,7 @@ class PricePerAmountWidget extends StatelessWidget {
     super.key,
     required this.price,
   });
-  final double price;
+  final num price;
 
   @override
   Widget build(BuildContext context) {

@@ -108,8 +108,11 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         builder: (context) => CheckoutView(),
       );
     case RoutingName.productReviews:
+      final ProductEntity productEntity = settings.arguments as ProductEntity;
       return MaterialPageRoute(
-        builder: (context) => ProductReviewsView(),
+        builder: (context) => ProductReviewsView(
+          productEntity: productEntity,
+        ),
       );
     default:
       return MaterialPageRoute(

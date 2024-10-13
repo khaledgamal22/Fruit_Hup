@@ -33,7 +33,8 @@ class RatingRowWidget extends StatelessWidget {
         ),
         SizedBox(width: 10),
         GestureDetector(
-          onTap: () => Navigator.pushNamed(context, RoutingName.productReviews),
+          onTap: () => Navigator.pushNamed(context, RoutingName.productReviews,
+              arguments: productEntity),
           child: Text(
             'المراجعه',
             style: AppStyle.styleBold13(context).copyWith(

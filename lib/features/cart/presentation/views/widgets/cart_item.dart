@@ -74,7 +74,7 @@ class _CartItemState extends State<CartItem> {
                 ),
                 SizedBox(height: 4),
                 Text(
-                  '3 كم',
+                  '$count كم',
                   style: AppStyle.styleRegular13(context).copyWith(
                     color: AppColor.priceColor,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 
 import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
@@ -7,7 +8,9 @@ import 'rating_bar.dart';
 class SummeryProductReview extends StatelessWidget {
   const SummeryProductReview({
     super.key,
+    required this.productEntity,
   });
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class SummeryProductReview extends StatelessWidget {
                         color: Color(0xffFFB400),
                       ),
                       Text(
-                        '4.5',
+                        productEntity.rating.toString(),
                         style: AppStyle.styleBold13(context).copyWith(
                           color: AppColor.headerTextColor,
                         ),

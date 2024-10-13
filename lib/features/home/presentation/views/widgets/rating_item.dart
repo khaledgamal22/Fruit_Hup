@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/home/domain/entities/review_entity.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../uitilits/app_style.dart';
 
 class RatingItem extends StatelessWidget {
-  const RatingItem({super.key});
+  const RatingItem({super.key, required this.reviewEntity});
+  final ReviewEntity reviewEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +19,11 @@ class RatingItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'Ahmed Amr',
+                  reviewEntity.name,
                   style: AppStyle.styleSemibold16(context),
                 ),
                 Text(
-                  '25/06/2020',
+                  reviewEntity.date,
                   style: AppStyle.styleRegular13(context),
                 ),
               ],
@@ -32,35 +35,36 @@ class RatingItem extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://thumbs.dreamstime.com/b/profile-picture-caucasian-male-employee-posing-office-happy-young-worker-look-camera-workplace-headshot-portrait-smiling-190186649.jpg'),
+                  backgroundImage: NetworkImage(reviewEntity.image),
                   radius: 30,
                 ),
                 Positioned(
                   bottom: 8,
                   left: 45,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: ShapeDecoration(
-                      shadows: [
-                        BoxShadow(
-                          color: Color(0xffFFC529).withOpacity(0.3),
-                          blurRadius: 8,
-                          spreadRadius: 5,
-                          offset: Offset(0, 4),
+                  child: Skeleton.ignore(
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: ShapeDecoration(
+                        shadows: [
+                          BoxShadow(
+                            color: Color(0xffFFC529).withOpacity(0.3),
+                            blurRadius: 8,
+                            spreadRadius: 5,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                      ],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        color: Color(0xffFFC529),
                       ),
-                      color: Color(0xffFFC529),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '5.0',
-                        style: AppStyle.styleSemibold11(context).copyWith(
-                          color: Color(0xffFFFFFF),
+                      child: Center(
+                        child: Text(
+                          (reviewEntity.rating.toDouble()).toString(),
+                          style: AppStyle.styleSemibold11(context).copyWith(
+                            color: Color(0xffFFFFFF),
+                          ),
                         ),
                       ),
                     ),
@@ -74,7 +78,7 @@ class RatingItem extends StatelessWidget {
           height: 16,
         ),
         Text(
-          'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+          reviewEntity.comment,
           style: AppStyle.styleRegular13(context),
         ),
       ],

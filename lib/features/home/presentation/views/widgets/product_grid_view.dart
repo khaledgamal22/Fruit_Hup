@@ -14,7 +14,7 @@ class ProductGridView extends StatelessWidget {
       builder: (context, state) {
         if (state is HomeSuccess) {
           return GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
@@ -34,7 +34,7 @@ class ProductGridView extends StatelessWidget {
             enabled: true,
             effect: const ShimmerEffect(),
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
@@ -51,6 +51,7 @@ class ProductGridView extends StatelessWidget {
                   description: '',
                   id: '',
                   calory: 0,
+                  reviews: [],
                 ),
               ),
               itemCount: 8,
