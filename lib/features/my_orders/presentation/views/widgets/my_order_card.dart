@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class MyOrderCard extends StatelessWidget {
-  const MyOrderCard({super.key});
+  const MyOrderCard({super.key, required this.orderEntity});
+  final OrderEntity orderEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class MyOrderCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'طلب رقم : 1234567#',
+                  'طلب رقم : ${orderEntity.oredrNumber}#',
                   style: AppStyle.styleBold13(context).copyWith(
                     color: Color(0xff000000),
                   ),
@@ -42,7 +44,7 @@ class MyOrderCard extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  'تم الطلب :22 مارس ,2024',
+                  'تم الطلب : ${orderEntity.date}',
                   style: AppStyle.styleRegular11(context),
                 ),
                 SizedBox(
@@ -56,7 +58,8 @@ class MyOrderCard extends StatelessWidget {
                         style: AppStyle.styleRegular13(context),
                       ),
                       TextSpan(
-                        text: '10  250 جنيه',
+                        text:
+                            '${orderEntity.noOfItems}  ${orderEntity.totalPrice} جنيه',
                         style: AppStyle.styleBold13(context).copyWith(
                           color: AppColor.headerTextColor,
                         ),
