@@ -25,7 +25,7 @@ class PaymentMethodWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: isChecked ? Border.all(color: AppColor.primaryColor) : null,
         borderRadius: BorderRadius.circular(4),
-        color: Color(0xffF2F3F3),
+        color: const Color(0xffF2F3F3),
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 5),
@@ -34,15 +34,16 @@ class PaymentMethodWidget extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   width: 18,
                   height: 18,
                   decoration: ShapeDecoration(
-                    color: isChecked ? Colors.white : Color(0xffF2F3F3),
+                    color: isChecked ? Colors.white : const Color(0xffF2F3F3),
                     shape: CircleBorder(
                       side: BorderSide(
-                        color: isChecked ? Colors.white : Color(0xff949D9E),
+                        color:
+                            isChecked ? Colors.white : const Color(0xff949D9E),
                       ),
                     ),
                   ),
@@ -50,7 +51,7 @@ class PaymentMethodWidget extends StatelessWidget {
                       ? Padding(
                           padding: const EdgeInsets.all(2),
                           child: Container(
-                            decoration: ShapeDecoration(
+                            decoration: const ShapeDecoration(
                               shape: CircleBorder(),
                               color: AppColor.primaryColor,
                             ),
@@ -60,7 +61,7 @@ class PaymentMethodWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -70,14 +71,14 @@ class PaymentMethodWidget extends StatelessWidget {
                     color: AppColor.headerTextColor,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   subtitle,
                   style: AppStyle.styleRegular13(context),
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               price,
               style: AppStyle.styleBold13(context).copyWith(

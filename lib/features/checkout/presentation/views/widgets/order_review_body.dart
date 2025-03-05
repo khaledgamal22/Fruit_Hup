@@ -111,82 +111,7 @@ class OrderReviewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
-          ),
-          Text(
-            'يرجي تأكيد  طلبك',
-            style: AppStyle.styleBold13(context).copyWith(
-              color: AppColor.headerTextColor,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
-              color: const Color(0xffF9FAFA),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'وسيلة الدفع',
-                        style: AppStyle.styleBold13(context).copyWith(
-                          color: AppColor.headerTextColor,
-                        ),
-                      ),
-                      const Spacer(),
-                      Image.asset(Assets.imagesEdit),
-                      Text(
-                        'تعديل',
-                        style: AppStyle.styleSemibold13(context).copyWith(
-                          color: const Color(0xff949D9E),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      const Spacer(),
-                      Text(
-                        '6522 **** **** ****',
-                        style: AppStyle.styleRegular16(context).copyWith(
-                          color: const Color(0xff4E5556),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        height: 34,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: const Color(0xff1434CB),
-                          border: Border.all(
-                            color: const Color(0xffD6DCE5),
-                          ),
-                        ),
-                        child: Image.asset(
-                          Assets.imagesVisa,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
+            height: 40,
           ),
           Container(
             width: MediaQuery.of(context).size.width,
@@ -239,7 +164,7 @@ class OrderReviewBody extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 30,
+              top: 60,
             ),
             child: CustomButton(
               title: 'تأكيد الطلب',

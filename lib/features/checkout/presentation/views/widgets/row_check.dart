@@ -35,12 +35,6 @@ class RowCheck extends StatelessWidget {
           itemIndex: 2,
           currentIndex: currentIndex,
         ),
-        RowcheckItem(
-          label: 'المراجعه',
-          title: '4',
-          itemIndex: 3,
-          currentIndex: currentIndex,
-        ),
       ],
     );
   }

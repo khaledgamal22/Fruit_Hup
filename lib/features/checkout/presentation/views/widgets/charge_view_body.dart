@@ -47,7 +47,7 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
                 });
               },
               child: PaymentMethodWidget(
-                title: 'اشتري الان وادفع لاحقا',
+                title: 'ادفع الان',
                 subtitle: 'يرجي تحديد طريقه الدفع',
                 price: 'مجاني',
                 isChecked: issecond,

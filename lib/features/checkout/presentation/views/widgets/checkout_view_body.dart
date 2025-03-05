@@ -13,7 +13,11 @@ class CheckoutViewBody extends StatefulWidget {
 }
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
-  List<String> barTitles = ['الشحن', 'العنوان', 'الدفع', 'المراجعه'];
+  List<String> barTitles = [
+    'الشحن',
+    'العنوان',
+    'الدفع',
+  ];
 
   late PageController pageController;
   int currentIndex = 0;
@@ -37,45 +41,46 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: 20),
-            Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    if (currentIndex == 0) {
-                      Navigator.of(context).pop();
-                    }
-                    pageController.animateToPage(
-                      currentIndex - 1,
-                      duration: Duration(milliseconds: 100),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: CustomAppBarIcon(),
-                ),
-                SizedBox(width: 85),
-                Text(
-                  barTitles[currentIndex],
-                  style: AppStyle.styleBold19(context),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            RowCheck(
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  if (currentIndex == 0) {
+                    Navigator.of(context).pop();
+                  }
+                  pageController.animateToPage(
+                    currentIndex - 1,
+                    duration: const Duration(milliseconds: 100),
+                    curve: Curves.easeIn,
+                  );
+                },
+                child: const CustomAppBarIcon(),
+              ),
+              const SizedBox(width: 85),
+              Text(
+                barTitles[currentIndex],
+                style: AppStyle.styleBold19(context),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: RowCheck(
               currentIndex: currentIndex,
             ),
-            SizedBox(height: 20),
-            Expanded(
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CheckoutPageView(pageController: pageController),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

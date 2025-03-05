@@ -48,17 +48,19 @@ class _AddToCartButtonState extends State<AddToCartButton> {
         width: 36,
         height: 36,
         decoration: ShapeDecoration(
-          shape: CircleBorder(),
-          color: AppColor.primaryColor,
+          shape: const CircleBorder(),
+          color: isInCart
+              ? const Color.fromARGB(255, 123, 123, 123)
+              : AppColor.primaryColor,
         ),
         child: Center(
           child: isInCart
-              ? Icon(
+              ? const Icon(
                   Icons.check,
                   size: 26,
                   color: Colors.white,
                 )
-              : Icon(
+              : const Icon(
                   Icons.add,
                   size: 26,
                   color: Colors.white,

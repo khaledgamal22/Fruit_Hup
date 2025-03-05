@@ -16,10 +16,10 @@ class CustomAppBarIcon extends StatelessWidget {
           color: Colors.white,
           shape: BoxShape.circle,
           border: Border.all(
-            color: Color(0xffF1F1F5),
+            color: const Color(0xffF1F1F5),
           ),
         ),
-        child: Icon(
+        child: const Icon(
           Icons.arrow_back_ios_new,
           size: 18,
           color: Color(0xff0C0D0D),
