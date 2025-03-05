@@ -35,7 +35,7 @@ class _CartItemState extends State<CartItem> {
     return Container(
       width: double.infinity,
       height: 95,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border.symmetric(
           horizontal: BorderSide(
             color: Color(0xffF1F1F5),
@@ -44,11 +44,11 @@ class _CartItemState extends State<CartItem> {
       ),
       child: Row(
         children: [
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Container(
             height: 90,
             width: 90,
-            color: Color(0xffF3F5F7),
+            color: const Color(0xffF3F5F7),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Skeleton.ignore(
@@ -58,7 +58,7 @@ class _CartItemState extends State<CartItem> {
               ),
             ),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Padding(
             padding: const EdgeInsets.symmetric(
               vertical: 6,
@@ -72,15 +72,15 @@ class _CartItemState extends State<CartItem> {
                     color: AppColor.headerTextColor,
                   ),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   '$count كم',
                   style: AppStyle.styleRegular13(context).copyWith(
                     color: AppColor.priceColor,
                   ),
                 ),
-                SizedBox(height: 6),
-                increaseDecreaseAmount(
+                const SizedBox(height: 6),
+                IncreaseDecreaseAmount(
                   size: 30,
                   cartEntity: widget.cartEntity,
                   amountChange: (value) {
@@ -92,7 +92,7 @@ class _CartItemState extends State<CartItem> {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
             child: Column(
@@ -112,12 +112,12 @@ class _CartItemState extends State<CartItem> {
                       },
                     );
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.delete_outline,
                     color: Color(0xff949D9E),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   '${widget.cartEntity.priceProduct * count}جنيه',
                   style: AppStyle.styleBold16(context).copyWith(

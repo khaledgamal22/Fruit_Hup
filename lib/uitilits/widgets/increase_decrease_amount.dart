@@ -6,8 +6,8 @@ import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubi
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_floating_add_negative_button.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
-class increaseDecreaseAmount extends StatefulWidget {
-  const increaseDecreaseAmount({
+class IncreaseDecreaseAmount extends StatefulWidget {
+  const IncreaseDecreaseAmount({
     super.key,
     required this.size,
     this.amountChange,
@@ -18,10 +18,10 @@ class increaseDecreaseAmount extends StatefulWidget {
   final ValueChanged<int>? amountChange;
 
   @override
-  State<increaseDecreaseAmount> createState() => _increaseDecreaseAmountState();
+  State<IncreaseDecreaseAmount> createState() => _IncreaseDecreaseAmountState();
 }
 
-class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
+class _IncreaseDecreaseAmountState extends State<IncreaseDecreaseAmount> {
   int count = 1;
   @override
   void initState() {
@@ -57,16 +57,16 @@ class _increaseDecreaseAmountState extends State<increaseDecreaseAmount> {
           width: widget.size,
           height: widget.size,
         ),
-        SizedBox(
+        const SizedBox(
           width: 16,
         ),
         Text(
           '$count',
           style: AppStyle.styleBold16(context).copyWith(
-            color: Color(0xff06140C),
+            color: const Color(0xff06140C),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 16,
         ),
         CustomFloatingNegativeButton(

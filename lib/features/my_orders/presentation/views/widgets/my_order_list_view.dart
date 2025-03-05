@@ -37,7 +37,7 @@ class MyOrdersListView extends StatelessWidget {
             enabled: true,
             effect: const ShimmerEffect(),
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: 4,
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {

@@ -15,6 +15,7 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> addCartData(
       {required CartEntity cartEntity, required String currentUser}) async {
+    emit(CartLoading());
     await cartRepo.addCartData(
         cartEntity: cartEntity, currentUser: currentUser);
     emit(CartAdded());

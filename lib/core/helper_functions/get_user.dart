@@ -6,7 +6,7 @@ import '../../features/Auth/data/models/user_model.dart';
 import '../services/shared_preference_singleton.dart';
 
 UserEntity getUser() {
-  var userJson = SharedPreferenceSingleton.getString('userData');
+  var userJson = SharedPref.getString('userData');
   var userEntity = UserModel.fromJson(jsonDecode(userJson));
   return userEntity;
 }

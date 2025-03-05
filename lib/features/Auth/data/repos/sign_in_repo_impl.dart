@@ -79,7 +79,7 @@ class SignInRepoImpl implements SignInRepo {
   @override
   Future<void> saveUserData(UserEntity user) async {
     var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
-    await SharedPreferenceSingleton.setString('userData', jsonData);
+    await SharedPref.setString('userData', jsonData);
   }
 
   @override

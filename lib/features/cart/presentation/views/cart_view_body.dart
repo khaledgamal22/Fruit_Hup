@@ -26,13 +26,13 @@ class CartViewBody extends StatelessWidget {
                   style: AppStyle.styleBold19(context),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               BlocBuilder<CartCubit, CartState>(
                 builder: (context, state) {
                   return Container(
                     width: double.infinity,
                     height: 41,
-                    color: Color(0xffEBF9F1),
+                    color: const Color(0xffEBF9F1),
                     child: Center(
                       child: Text(
                         'لديك ${state is CartSuccess ? state.cartList.length : 0} منتجات في سله التسوق',
@@ -47,14 +47,14 @@ class CartViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: CartListView(),
         ),
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
             children: [
-              Expanded(
+              const Expanded(
                 child: SizedBox(height: 50),
               ),
               Padding(
@@ -70,7 +70,7 @@ class CartViewBody extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
             ],
           ),
         ),

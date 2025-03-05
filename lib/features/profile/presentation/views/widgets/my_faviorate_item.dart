@@ -62,8 +62,9 @@ class MyFaviorateItem extends StatelessWidget {
                   children: [
                     Text(
                       favoriteModel.name,
-                      style: AppStyle.styleSemibold13(context)
-                          .copyWith(color: AppColor.headerTextColor),
+                      style: AppStyle.styleSemibold13(context).copyWith(
+                        color: AppColor.headerTextColor,
+                      ),
                     ),
                     PricePerAmountWidget(
                       price: favoriteModel.price,
@@ -84,7 +85,7 @@ class MyFaviorateItem extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

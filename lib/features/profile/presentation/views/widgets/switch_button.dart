@@ -22,10 +22,10 @@ class _SwitchButtonState extends State<SwitchButton> {
           setState(() {});
         },
         activeColor: Colors.white,
-        inactiveTrackColor: Color(0xff888FA0),
+        inactiveTrackColor: const Color(0xff888FA0),
         inactiveThumbColor: Colors.white,
         activeTrackColor: AppColor.primaryColor,
-        thumbIcon: WidgetStatePropertyAll(
+        thumbIcon: const WidgetStatePropertyAll(
           Icon(
             Icons.circle,
             color: Colors.white,

@@ -70,7 +70,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
             child: GestureDetector(
               onTap: () {
-                SharedPreferenceSingleton.setBool(kIsOnBoardingSeen, true);
+                SharedPref.setBool(kIsOnBoardingSeen, true);
                 Navigator.pushReplacementNamed(context, RoutingName.signIn);
               },
               child: CustomButton(

@@ -13,71 +13,73 @@ class ProfileDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            'حسابي',
-            style: AppStyle.styleBold19(context),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            title: Text(
+              'حسابي',
+              style: AppStyle.styleBold19(context),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
+            child: InformationHeaderWidget(),
           ),
-          child: InformationHeaderWidget(),
-        ),
-        SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
+            child: ProfileInFoList(),
           ),
-          child: ProfileInFoList(),
-        ),
-        SizedBox(height: 25),
-        GestureDetector(
-          onTap: () {
-            buildDialog(context, title: 'هل ترغب في تسجيل الخروج ؟',
-                onTap: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, RoutingName.signIn);
-            });
-          },
-          child: Container(
-            width: double.infinity,
-            height: 45,
-            color: Color(0xffEBF9F1),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(child: SizedBox()),
-                Text(
-                  'تسجيل الخروج',
-                  style: AppStyle.styleSemibold13(context).copyWith(
-                    color: AppColor.primaryColor,
+          SizedBox(height: 25),
+          GestureDetector(
+            onTap: () {
+              buildDialog(context, title: 'هل ترغب في تسجيل الخروج ؟',
+                  onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, RoutingName.signIn);
+              });
+            },
+            child: Container(
+              width: double.infinity,
+              height: 45,
+              color: Color(0xffEBF9F1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(child: SizedBox()),
+                  Text(
+                    'تسجيل الخروج',
+                    style: AppStyle.styleSemibold13(context).copyWith(
+                      color: AppColor.primaryColor,
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: SizedBox(
-                    child: Transform.rotate(
-                      angle: 180 * 3.14 / 180,
-                      child: Icon(
-                        Icons.logout,
-                        size: 22,
-                        color: Color(0xff53B175),
+                  Expanded(
+                    child: SizedBox(
+                      child: Transform.rotate(
+                        angle: 180 * 3.14 / 180,
+                        child: Icon(
+                          Icons.logout,
+                          size: 22,
+                          color: Color(0xff53B175),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

@@ -54,8 +54,7 @@ class OnBoarddingPageviewItem extends StatelessWidget {
                   top: 12,
                   child: GestureDetector(
                     onTap: () {
-                      SharedPreferenceSingleton.setBool(
-                          kIsOnBoardingSeen, true);
+                      SharedPref.setBool(kIsOnBoardingSeen, true);
                       Navigator.pushReplacementNamed(
                           context, RoutingName.signIn);
                     },

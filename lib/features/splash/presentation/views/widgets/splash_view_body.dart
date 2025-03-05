@@ -21,8 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   void executeNavigation() {
     bool isAuth = isAuthenticated();
-    bool isOnboardingSeeen =
-        SharedPreferenceSingleton.getBool(kIsOnBoardingSeen);
+    bool isOnboardingSeeen = SharedPref.getBool(kIsOnBoardingSeen);
     Future.delayed(
       const Duration(seconds: 2),
       () {

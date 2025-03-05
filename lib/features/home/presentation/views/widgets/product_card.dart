@@ -43,7 +43,7 @@ class ProductCard extends StatelessWidget {
                   create: (context) => FavoriteCubit(
                     favoriteRepo: getIt.get<FavoriteRepo>(),
                   ),
-                  child: favoriteIcon(
+                  child: FavoriteIcon(
                     favoriteModel: FavoriteModel(
                       name: productEntity.name,
                       image: productEntity.image,
@@ -71,8 +71,9 @@ class ProductCard extends StatelessWidget {
                       children: [
                         Text(
                           productEntity.name,
-                          style: AppStyle.styleSemibold13(context)
-                              .copyWith(color: AppColor.headerTextColor),
+                          style: AppStyle.styleSemibold13(context).copyWith(
+                            color: AppColor.headerTextColor,
+                          ),
                         ),
                         PricePerAmountWidget(
                           price: productEntity.price,
@@ -90,7 +91,7 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -100,8 +101,8 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-class favoriteIcon extends StatefulWidget {
-  const favoriteIcon({
+class FavoriteIcon extends StatefulWidget {
+  const FavoriteIcon({
     super.key,
     required this.favoriteModel,
   });
@@ -109,10 +110,10 @@ class favoriteIcon extends StatefulWidget {
   final FavoriteModel favoriteModel;
 
   @override
-  State<favoriteIcon> createState() => _favoriteIconState();
+  State<FavoriteIcon> createState() => _FavoriteIconState();
 }
 
-class _favoriteIconState extends State<favoriteIcon> {
+class _FavoriteIconState extends State<FavoriteIcon> {
   bool isfavorite = false;
   checkIsProductFavorite() async {
     isfavorite = await context.read<HomeCubit>().isProductFavorite(
@@ -141,12 +142,14 @@ class _favoriteIconState extends State<favoriteIcon> {
                       .addFavorite(favoriteModel: widget.favoriteModel);
                   isfavorite = true;
                 }
+                if (isfavorite) {
+                  widget.favoriteModel.delete();
+                  isfavorite = false;
+                }
               },
               child: Icon(
                 isfavorite ? Icons.favorite : Icons.favorite_outline,
-                color: isfavorite
-                    ? Colors.red
-                    : AppColor.headerTextColor.withOpacity(0.5),
+                color: isfavorite ? Colors.red : Color(0xff292D32),
                 size: 24,
               ),
             ),

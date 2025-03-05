@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruits_ecommerce_app/constant.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/on_generate_routes.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
@@ -19,18 +20,28 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await SharedPreferenceSingleton.init();
+  await SharedPref.init();
   setupGetIt();
-  runApp(const FruitHup());
+
+  final bool isDarkMode = SharedPref.getBool(kDarkMode);
+  runApp(
+    FruitHup(),
+  );
 }
 
 class FruitHup extends StatelessWidget {
-  const FruitHup({super.key});
+  const FruitHup({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: Colors.white,
+      ),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
         S.delegate,

@@ -20,11 +20,11 @@ class FeatureProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      width: 180,
+      width: 150,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Color(
+          color: const Color(
             0xffF1F1F5,
           ),
         ),
@@ -41,16 +41,16 @@ class FeatureProductCard extends StatelessWidget {
                     Text(
                       supInfo ?? "",
                       style: AppStyle.styleRegular12(context).copyWith(
-                        color: Color(0xff979899),
+                        color: const Color(0xff979899),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text(
                       info,
                       style: AppStyle.styleBold16(context).copyWith(
-                        color: Color(0xff23AA49),
+                        color: const Color(0xff23AA49),
                       ),
                     ),
                   ],
@@ -58,15 +58,19 @@ class FeatureProductCard extends StatelessWidget {
                 Text(
                   title,
                   style: AppStyle.styleSemibold13(context).copyWith(
-                    color: Color(0xff979899),
+                    color: const Color(0xff979899),
                   ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
-            Image.asset(image),
+            Image.asset(
+              image,
+              width: 20,
+              height: 20,
+            ),
           ],
         ),
       ),

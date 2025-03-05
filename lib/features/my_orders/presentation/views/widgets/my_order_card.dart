@@ -59,7 +59,7 @@ class MyOrderCard extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            '${orderEntity.noOfItems}  ${orderEntity.totalPrice} جنيه',
+                            '${orderEntity.noOfItems}    ${orderEntity.totalPrice} جنيه',
                         style: AppStyle.styleBold13(context).copyWith(
                           color: AppColor.headerTextColor,
                         ),

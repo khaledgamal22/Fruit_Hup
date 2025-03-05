@@ -32,15 +32,16 @@ class InformationHeaderWidget extends StatelessWidget {
                   shape: CircleBorder(),
                   color: Colors.white,
                 ),
-                child: Container(
-                  width: 28,
-                  height: 28,
-                  decoration: ShapeDecoration(
-                    shape: CircleBorder(),
-                    color: Color(0xffF9F9F9),
-                  ),
-                  child: Image.asset(
-                    Assets.imagesCamera,
+                child: Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: Container(
+                    decoration: ShapeDecoration(
+                      shape: CircleBorder(),
+                      color: Color(0xffF9F9F9),
+                    ),
+                    child: Image.asset(
+                      Assets.imagesCamera,
+                    ),
                   ),
                 ),
               ),

@@ -20,10 +20,12 @@ class ProfileInfoItem extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(
-        color: Color(0xffF2F3F3),
-      ))),
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xffF2F3F3),
+          ),
+        ),
+      ),
       child: ListTile(
         titleAlignment: ListTileTitleAlignment.center,
         contentPadding: EdgeInsets.zero,
