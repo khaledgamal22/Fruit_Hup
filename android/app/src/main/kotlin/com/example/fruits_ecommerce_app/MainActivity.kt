@@ -1,4 +1,4 @@
-package com.flutter.stripe.example
+package com.example.fruits_ecommerce_app
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity

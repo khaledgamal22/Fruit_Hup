@@ -2,11 +2,14 @@ import 'package:fruits_ecommerce_app/core/services/database_service.dart';
 import 'package:fruits_ecommerce_app/core/services/firebase_auth_service.dart';
 import 'package:fruits_ecommerce_app/core/services/firebase_store_service.dart';
 import 'package:fruits_ecommerce_app/core/services/hive_service.dart';
+import 'package:fruits_ecommerce_app/core/services/stripe_service.dart';
 import 'package:fruits_ecommerce_app/features/Auth/data/repos/sign_up_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_in_repo.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_up_repo.dart';
 import 'package:fruits_ecommerce_app/features/all_products/data/repos/all_product_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/all_products/domain/repos/all_product_repo.dart';
+import 'package:fruits_ecommerce_app/features/checkout/data/repos/checkout_repo.dart';
+import 'package:fruits_ecommerce_app/features/checkout/domain/repos/checkout_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/home/data/repos/reviews_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/repos/home_repo.dart';
@@ -29,6 +32,7 @@ void setupGetIt() {
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   getIt.registerSingleton<DatabaseServices>(FirebaseStoreService());
   getIt.registerSingleton<HiveService>(HiveService());
+  getIt.registerSingleton<StripeService>(StripeService());
 
   getIt.registerSingleton<FavoriteRepo>(
     FavoriteRepoImpl(
@@ -75,6 +79,11 @@ void setupGetIt() {
   getIt.registerSingleton<OrdersRepo>(
     OrdersRepoImpl(
       databaseServices: getIt.get<DatabaseServices>(),
+    ),
+  );
+  getIt.registerSingleton<CheckoutRepo>(
+    CheckoutRepoImpl(
+      stripeService: getIt.get<StripeService>(),
     ),
   );
 }
