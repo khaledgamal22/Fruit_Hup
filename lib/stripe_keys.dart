@@ -1,4 +1,5 @@
 class StripeKeys {
+  //stripe keys
   static const String publishableKey =
       'pk_test_51PuzFU00LLpq2Gecj8z0mSJp85sucJkGayUzOZRFGUj2yElSYvilNjvpidrmOBqXB8hsvFPddxP4yhrlmU0QMXQ700BNgFE4OL';
   static const String secertKey =
