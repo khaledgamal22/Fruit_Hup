@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/checkout/presentation/views/widgets/checkout_page_view.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_AppBar_icon.dart';
 
 import 'row_check.dart';
 
 class CheckoutViewBody extends StatefulWidget {
-  const CheckoutViewBody({super.key});
+  const CheckoutViewBody({super.key, required this.orderEntity});
+  final OrderEntity orderEntity;
 
   @override
   State<CheckoutViewBody> createState() => _CheckoutViewBodyState();
@@ -77,7 +79,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CheckoutPageView(pageController: pageController),
+              child: CheckoutPageView(
+                pageController: pageController,
+                orderEntity: widget.orderEntity,
+              ),
             ),
           ),
         ],

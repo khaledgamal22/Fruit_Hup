@@ -6,9 +6,15 @@ import 'package:fruits_ecommerce_app/features/checkout/presentation/view_models/
 import 'package:fruits_ecommerce_app/features/checkout/presentation/views/widgets/address_view_body.dart';
 import 'package:fruits_ecommerce_app/features/checkout/presentation/views/widgets/charge_view_body.dart';
 import 'package:fruits_ecommerce_app/features/checkout/presentation/views/widgets/order_review_body.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/domain/repos/orders_repo.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/presentation/view_models/orders/orders_cubit.dart';
 
 class CheckoutPageView extends StatelessWidget {
-  const CheckoutPageView({super.key, required this.pageController});
+  const CheckoutPageView(
+      {super.key, required this.pageController, required this.orderEntity});
+
+  final OrderEntity orderEntity;
 
   final PageController pageController;
 
@@ -25,11 +31,21 @@ class CheckoutPageView extends StatelessWidget {
           AddressViewBody(
             pageController: pageController,
           ),
-          BlocProvider(
-            create: (context) =>
-                CheckoutCubit(checkoutRepo: getIt.get<CheckoutRepo>()),
+          MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    CheckoutCubit(checkoutRepo: getIt.get<CheckoutRepo>()),
+              ),
+              BlocProvider(
+                create: (context) => OrdersCubit(
+                  ordersRepo: getIt.get<OrdersRepo>(),
+                ),
+              ),
+            ],
             child: OrderReviewBody(
               pageController: pageController,
+              orderEntity: orderEntity,
             ),
           ),
         ],

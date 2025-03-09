@@ -7,6 +7,7 @@ import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entit
 import 'package:fruits_ecommerce_app/features/home/presentation/views/all_best_seller_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/home_view.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/product_details_view.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/presentation/views/my_orders_view.dart';
 import 'package:fruits_ecommerce_app/features/notification/presentation/views/notification_view.dart';
 import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -27,27 +28,27 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
     case RoutingName.splash:
       return MaterialPageRoute(
-        builder: (context) => SplashView(),
+        builder: (context) => const SplashView(),
       );
     case RoutingName.onBoarding:
       return MaterialPageRoute(
-        builder: (context) => OnBoardingView(),
+        builder: (context) => const OnBoardingView(),
       );
     case RoutingName.signIn:
       return MaterialPageRoute(
-        builder: (context) => SignInView(),
+        builder: (context) => const SignInView(),
       );
     case RoutingName.signUp:
       return MaterialPageRoute(
-        builder: (context) => SignUpView(),
+        builder: (context) => const SignUpView(),
       );
     case RoutingName.home:
       return MaterialPageRoute(
-        builder: (context) => HomeView(),
+        builder: (context) => const HomeView(),
       );
     case RoutingName.allBestSeller:
       return MaterialPageRoute(
-        builder: (context) => AllBestSellerView(),
+        builder: (context) => const AllBestSellerView(),
       );
     case RoutingName.productDetails:
       final ProductEntity productEntity = settings.arguments as ProductEntity;
@@ -58,27 +59,27 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     case RoutingName.aboutUs:
       return MaterialPageRoute(
-        builder: (context) => AboutUsView(),
+        builder: (context) => const AboutUsView(),
       );
     case RoutingName.informationProfile:
       return MaterialPageRoute(
-        builder: (context) => InformationProfileView(),
+        builder: (context) => const InformationProfileView(),
       );
     case RoutingName.notification:
       return MaterialPageRoute(
-        builder: (context) => NotificationView(),
+        builder: (context) => const NotificationView(),
       );
     case RoutingName.search:
       return MaterialPageRoute(
-        builder: (context) => SearchView(),
+        builder: (context) => const SearchView(),
       );
     case RoutingName.myOrders:
       return MaterialPageRoute(
-        builder: (context) => MyOrdersView(),
+        builder: (context) => const MyOrdersView(),
       );
     case RoutingName.forgetPass:
       return MaterialPageRoute(
-        builder: (context) => ForgetPasswordView(),
+        builder: (context) => const ForgetPasswordView(),
       );
     case RoutingName.otpVerficationView:
       final String phone = settings.arguments as String;
@@ -89,23 +90,26 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     case RoutingName.newPass:
       return MaterialPageRoute(
-        builder: (context) => NewPasswordView(),
+        builder: (context) => const NewPasswordView(),
       );
     case RoutingName.favoriteProducts:
       return MaterialPageRoute(
-        builder: (context) => MyFavoriteProductsView(),
+        builder: (context) => const MyFavoriteProductsView(),
       );
     case RoutingName.payments:
       return MaterialPageRoute(
-        builder: (context) => PaymentsView(),
+        builder: (context) => const PaymentsView(),
       );
     case RoutingName.addNewPaymentMethodView:
       return MaterialPageRoute(
-        builder: (context) => AddNewPaymentMethodView(),
+        builder: (context) => const AddNewPaymentMethodView(),
       );
     case RoutingName.checkout:
+      final OrderEntity orderEntity = settings.arguments as OrderEntity;
       return MaterialPageRoute(
-        builder: (context) => CheckoutView(),
+        builder: (context) => CheckoutView(
+          orderEntity: orderEntity,
+        ),
       );
     case RoutingName.productReviews:
       final ProductEntity productEntity = settings.arguments as ProductEntity;
@@ -116,7 +120,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       );
     default:
       return MaterialPageRoute(
-        builder: (context) => Scaffold(),
+        builder: (context) => const Scaffold(),
       );
   }
 }

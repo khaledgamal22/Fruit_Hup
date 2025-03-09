@@ -39,7 +39,8 @@ class _AddToCartButtonState extends State<AddToCartButton> {
       onTap: () {
         if (!isInCart) {
           BlocProvider.of<CartCubit>(context).addCartData(
-              cartEntity: widget.cartEntity, currentUser: getUser().userId);
+            cartEntity: widget.cartEntity,
+          );
           isInCart = true;
           setState(() {});
         }

@@ -1,10 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/widgets/cart_list_view.dart';
+import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../uitilits/routing_name.dart';
 
@@ -64,8 +68,17 @@ class CartViewBody extends StatelessWidget {
                     return CustomButton(
                       title:
                           'الدفع ${state is CartSuccess ? state.total : 0} جنيه',
-                      onTap: () =>
-                          Navigator.of(context).pushNamed(RoutingName.checkout),
+                      onTap: () => Navigator.of(context).pushNamed(
+                        RoutingName.checkout,
+                        arguments: OrderEntity(
+                            oredrNumber:
+                                "${1000000 + Random().nextInt(9000000)}",
+                            date: getDate(),
+                            totalPrice: state is CartSuccess ? state.total : 0,
+                            noOfItems: state is CartSuccess
+                                ? state.cartList.length
+                                : 0),
+                      ),
                     );
                   },
                 ),
@@ -76,5 +89,13 @@ class CartViewBody extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String getDate() {
+    var now = DateTime.now();
+    var formatter = DateFormat('d MMMM, yyyy', 'ar');
+    String formattedDate = formatter.format(now);
+
+    return formattedDate;
   }
 }

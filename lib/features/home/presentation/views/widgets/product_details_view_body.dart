@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/feature_product_card.dart';
@@ -190,7 +189,6 @@ class _AddToCartState extends State<AddToCart> {
   checkIsinCart() async {
     isInCart = await context.read<CartCubit>().checkIfCartDataExists(
           id: widget.productEntity.id,
-          currentUser: getUser().userId,
         );
     setState(() {});
   }
@@ -210,7 +208,6 @@ class _AddToCartState extends State<AddToCart> {
                   id: widget.productEntity.id,
                   amount: widget.cartAmount,
                 ),
-                currentUser: getUser().userId,
               );
         }
       },

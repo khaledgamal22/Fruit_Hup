@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_dialog.dart';
-import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
@@ -106,7 +105,6 @@ class _CartItemState extends State<CartItem> {
                       onTap: () {
                         context.read<CartCubit>().deleteCartData(
                               id: widget.cartEntity.id,
-                              currentUser: getUser().userId,
                             );
                         Navigator.pop(context);
                       },

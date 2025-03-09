@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_floating_add_negative_button.dart';
@@ -47,9 +46,9 @@ class _IncreaseDecreaseAmountState extends State<IncreaseDecreaseAmount> {
               count = value;
               if (widget.cartEntity != null) {
                 context.read<CartCubit>().updateCartData(
-                    id: widget.cartEntity!.id,
-                    data: {'amount': count},
-                    currentUser: getUser().userId);
+                  id: widget.cartEntity!.id,
+                  data: {'amount': count},
+                );
               }
               widget.amountChange!(count);
             });
@@ -78,9 +77,9 @@ class _IncreaseDecreaseAmountState extends State<IncreaseDecreaseAmount> {
               count = value;
               if (widget.cartEntity != null) {
                 context.read<CartCubit>().updateCartData(
-                    id: widget.cartEntity!.id,
-                    data: {'amount': count},
-                    currentUser: getUser().userId);
+                  id: widget.cartEntity!.id,
+                  data: {'amount': count},
+                );
               }
               widget.amountChange!(count);
             });

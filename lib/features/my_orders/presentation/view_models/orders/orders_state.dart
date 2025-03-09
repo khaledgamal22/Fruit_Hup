@@ -18,3 +18,5 @@ final class OrdersFailure extends OrdersState {
 
   OrdersFailure({required this.errorMessage});
 }
+
+final class OrdersAdded extends OrdersState {}

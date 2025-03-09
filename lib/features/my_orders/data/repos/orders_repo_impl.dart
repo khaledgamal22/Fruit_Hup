@@ -21,4 +21,14 @@ class OrdersRepoImpl implements OrdersRepo {
         .toList();
     return orders;
   }
+
+  @override
+  Future<void> addOrder(
+      {required OrderEntity order, required String currentUser}) async {
+    await databaseServices.addData(
+      path:
+          '${BackendEndpoints.getUser}/$currentUser/${BackendEndpoints.addOrder}',
+      data: order.toMap(),
+    );
+  }
 }

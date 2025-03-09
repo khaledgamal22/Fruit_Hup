@@ -23,7 +23,7 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
       children: [
         Column(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 setState(() {
@@ -38,7 +38,7 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
                 isChecked: isfirst,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 setState(() {
@@ -55,7 +55,7 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
             ),
           ],
         ),
-        Expanded(
+        const Expanded(
           child: SizedBox(
             height: 40,
           ),
@@ -65,12 +65,12 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
           onTap: () {
             widget.pageController.animateToPage(
               widget.pageController.page!.round() + 1,
-              duration: Duration(milliseconds: 100),
+              duration: const Duration(milliseconds: 100),
               curve: Curves.easeIn,
             );
           },
         ),
-        SizedBox(
+        const SizedBox(
           height: 200,
         ),
       ],
