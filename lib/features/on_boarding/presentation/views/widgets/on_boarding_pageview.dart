@@ -13,7 +13,7 @@ class OnBoardingPageView extends StatelessWidget {
     return SafeArea(
       child: PageView(
         controller: pageController,
-        children: [
+        children: const [
           OnBoarddingPageviewItem(
             isZeroCurrentIndex: true,
             backgroundimage: Assets.imagesBackgroundonboard,

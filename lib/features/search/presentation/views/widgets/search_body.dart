@@ -6,7 +6,6 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
 import '../../../../home/presentation/views/widgets/product_card.dart';
 import '../../view_models/search/search_cubit.dart';
-import 'recent_result_search.dart';
 
 class SearchBody extends StatelessWidget {
   const SearchBody({super.key});
@@ -21,36 +20,47 @@ class SearchBody extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'نتائج البحث ',
-              style: AppStyle.styleRegular13(context),
-            ),
-            GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 0.8,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
-              itemCount: state.products.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return ProductCard(
-                  productEntity: state.products[index],
-                );
-              },
+              child: Text(
+                'نتائج البحث ',
+                style: AppStyle.styleRegular13(context),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 0.8,
+                ),
+                itemCount: state.products.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return ProductCard(
+                    productEntity: state.products[index],
+                  );
+                },
+              ),
             ),
           ],
         );
       } else if (state is SearchFailure) {
         return Center(child: Text(state.errorMessage));
       } else if (state is SearchLoading) {
-        return Center(
+        return const Center(
             child: CircularProgressIndicator(
           color: AppColor.primaryColor,
         ));
       } else {
-        return RecentResultsSearch();
+        return const SizedBox();
       }
     });
   }

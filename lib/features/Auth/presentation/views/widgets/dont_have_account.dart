@@ -15,10 +15,10 @@ class DontHaveAccountWidget extends StatelessWidget {
         Text(
           'لا تمتلك حساب؟',
           style: AppStyle.styleSemibold16(context).copyWith(
-            color: Color(0xff949D9E),
+            color: const Color(0xff949D9E),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 3,
         ),
         GestureDetector(

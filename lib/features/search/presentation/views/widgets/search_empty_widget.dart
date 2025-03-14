@@ -34,31 +34,32 @@ class SearchEmpty extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          child: SizedBox(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(Assets.imagesNoresult),
-                  SizedBox(
-                    height: 50,
+        const SizedBox(
+          height: 50,
+        ),
+        SizedBox(
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(Assets.imagesNoresult),
+                const SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'البحث',
+                  style: AppStyle.styleBold16(context).copyWith(
+                    color: const Color(0xff616A6B),
                   ),
-                  Text(
-                    'البحث',
-                    style: AppStyle.styleBold16(context).copyWith(
-                      color: Color(0xff616A6B),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'عفوًا... هذه المعلومات غير متوفرة للحظة',
-                    style: AppStyle.styleRegular13(context),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'عفوًا... هذه المعلومات غير متوفرة للحظة',
+                  style: AppStyle.styleRegular13(context),
+                ),
+              ],
             ),
           ),
         ),

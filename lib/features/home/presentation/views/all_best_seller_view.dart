@@ -12,12 +12,12 @@ class AllBestSellerView extends StatelessWidget {
       appBar: buildCustomAppBar(
         context,
         'الأكثر مبيعًا',
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: CustomNotificationIcon(),
         ),
       ),
-      body: AllBestSellerViewBody(),
+      body: const AllBestSellerViewBody(),
     );
   }
 }

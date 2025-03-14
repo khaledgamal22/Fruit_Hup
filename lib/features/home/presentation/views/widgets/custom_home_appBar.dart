@@ -12,11 +12,11 @@ class CustomHomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           radius: 25,
           backgroundImage: AssetImage(Assets.imagesPineappleCuate1),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Column(
           children: [
             Text(
@@ -31,8 +31,8 @@ class CustomHomeAppBar extends StatelessWidget {
             ),
           ],
         ),
-        Expanded(child: SizedBox()),
-        CustomNotificationIcon(),
+        const Expanded(child: SizedBox()),
+        const CustomNotificationIcon(),
       ],
     );
   }

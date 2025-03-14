@@ -23,13 +23,13 @@ class RatingBar extends StatelessWidget {
               height: 8,
               child: LinearProgressIndicator(
                 value: value,
-                color: Color(0xffFFB400),
-                backgroundColor: Color(0xffF1F3F3),
+                color: const Color(0xffFFB400),
+                backgroundColor: const Color(0xffF1F3F3),
               ),
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Text(

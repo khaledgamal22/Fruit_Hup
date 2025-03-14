@@ -32,7 +32,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           key: formkey,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               CustomTextFormField(
@@ -44,7 +44,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomTextFormField(
@@ -56,7 +56,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomTextPasswordFormField(
@@ -69,7 +69,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               TermsAndCondition(
@@ -77,7 +77,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   isTermsAndConditionsAccept = value;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomButton(
@@ -102,10 +102,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   setState(() {});
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
-              HaveAlreadyAccount(),
+              const HaveAlreadyAccount(),
             ],
           ),
         ),

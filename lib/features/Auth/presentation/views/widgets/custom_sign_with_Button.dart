@@ -18,7 +18,7 @@ class CustomSignWithButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Color(0xffDDDFDF),
+            color: const Color(0xffDDDFDF),
           ),
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,

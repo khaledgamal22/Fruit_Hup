@@ -23,19 +23,19 @@ class HomeViewBody extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  CustomHomeAppBar(),
-                  SizedBox(height: 20),
+                  const CustomHomeAppBar(),
+                  const SizedBox(height: 20),
                   SearchTextField(
                     isReadOnly: true,
                     onTap: () {
                       Navigator.pushNamed(context, RoutingName.search);
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: BestSellerSection(
                 isvisible: true,
               ),

@@ -12,26 +12,26 @@ class RatingRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.star, color: Colors.amber),
-        SizedBox(width: 6),
+        const Icon(Icons.star, color: Colors.amber),
+        const SizedBox(width: 6),
         Text(
           '${productEntity.rating}',
           style: AppStyle.styleSemibold13(context).copyWith(
-            color: Color(
+            color: const Color(
               0xff111719,
             ),
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
           '(+${productEntity.ratingCount})',
           style: AppStyle.styleRegular13(context).copyWith(
-            color: Color(
+            color: const Color(
               0xff9796A1,
             ),
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         GestureDetector(
           onTap: () => Navigator.pushNamed(context, RoutingName.productReviews,
               arguments: productEntity),

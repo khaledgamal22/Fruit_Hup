@@ -68,11 +68,11 @@ class OnBoarddingPageviewItem extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 64,
         ),
         title,
-        SizedBox(
+        const SizedBox(
           height: 24,
         ),
         Padding(
@@ -80,7 +80,7 @@ class OnBoarddingPageviewItem extends StatelessWidget {
           child: Text(
             subTitle,
             style: AppStyle.styleSemibold13(context).copyWith(
-              color: Color(0xff4E5556),
+              color: const Color(0xff4E5556),
             ),
             textAlign: TextAlign.center,
           ),

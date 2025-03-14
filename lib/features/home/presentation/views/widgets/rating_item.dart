@@ -28,7 +28,7 @@ class RatingItem extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
             Stack(
@@ -48,22 +48,22 @@ class RatingItem extends StatelessWidget {
                       decoration: ShapeDecoration(
                         shadows: [
                           BoxShadow(
-                            color: Color(0xffFFC529).withOpacity(0.3),
+                            color: const Color(0xffFFC529).withOpacity(0.3),
                             blurRadius: 8,
                             spreadRadius: 5,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           ),
                         ],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        color: Color(0xffFFC529),
+                        color: const Color(0xffFFC529),
                       ),
                       child: Center(
                         child: Text(
                           (reviewEntity.rating.toDouble()).toString(),
                           style: AppStyle.styleSemibold11(context).copyWith(
-                            color: Color(0xffFFFFFF),
+                            color: const Color(0xffFFFFFF),
                           ),
                         ),
                       ),
@@ -74,7 +74,7 @@ class RatingItem extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         Text(

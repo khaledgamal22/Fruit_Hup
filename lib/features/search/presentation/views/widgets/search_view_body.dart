@@ -26,12 +26,12 @@ class _SearchViewBodyState extends State<SearchViewBody> {
               buildCustomAppBar(
                 context,
                 'البحث',
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: CustomNotificationIcon(),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -46,17 +46,14 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],
           ),
         ),
-        SliverFillRemaining(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: SearchBody(),
-          ),
+        const SliverToBoxAdapter(
+          child: SearchBody(),
         )
       ],
     );

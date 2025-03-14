@@ -16,11 +16,11 @@ class MyOrdersViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildCustomAppBar(context, 'طلباتي', null),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],
@@ -35,7 +35,7 @@ class MyOrdersViewBody extends StatelessWidget {
               create: (context) => OrdersCubit(
                 ordersRepo: getIt.get<OrdersRepo>(),
               )..getOrders(),
-              child: MyOrdersListView(),
+              child: const MyOrdersListView(),
             ),
           ),
         ),

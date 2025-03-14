@@ -20,7 +20,7 @@ class SummeryProductReview extends StatelessWidget {
           'الملخص',
           style: AppStyle.styleSemibold16(context),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -32,7 +32,7 @@ class SummeryProductReview extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: Color(0xffFFB400),
                       ),
@@ -44,7 +44,7 @@ class SummeryProductReview extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -62,10 +62,10 @@ class SummeryProductReview extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 30,
             ),
-            Expanded(
+            const Expanded(
               flex: 5,
               child: Column(
                 children: [

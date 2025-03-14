@@ -46,17 +46,17 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         ),
         DotsIndicator(
           decorator: DotsDecorator(
-            spacing: EdgeInsets.all(5),
+            spacing: const EdgeInsets.all(5),
             color: currentIndex == 1
                 ? AppColor.primaryColor
                 : AppColor.primaryColor.withOpacity(0.5),
             activeColor: AppColor.primaryColor,
-            size: currentIndex == 1 ? Size(11, 11) : Size(9, 9),
-            activeSize: Size(11, 11),
+            size: currentIndex == 1 ? const Size(11, 11) : const Size(9, 9),
+            activeSize: const Size(11, 11),
           ),
           dotsCount: 2,
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Visibility(
@@ -73,13 +73,13 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 SharedPref.setBool(kIsOnBoardingSeen, true);
                 Navigator.pushReplacementNamed(context, RoutingName.signIn);
               },
-              child: CustomButton(
+              child: const CustomButton(
                 title: 'ابدأ الان',
               ),
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 45,
         ),
       ],

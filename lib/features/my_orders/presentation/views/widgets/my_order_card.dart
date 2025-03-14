@@ -11,7 +11,7 @@ class MyOrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffF8F9F9),
+      color: const Color(0xffF8F9F9),
       child: Padding(
         padding: const EdgeInsets.only(
           top: 16,
@@ -23,12 +23,12 @@ class MyOrderCard extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 40,
-              backgroundColor: Color(0xffEBF9F1),
+              backgroundColor: const Color(0xffEBF9F1),
               child: Image.asset(
                 Assets.imagesMyordericon,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Column(
@@ -37,17 +37,17 @@ class MyOrderCard extends StatelessWidget {
                 Text(
                   'طلب رقم : ${orderEntity.oredrNumber}#',
                   style: AppStyle.styleBold13(context).copyWith(
-                    color: Color(0xff000000),
+                    color: const Color(0xff000000),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
                   'تم الطلب : ${orderEntity.date}',
                   style: AppStyle.styleRegular11(context),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text.rich(
@@ -69,8 +69,8 @@ class MyOrderCard extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
-            Icon(
+            const Spacer(),
+            const Icon(
               Icons.keyboard_arrow_down,
             ),
           ],

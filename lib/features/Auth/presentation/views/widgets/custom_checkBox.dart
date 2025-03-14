@@ -17,12 +17,12 @@ class CustomCheckBox extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(
-            color: isChecked ? AppColor.primaryColor : Color(0xffDDDFDF),
+            color: isChecked ? AppColor.primaryColor : const Color(0xffDDDFDF),
           ),
         ),
       ),
       child: isChecked
-          ? Icon(
+          ? const Icon(
               FontAwesomeIcons.check,
               color: Colors.white,
               size: 16,

@@ -29,7 +29,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
             isChecked: boxcheck,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 16,
         ),
         Expanded(
@@ -38,13 +38,13 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
               TextSpan(
                 text: 'من خلال إنشاء حساب , فإنك توافق على ',
                 style: AppStyle.styleSemibold13(context).copyWith(
-                  color: Color(0xff949D9E),
+                  color: const Color(0xff949D9E),
                 ),
               ),
               TextSpan(
                 text: 'الشروط والأحكام الخاصه بنا',
                 style: AppStyle.styleSemibold13(context).copyWith(
-                  color: Color(0xff2D9F5D),
+                  color: const Color(0xff2D9F5D),
                 ),
               ),
             ],

@@ -12,24 +12,24 @@ class CustomDivider extends StatelessWidget {
           child: Container(
             height: 1,
             width: 20,
-            color: Color(0xffDDDFDF),
+            color: const Color(0xffDDDFDF),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         Text(
           'أو',
           style: AppStyle.styleSemibold16(context),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         Expanded(
           child: Container(
             height: 1,
             width: 20,
-            color: Color(0xffDDDFDF),
+            color: const Color(0xffDDDFDF),
           ),
         )
       ],

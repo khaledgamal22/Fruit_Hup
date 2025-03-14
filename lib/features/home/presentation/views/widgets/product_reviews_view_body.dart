@@ -25,14 +25,14 @@ class ProductReviewsViewBody extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            ReviewTextField(
+            const ReviewTextField(
               hintText: '  اكتب التعليق..',
               keyboardType: TextInputType.text,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -45,13 +45,13 @@ class ProductReviewsViewBody extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             SummeryProductReview(
               productEntity: productEntity,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             BlocBuilder<ReviewsCubit, ReviewsState>(
@@ -68,7 +68,7 @@ class ProductReviewsViewBody extends StatelessWidget {
                       ),
                     ),
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                   );
                 } else if (state is ReviewsFailure) {
                   return Center(child: Text(state.errorMessage));
@@ -95,7 +95,7 @@ class ProductReviewsViewBody extends StatelessWidget {
                         ),
                       ),
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                     ),
                   );
                 }

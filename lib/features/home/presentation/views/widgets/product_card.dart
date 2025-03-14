@@ -149,7 +149,7 @@ class _FavoriteIconState extends State<FavoriteIcon> {
               },
               child: Icon(
                 isfavorite ? Icons.favorite : Icons.favorite_outline,
-                color: isfavorite ? Colors.red : Color(0xff292D32),
+                color: isfavorite ? Colors.red : const Color(0xff292D32),
                 size: 24,
               ),
             ),

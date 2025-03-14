@@ -34,7 +34,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           key: formkey,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               CustomTextFormField(
@@ -45,7 +45,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   setState(() {});
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomTextPasswordFormField(
@@ -57,7 +57,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   setState(() {});
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Row(
@@ -70,13 +70,13 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     child: Text(
                       'نسيت كلمة المرور؟',
                       style: AppStyle.styleSemibold13(context).copyWith(
-                        color: Color(0xff2D9F5D),
+                        color: const Color(0xff2D9F5D),
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               CustomButton(
@@ -95,15 +95,15 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   setState(() {});
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
-              DontHaveAccountWidget(),
-              SizedBox(
+              const DontHaveAccountWidget(),
+              const SizedBox(
                 height: 30,
               ),
-              CustomDivider(),
-              SizedBox(
+              const CustomDivider(),
+              const SizedBox(
                 height: 24,
               ),
               CustomSignWithButton(
@@ -113,14 +113,14 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   BlocProvider.of<SignInCubit>(context).signInWithGoogle();
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              CustomSignWithButton(
+              const CustomSignWithButton(
                 title: 'تسجيل بواسطة أبل',
                 icon: Assets.imagesApple,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomSignWithButton(

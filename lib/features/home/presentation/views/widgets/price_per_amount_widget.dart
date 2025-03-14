@@ -23,7 +23,7 @@ class PricePerAmountWidget extends StatelessWidget {
           TextSpan(
             text: ' /كيلو',
             style: AppStyle.styleSemibold13(context)
-                .copyWith(color: Color(0xffF8C76D)),
+                .copyWith(color: const Color(0xffF8C76D)),
           ),
         ],
       ),
