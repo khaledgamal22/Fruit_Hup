@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -13,7 +14,7 @@ class DontHaveAccountWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'لا تمتلك حساب؟',
+          S.of(context).donthaveaccount,
           style: AppStyle.styleSemibold16(context).copyWith(
             color: const Color(0xff949D9E),
           ),
@@ -29,7 +30,7 @@ class DontHaveAccountWidget extends StatelessWidget {
             );
           },
           child: Text(
-            'قم بإنشاء حساب',
+            S.of(context).signup,
             style: AppStyle.styleSemibold16(context).copyWith(
               color: AppColor.primaryColor,
             ),

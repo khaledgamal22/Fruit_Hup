@@ -6,6 +6,7 @@ import 'package:fruits_ecommerce_app/features/home/presentation/view_models/revi
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/product_reviews_view_body.dart';
 
 import '../../../../core/helper_functions/build_custom_appBar.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/repos/reviews_repo.dart';
 
 class ProductReviewsView extends StatelessWidget {
@@ -15,7 +16,7 @@ class ProductReviewsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildCustomAppBar(context, 'المراجعه', null),
+      appBar: buildCustomAppBar(context, S.of(context).review, null),
       body: BlocProvider(
         create: (context) => ReviewsCubit(
           reviewsRepo: getIt.get<ReviewsRepo>(),

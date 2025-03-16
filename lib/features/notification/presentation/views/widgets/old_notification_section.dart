@@ -4,6 +4,8 @@ import 'package:fruits_ecommerce_app/features/notification/presentation/views/wi
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class OldNotificationSection extends StatelessWidget {
   const OldNotificationSection({super.key});
 
@@ -16,7 +18,7 @@ class OldNotificationSection extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                'في وقت سابق',
+                S.of(context).inoldtime,
                 style: AppStyle.styleBold16(context).copyWith(
                   color: AppColor.headerTextColor,
                 ),
@@ -25,7 +27,7 @@ class OldNotificationSection extends StatelessWidget {
               NotificationAmountIcon(),
               Spacer(),
               Text(
-                'تحديد الكل مقروءة',
+                S.of(context).markallread,
                 style: AppStyle.styleRegular13(context),
               ),
             ],

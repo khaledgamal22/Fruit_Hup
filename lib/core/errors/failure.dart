@@ -15,17 +15,17 @@ class AuthFailure extends Failure {
   factory AuthFailure.firebaseAuth(
       FirebaseAuthException firebaseAuthException) {
     if (firebaseAuthException.code == 'user-not-found') {
-      return AuthFailure('هذا البريد الالكتروني غير موجود');
+      return AuthFailure("هذا البريد الالكتروني غير موجود");
     } else if (firebaseAuthException.code == 'wrong-password') {
-      return AuthFailure('كلمة المرور غير صحيحة');
+      return AuthFailure("كلمة المرور غير صحيحة");
     } else if (firebaseAuthException.code == 'weak-password') {
-      return AuthFailure('كلمة المرور ضعيفة');
+      return AuthFailure("كلمة المرور ضعيفة");
     } else if (firebaseAuthException.code == 'email-already-in-use') {
-      return AuthFailure('هذا البريد الالكتروني مستخدم بالفعل');
+      return AuthFailure("هذا البريد الالكتروني مستخدم بالفعل");
     } else if (firebaseAuthException.code == 'invalid-phone-number') {
-      return AuthFailure('هذا الرقم غير صالح');
+      return AuthFailure("هذا الرقم غير صالح");
     } else {
-      return AuthFailure('حدث خطأ ما');
+      return AuthFailure("حدث خطأ ما");
     }
   }
 }

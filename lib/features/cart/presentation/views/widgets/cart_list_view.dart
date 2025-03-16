@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/widgets/cart_item.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../uitilits/app_style.dart';
@@ -22,7 +23,7 @@ class CartListView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 50),
               child: Center(
                 child: Text(
-                  'لا يوجد منتجات في سلة التسوق',
+                  S.of(context).noprodincart,
                   style: AppStyle.styleBold19(context),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_border.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class CustomTextPasswordFormField extends StatefulWidget {
@@ -29,7 +30,7 @@ class _CustomTextFormFieldState extends State<CustomTextPasswordFormField> {
     return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
+          return S.of(context).fieldrequired;
         }
         return null;
       },

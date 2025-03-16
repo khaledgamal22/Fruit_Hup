@@ -11,6 +11,7 @@ import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_AppBar_icon.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../cart/presentation/view_models/cubit/cart_cubit.dart';
 
 // ignore: must_be_immutable
@@ -112,16 +113,16 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Row(
+                  Row(
                     children: [
                       FeatureProductCard(
-                        title: 'الصلاحيه',
-                        info: 'عام',
+                        title: S.of(context).expiry,
+                        info: S.of(context).year,
                         image: Assets.imagesCalender,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       FeatureProductCard(
-                        title: 'أورجانيك',
+                        title: S.of(context).organic,
                         info: '100%',
                         image: Assets.imagesOrganic,
                       ),
@@ -131,8 +132,9 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                   Row(
                     children: [
                       FeatureProductCard(
-                        title: '100 جرام',
-                        info: '${widget.productEntity.calory} كالورى',
+                        title: '100 ${S.of(context).gram}',
+                        info:
+                            '${widget.productEntity.calory} ${S.of(context).calory}',
                         image: Assets.imagesCalory,
                       ),
                       const Spacer(),
@@ -197,7 +199,7 @@ class _AddToCartState extends State<AddToCart> {
   Widget build(BuildContext context) {
     return CustomProductDetailsButton(
       isSelected: isInCart,
-      title: isInCart ? 'موجود في السلة' : 'اضافة الى السلة',
+      title: isInCart ? S.of(context).incart : S.of(context).addtocart,
       onTap: () {
         if (!isInCart) {
           context.read<CartCubit>().addCartData(
@@ -249,7 +251,7 @@ class CustomProductDetailsButton extends StatelessWidget {
                       color: Colors.white,
                     )
                   : Text(
-                      state is CartAdded ? 'موجود في السلة' : title,
+                      state is CartAdded ? S.of(context).incart : title,
                       style: AppStyle.styleBold16(context),
                     ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
@@ -54,7 +55,7 @@ class SummeryProductReview extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'موصي بها',
+                    S.of(context).recommended,
                     style: AppStyle.styleRegular13(context).copyWith(
                       color: AppColor.headerTextColor,
                     ),

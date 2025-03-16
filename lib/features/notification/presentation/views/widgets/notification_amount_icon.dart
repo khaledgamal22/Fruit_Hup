@@ -12,7 +12,7 @@ class NotificationAmountIcon extends StatelessWidget {
     return Container(
       width: 22,
       height: 22,
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
         shape: CircleBorder(),
         color: Color(0xffEEF8ED),
       ),

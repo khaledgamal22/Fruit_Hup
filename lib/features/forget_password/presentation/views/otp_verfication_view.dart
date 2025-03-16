@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
 import 'package:fruits_ecommerce_app/features/forget_password/presentation/views/widgets/otp_verfication_view_body.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../core/services/firebase_auth_service.dart';
 import '../../data/repos/forget_pass_repo_impl.dart';
@@ -19,7 +20,7 @@ class OtpVerficationView extends StatelessWidget {
       create: (context) => ForgetPassCubit(
           ForgetPassRepoImpl(firebaseAuthService: FirebaseAuthService())),
       child: Scaffold(
-        appBar: buildCustomAppBar(context, 'التحقق من الرمز', null),
+        appBar: buildCustomAppBar(context, S.of(context).checkcode, null),
         body: BlocConsumer<ForgetPassCubit, ForgetPassState>(
           listener: (context, state) {
             if (state is ForgetPassSuccsess) {

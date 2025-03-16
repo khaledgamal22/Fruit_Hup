@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_checkBox.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class TermsAndCondition extends StatefulWidget {
@@ -36,13 +37,13 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
           child: Text.rich(TextSpan(
             children: [
               TextSpan(
-                text: 'من خلال إنشاء حساب , فإنك توافق على ',
+                text: '${S.of(context).applyconditions} ',
                 style: AppStyle.styleSemibold13(context).copyWith(
                   color: const Color(0xff949D9E),
                 ),
               ),
               TextSpan(
-                text: 'الشروط والأحكام الخاصه بنا',
+                text: S.of(context).conditions,
                 style: AppStyle.styleSemibold13(context).copyWith(
                   color: const Color(0xff2D9F5D),
                 ),

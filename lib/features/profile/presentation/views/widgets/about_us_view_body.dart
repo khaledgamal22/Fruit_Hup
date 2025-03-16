@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
 class AboutUsViewBody extends StatelessWidget {
@@ -12,7 +13,7 @@ class AboutUsViewBody extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        buildCustomAppBar(context, 'من نحن', null),
+        buildCustomAppBar(context, S.of(context).aboutus, null),
         SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

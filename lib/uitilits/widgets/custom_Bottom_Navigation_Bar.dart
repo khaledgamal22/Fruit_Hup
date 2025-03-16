@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import '../app_images.dart';
 import '../app_style.dart';
 import 'active_icon_bottom_navigation.dart';
@@ -56,8 +57,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 icon: Image.asset(
                   Assets.imagesActivehome,
                 ),
-                label: 'الرئيسية'),
-            label: 'الرئيسية',
+                label: S.of(context).home),
+            label: S.of(context).home,
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -68,8 +69,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 icon: Image.asset(
                   Assets.imagesActiveproducts,
                 ),
-                label: 'المنتجات'),
-            label: 'المنتجات',
+                label: S.of(context).products),
+            label: S.of(context).products,
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -80,8 +81,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 icon: Image.asset(
                   Assets.imagesActiveshoppingcart,
                 ),
-                label: 'السلة'),
-            label: 'السلة',
+                label: S.of(context).cart),
+            label: S.of(context).cart,
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
@@ -92,8 +93,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 icon: Image.asset(
                   Assets.imagesActiveuser,
                 ),
-                label: 'حسابي'),
-            label: 'حسابي',
+                label: S.of(context).profile),
+            label: S.of(context).profile,
           ),
         ],
       ),

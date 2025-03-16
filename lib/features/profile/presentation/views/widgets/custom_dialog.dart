@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
@@ -64,7 +65,7 @@ class CustomDialog extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            'تأكيد',
+                            S.of(context).confirm,
                             style: AppStyle.styleBold16(context),
                           ),
                         ),
@@ -89,7 +90,7 @@ class CustomDialog extends StatelessWidget {
                             )),
                         child: Center(
                           child: Text(
-                            'لا ارغب',
+                            S.of(context).cancel,
                             style: AppStyle.styleBold16(context).copyWith(
                               color: AppColor.primaryColor,
                             ),

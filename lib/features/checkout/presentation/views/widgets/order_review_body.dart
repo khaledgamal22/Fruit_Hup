@@ -8,6 +8,7 @@ import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 import 'package:quickalert/quickalert.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../../uitilits/app_images.dart';
 import '../../../../../uitilits/routing_name.dart';
 
@@ -28,7 +29,7 @@ class OrderReviewBody extends StatelessWidget {
             context: context,
             confirmBtnColor: AppColor.primaryColor,
             type: QuickAlertType.success,
-            title: 'Success',
+            title: S.of(context).success,
           );
           context.read<OrdersCubit>().addOrder(
                 order: orderEntity,
@@ -54,7 +55,7 @@ class OrderReviewBody extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                'ملخص الطلب :',
+                '${S.of(context).order} :',
                 style: AppStyle.styleBold13(context).copyWith(
                   color: AppColor.headerTextColor,
                 ),
@@ -78,14 +79,14 @@ class OrderReviewBody extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'المجموع الفرعي :',
+                            '${S.of(context).subtotal} :',
                             style: AppStyle.styleRegular13(context).copyWith(
                               color: const Color(0xff4E5556),
                             ),
                           ),
                           const Spacer(),
                           Text(
-                            '${orderEntity.totalPrice} جنيه',
+                            '${orderEntity.totalPrice} ${S.of(context).pound}',
                             style: AppStyle.styleSemibold16(context).copyWith(
                               color: AppColor.headerTextColor,
                             ),
@@ -98,14 +99,14 @@ class OrderReviewBody extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'التوصيل  :',
+                            '${S.of(context).delivery}  :',
                             style: AppStyle.styleRegular13(context).copyWith(
                               color: const Color(0xff4E5556),
                             ),
                           ),
                           const Spacer(),
                           Text(
-                            '$serviceFee جنية',
+                            '$serviceFee ${S.of(context).pound}',
                             style: AppStyle.styleRegular13(context).copyWith(
                               color: const Color(0xff4E5556),
                             ),
@@ -127,14 +128,14 @@ class OrderReviewBody extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'الكلي',
+                            S.of(context).total,
                             style: AppStyle.styleBold16(context).copyWith(
                               color: AppColor.headerTextColor,
                             ),
                           ),
                           const Spacer(),
                           Text(
-                            '${orderEntity.totalPrice + 30} جنيه',
+                            '${orderEntity.totalPrice + 30} ${S.of(context).pound}',
                             style: AppStyle.styleBold16(context).copyWith(
                               color: AppColor.headerTextColor,
                             ),
@@ -162,7 +163,7 @@ class OrderReviewBody extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'عنوان التوصيل',
+                            '${S.of(context).address} :',
                             style: AppStyle.styleBold13(context).copyWith(
                               color: AppColor.headerTextColor,
                             ),
@@ -170,7 +171,7 @@ class OrderReviewBody extends StatelessWidget {
                           const Spacer(),
                           Image.asset(Assets.imagesEdit),
                           Text(
-                            'تعديل',
+                            S.of(context).edit,
                             style: AppStyle.styleSemibold13(context).copyWith(
                               color: const Color(0xff949D9E),
                             ),
@@ -203,7 +204,7 @@ class OrderReviewBody extends StatelessWidget {
                   top: 60,
                 ),
                 child: CustomButton(
-                  title: 'تأكيد الطلب',
+                  title: S.of(context).confirmorder,
                   onTap: () {
                     context.read<CheckoutCubit>().checkout(
                         amount: (orderEntity.totalPrice + serviceFee).toInt(),

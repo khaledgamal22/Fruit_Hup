@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -11,7 +12,7 @@ class HaveAlreadyAccount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'تمتلك حساب بالفعل؟',
+          S.of(context).haveaccountalready,
           style: AppStyle.styleSemibold16(context).copyWith(
             color: const Color(0xff949D9E),
           ),
@@ -24,7 +25,7 @@ class HaveAlreadyAccount extends StatelessWidget {
             Navigator.pop(context);
           },
           child: Text(
-            'تسجيل دخول',
+            S.of(context).signin,
             style: AppStyle.styleSemibold16(context).copyWith(
               color: AppColor.primaryColor,
             ),

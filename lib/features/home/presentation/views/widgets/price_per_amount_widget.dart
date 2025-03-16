@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -21,7 +22,7 @@ class PricePerAmountWidget extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: ' /كيلو',
+            text: S.of(context).kilo,
             style: AppStyle.styleSemibold13(context)
                 .copyWith(color: const Color(0xffF8C76D)),
           ),

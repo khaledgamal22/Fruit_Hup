@@ -4,6 +4,7 @@ import 'package:fruits_ecommerce_app/features/home/domain/entities/review_entity
 import 'package:fruits_ecommerce_app/features/home/presentation/view_models/reviews/reviews_cubit.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../../uitilits/app_style.dart';
 import '../../../domain/entities/product_entity.dart';
 import 'rating_item.dart';
@@ -28,8 +29,8 @@ class ProductReviewsViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const ReviewTextField(
-              hintText: '  اكتب التعليق..',
+            ReviewTextField(
+              hintText: S.of(context).addcomment,
               keyboardType: TextInputType.text,
             ),
             const SizedBox(
@@ -38,7 +39,7 @@ class ProductReviewsViewBody extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '${productEntity.ratingCount} مراجعه',
+                  '${productEntity.ratingCount} ${S.of(context).onereview}',
                   style: AppStyle.styleBold13(context).copyWith(
                     color: AppColor.headerTextColor,
                   ),

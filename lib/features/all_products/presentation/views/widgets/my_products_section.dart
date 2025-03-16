@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/features/all_products/presentation/view_models/featured_products/featured_products_cubit.dart';
 import 'package:fruits_ecommerce_app/features/all_products/presentation/views/widgets/my_products_list_view.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -19,19 +20,19 @@ class MyProductsSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'منتجاتنا',
+              S.of(context).ourproducts,
               style: AppStyle.styleBold16(context).copyWith(
                 color: AppColor.headerTextColor,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Container(
               width: 44,
               height: 31,
               decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
-                side: BorderSide(
+                side: const BorderSide(
                   width: 1,
                   color: Color(0xffCACECE),
                 ),
@@ -42,7 +43,7 @@ class MyProductsSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         SizedBox(
@@ -51,7 +52,7 @@ class MyProductsSection extends StatelessWidget {
             create: (context) => FeaturedProductsCubit(
               allProductRepo: getIt.get<AllProductRepo>(),
             )..getFeaturedProducts(),
-            child: MyProductsListView(),
+            child: const MyProductsListView(),
           ),
         ),
       ],

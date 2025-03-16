@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../../core/helper_functions/build_border.dart';
 import '../../../../../uitilits/app_style.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  const CustomTextFormField(
-      {super.key,
-      required this.hintText,
-      this.icon,
-      required this.keyboardType,
-      this.onChanged,
-      this.onSaved});
+  const CustomTextFormField({
+    super.key,
+    required this.hintText,
+    this.icon,
+    this.isReadOnly = false,
+    required this.keyboardType,
+    this.onChanged,
+    this.onSaved,
+    this.controller,
+  });
 
   final String hintText;
   final IconData? icon;
   final TextInputType keyboardType;
   final void Function(String)? onChanged;
   final void Function(String?)? onSaved;
+  final bool isReadOnly;
+  final TextEditingController? controller;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -26,9 +32,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
+      readOnly: widget.isReadOnly,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
+          return S.of(context).fieldrequired;
         }
         return null;
       },

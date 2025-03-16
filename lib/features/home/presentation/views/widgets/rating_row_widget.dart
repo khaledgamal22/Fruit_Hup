@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
@@ -36,7 +37,7 @@ class RatingRowWidget extends StatelessWidget {
           onTap: () => Navigator.pushNamed(context, RoutingName.productReviews,
               arguments: productEntity),
           child: Text(
-            'المراجعه',
+            S.of(context).review,
             style: AppStyle.styleBold13(context).copyWith(
               color: AppColor.primaryColor,
               decoration: TextDecoration.underline,

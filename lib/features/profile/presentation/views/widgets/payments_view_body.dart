@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
@@ -15,7 +16,7 @@ class PaymentsViewBody extends StatelessWidget {
         SizedBox(height: 10),
         buildCustomAppBar(
           context,
-          'المدفوعات',
+          S.of(context).payments,
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
@@ -27,7 +28,7 @@ class PaymentsViewBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: CustomButton(
-            title: ' أضف وسيلة دفع جديده',
+            title: S.of(context).addnewpaymentmethod,
             onTap: () {
               Navigator.of(context)
                   .pushNamed(RoutingName.addNewPaymentMethodView);

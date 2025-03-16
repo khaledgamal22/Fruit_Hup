@@ -4,6 +4,8 @@ import 'package:fruits_ecommerce_app/features/notification/presentation/views/wi
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class NewNotificationSection extends StatelessWidget {
   const NewNotificationSection({super.key});
 
@@ -16,22 +18,22 @@ class NewNotificationSection extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                'جديد',
+                S.of(context).neew,
                 style: AppStyle.styleBold16(context).copyWith(
                   color: AppColor.headerTextColor,
                 ),
               ),
-              SizedBox(width: 6),
-              NotificationAmountIcon(),
-              Spacer(),
+              const SizedBox(width: 6),
+              const NotificationAmountIcon(),
+              const Spacer(),
               Text(
-                'تحديد الكل مقروءة',
+                S.of(context).markallread,
                 style: AppStyle.styleRegular13(context),
               ),
             ],
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         NotificationItem(),
       ],
     );

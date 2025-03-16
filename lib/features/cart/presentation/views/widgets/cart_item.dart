@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_dialog.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -73,7 +74,7 @@ class _CartItemState extends State<CartItem> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '$count كم',
+                  '$count ${S.of(context).kilogarm}',
                   style: AppStyle.styleRegular13(context).copyWith(
                     color: AppColor.priceColor,
                   ),
@@ -101,7 +102,7 @@ class _CartItemState extends State<CartItem> {
                   onTap: () {
                     buildDialog(
                       context,
-                      title: 'هل ترغب في حذف المنتج ؟',
+                      title: S.of(context).needdeleteproduct,
                       onTap: () {
                         context.read<CartCubit>().deleteCartData(
                               id: widget.cartEntity.id,
@@ -117,7 +118,7 @@ class _CartItemState extends State<CartItem> {
                 ),
                 const Spacer(),
                 Text(
-                  '${widget.cartEntity.priceProduct * count}جنيه',
+                  '${widget.cartEntity.priceProduct * count} ${S.of(context).pound}',
                   style: AppStyle.styleBold16(context).copyWith(
                     color: AppColor.priceColor,
                   ),

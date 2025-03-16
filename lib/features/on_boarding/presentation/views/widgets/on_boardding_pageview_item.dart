@@ -3,6 +3,7 @@ import 'package:fruits_ecommerce_app/constant.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../../uitilits/routing_name.dart';
 
 class OnBoarddingPageviewItem extends StatelessWidget {
@@ -59,7 +60,7 @@ class OnBoarddingPageviewItem extends StatelessWidget {
                           context, RoutingName.signIn);
                     },
                     child: Text(
-                      'تخطى',
+                      S.of(context).skip,
                       style: AppStyle.styleRegular13(context),
                     ),
                   ),

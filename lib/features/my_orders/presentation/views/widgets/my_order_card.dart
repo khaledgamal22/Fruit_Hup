@@ -4,6 +4,8 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class MyOrderCard extends StatelessWidget {
   const MyOrderCard({super.key, required this.orderEntity});
   final OrderEntity orderEntity;
@@ -35,7 +37,7 @@ class MyOrderCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'طلب رقم : ${orderEntity.oredrNumber}#',
+                  '${S.of(context).ordernumber} : ${orderEntity.oredrNumber}#',
                   style: AppStyle.styleBold13(context).copyWith(
                     color: const Color(0xff000000),
                   ),
@@ -44,7 +46,7 @@ class MyOrderCard extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  'تم الطلب : ${orderEntity.date}',
+                  '${S.of(context).orderedin} : ${orderEntity.date}',
                   style: AppStyle.styleRegular11(context),
                 ),
                 const SizedBox(
@@ -54,12 +56,12 @@ class MyOrderCard extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: 'عدد الطلبات : ',
+                        text: '${S.of(context).numberoforders} : ',
                         style: AppStyle.styleRegular13(context),
                       ),
                       TextSpan(
                         text:
-                            '${orderEntity.noOfItems}    ${orderEntity.totalPrice} جنيه',
+                            '${orderEntity.noOfItems}    ${orderEntity.totalPrice} ${S.of(context).pound}',
                         style: AppStyle.styleBold13(context).copyWith(
                           color: AppColor.headerTextColor,
                         ),

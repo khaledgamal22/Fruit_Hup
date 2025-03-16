@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../../uitilits/app_colors.dart';
 import '../../../../../uitilits/app_style.dart';
@@ -18,19 +19,19 @@ class RowCheck extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         RowcheckItem(
-          label: 'الشحن',
+          label: S.of(context).shipping,
           title: '1',
           itemIndex: 0,
           currentIndex: currentIndex,
         ),
         RowcheckItem(
-          label: 'العنوان',
+          label: S.of(context).address,
           title: '2',
           itemIndex: 1,
           currentIndex: currentIndex,
         ),
         RowcheckItem(
-          label: 'الدفع',
+          label: S.of(context).pay,
           title: '3',
           itemIndex: 2,
           currentIndex: currentIndex,

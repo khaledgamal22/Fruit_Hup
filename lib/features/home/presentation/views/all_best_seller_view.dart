@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/all_best_seller_view_body.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_notification_icon.dart';
 
 class AllBestSellerView extends StatelessWidget {
@@ -11,7 +12,7 @@ class AllBestSellerView extends StatelessWidget {
     return Scaffold(
       appBar: buildCustomAppBar(
         context,
-        'الأكثر مبيعًا',
+        S.of(context).bestseller,
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: CustomNotificationIcon(),

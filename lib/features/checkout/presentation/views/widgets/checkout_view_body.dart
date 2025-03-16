@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/checkout/presentation/views/widgets/checkout_page_view.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_AppBar_icon.dart';
 
@@ -15,12 +16,6 @@ class CheckoutViewBody extends StatefulWidget {
 }
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
-  List<String> barTitles = [
-    'الشحن',
-    'العنوان',
-    'الدفع',
-  ];
-
   late PageController pageController;
   int currentIndex = 0;
   @override
@@ -42,6 +37,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> barTitles = [
+      S.of(context).shipping,
+      S.of(context).address,
+      S.of(context).pay,
+    ];
     return SafeArea(
       child: Column(
         children: [

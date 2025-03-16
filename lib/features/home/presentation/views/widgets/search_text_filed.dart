@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_border.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -43,7 +44,7 @@ class SearchTextField extends StatelessWidget {
               Assets.imagesSearchNormal,
               color: AppColor.primaryColor,
             ),
-            hintText: 'ابحث عن.......',
+            hintText: S.of(context).searchfor,
             hintStyle: AppStyle.styleRegular13(context),
             suffixIcon: Image.asset(
               Assets.imagesLinesearchicon,

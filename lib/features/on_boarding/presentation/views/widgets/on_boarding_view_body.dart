@@ -6,6 +6,7 @@ import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/wid
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../../uitilits/routing_name.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -73,8 +74,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 SharedPref.setBool(kIsOnBoardingSeen, true);
                 Navigator.pushReplacementNamed(context, RoutingName.signIn);
               },
-              child: const CustomButton(
-                title: 'ابدأ الان',
+              child: CustomButton(
+                title: S.of(context).startnow,
               ),
             ),
           ),

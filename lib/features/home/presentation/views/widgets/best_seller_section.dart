@@ -7,6 +7,7 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../domain/repos/home_repo.dart';
 
 class BestSellerSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class BestSellerSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'الأكثر مبيعًا',
+              S.of(context).bestseller,
               style: AppStyle.styleBold16(context).copyWith(
                 color: AppColor.headerTextColor,
               ),
@@ -34,19 +35,19 @@ class BestSellerSection extends StatelessWidget {
               child: Visibility(
                 visible: isvisible,
                 child: Text(
-                  'المزيد',
+                  S.of(context).more,
                   style: AppStyle.styleRegular13(context),
                 ),
               ),
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         BlocProvider(
           create: (context) => HomeCubit(getIt.get<HomeRepo>())..getProducts(),
-          child: ProductGridView(),
+          child: const ProductGridView(),
         ),
       ],
     );

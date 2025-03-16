@@ -6,6 +6,8 @@ import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class OtpVerficationViewBody extends StatefulWidget {
   const OtpVerficationViewBody(
       {super.key, required this.phoneNumber, required this.verfiyId});
@@ -49,12 +51,12 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               OtpTextField(
                 numberOfFields: 1,
                 filled: true,
-                fillColor: Color(0xffF9FAFA),
+                fillColor: const Color(0xffF9FAFA),
                 fieldHeight: 60,
                 fieldWidth: 50,
                 showFieldAsBox: true,
-                focusedBorderColor: Color(0xffF4A91F),
-                enabledBorderColor: Color(0xffE6E9EA),
+                focusedBorderColor: const Color(0xffF4A91F),
+                enabledBorderColor: const Color(0xffE6E9EA),
                 onCodeChanged: (value) {
                   setState(() {
                     smsCodeDigit1 = value;
@@ -64,12 +66,12 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               OtpTextField(
                 numberOfFields: 1,
                 filled: true,
-                fillColor: Color(0xffF9FAFA),
+                fillColor: const Color(0xffF9FAFA),
                 fieldHeight: 60,
                 fieldWidth: 50,
                 showFieldAsBox: true,
-                focusedBorderColor: Color(0xffF4A91F),
-                enabledBorderColor: Color(0xffE6E9EA),
+                focusedBorderColor: const Color(0xffF4A91F),
+                enabledBorderColor: const Color(0xffE6E9EA),
                 onCodeChanged: (value) {
                   setState(() {
                     smsCodeDigit2 = value;
@@ -79,12 +81,12 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               OtpTextField(
                 numberOfFields: 1,
                 filled: true,
-                fillColor: Color(0xffF9FAFA),
+                fillColor: const Color(0xffF9FAFA),
                 fieldHeight: 60,
                 fieldWidth: 50,
                 showFieldAsBox: true,
-                focusedBorderColor: Color(0xffF4A91F),
-                enabledBorderColor: Color(0xffE6E9EA),
+                focusedBorderColor: const Color(0xffF4A91F),
+                enabledBorderColor: const Color(0xffE6E9EA),
                 onCodeChanged: (value) {
                   setState(() {
                     smsCodeDigit3 = value;
@@ -94,12 +96,12 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               OtpTextField(
                 numberOfFields: 1,
                 filled: true,
-                fillColor: Color(0xffF9FAFA),
+                fillColor: const Color(0xffF9FAFA),
                 fieldHeight: 60,
                 fieldWidth: 50,
                 showFieldAsBox: true,
-                focusedBorderColor: Color(0xffF4A91F),
-                enabledBorderColor: Color(0xffE6E9EA),
+                focusedBorderColor: const Color(0xffF4A91F),
+                enabledBorderColor: const Color(0xffE6E9EA),
                 onCodeChanged: (value) {
                   setState(() {
                     smsCodeDigit4 = value;
@@ -109,12 +111,12 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               OtpTextField(
                 numberOfFields: 1,
                 filled: true,
-                fillColor: Color(0xffF9FAFA),
+                fillColor: const Color(0xffF9FAFA),
                 fieldHeight: 60,
                 fieldWidth: 50,
                 showFieldAsBox: true,
-                focusedBorderColor: Color(0xffF4A91F),
-                enabledBorderColor: Color(0xffE6E9EA),
+                focusedBorderColor: const Color(0xffF4A91F),
+                enabledBorderColor: const Color(0xffE6E9EA),
                 onCodeChanged: (value) {
                   setState(() {
                     smsCodeDigit5 = value;
@@ -124,12 +126,12 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               OtpTextField(
                 numberOfFields: 1,
                 filled: true,
-                fillColor: Color(0xffF9FAFA),
+                fillColor: const Color(0xffF9FAFA),
                 fieldHeight: 60,
                 fieldWidth: 50,
                 showFieldAsBox: true,
-                focusedBorderColor: Color(0xffF4A91F),
-                enabledBorderColor: Color(0xffE6E9EA),
+                focusedBorderColor: const Color(0xffF4A91F),
+                enabledBorderColor: const Color(0xffE6E9EA),
                 onCodeChanged: (value) {
                   setState(() {
                     smsCodeDigit6 = value;
@@ -138,9 +140,9 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               ),
             ],
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           CustomButton(
-            title: 'تحقق من الرمز',
+            title: S.of(context).checkcode,
             onTap: () {
               context.read<ForgetPassCubit>().sendOTP(
                     smsCodeDigit1 +
@@ -154,11 +156,11 @@ class _OtpVerficationViewBodyState extends State<OtpVerficationViewBody> {
               Navigator.pushReplacementNamed(context, RoutingName.newPass);
             },
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Text(
-            'إعادة إرسال الرمز',
+            S.of(context).resendcode,
             style: AppStyle.styleSemibold16(context).copyWith(
-              color: Color(0xff2D9F5D),
+              color: const Color(0xff2D9F5D),
             ),
           ),
         ],

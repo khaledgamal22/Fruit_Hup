@@ -3,6 +3,7 @@ import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 import '../../../../../core/helper_functions/build_custom_appBar.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../Auth/presentation/views/widgets/custom_text_form_field.dart';
 
 class AddNewPaymentMethodViewBody extends StatefulWidget {
@@ -22,9 +23,9 @@ class _AddNewPaymentMethodViewBodyState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         buildCustomAppBar(context, 'اضافه بطاقه جديده', null),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
@@ -34,28 +35,28 @@ class _AddNewPaymentMethodViewBodyState
             child: Column(
               children: [
                 CustomTextFormField(
-                    hintText: 'اسم حامل البطاقه',
+                    hintText: S.of(context).cardowner,
                     keyboardType: TextInputType.name),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 CustomTextFormField(
-                    hintText: 'رقم البطاقه',
+                    hintText: S.of(context).cardnumber,
                     keyboardType: TextInputType.number),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
                       child: CustomTextFormField(
-                          hintText: 'تاريخ الانتهاء',
+                          hintText: S.of(context).expirydate,
                           keyboardType: TextInputType.datetime),
                     ),
-                    SizedBox(width: 10),
-                    Expanded(
+                    const SizedBox(width: 10),
+                    const Expanded(
                       child: CustomTextFormField(
                           hintText: 'CVV', keyboardType: TextInputType.number),
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 CheckTypeCredit(
                   onchange: (value) {
                     isChecked = value;
@@ -74,7 +75,7 @@ class _AddNewPaymentMethodViewBodyState
                   horizontal: 16,
                 ),
                 child: CustomButton(
-                  title: 'أضف وسيلة دفع جديده',
+                  title: S.of(context).addnewpaymentmethod,
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();

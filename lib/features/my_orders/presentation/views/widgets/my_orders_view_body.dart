@@ -5,6 +5,7 @@ import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/domain/repos/orders_repo.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/presentation/view_models/orders/orders_cubit.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/presentation/views/widgets/my_order_list_view.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 class MyOrdersViewBody extends StatelessWidget {
   const MyOrdersViewBody({super.key});
@@ -19,7 +20,7 @@ class MyOrdersViewBody extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              buildCustomAppBar(context, 'طلباتي', null),
+              buildCustomAppBar(context, S.of(context).myorders, null),
               const SizedBox(
                 height: 10,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
@@ -25,14 +26,14 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
         child: Column(
           children: [
             Text(
-              'لا تقلق ، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.',
+              S.of(context).hintforgetpassword,
               style: AppStyle.styleSemibold16(context).copyWith(
-                color: Color(0xff616A6B),
+                color: const Color(0xff616A6B),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             CustomTextFormField(
-              hintText: 'رقم الهاتف',
+              hintText: S.of(context).phonenumber,
               keyboardType: TextInputType.phone,
               onSaved: (value) {
                 setState(() {
@@ -40,9 +41,9 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                 });
               },
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             CustomButton(
-              title: 'نسيت كلمة المرور',
+              title: S.of(context).forgetpassword,
               onTap: () {
                 if (formkey.currentState!.validate()) {
                   formkey.currentState!.save();

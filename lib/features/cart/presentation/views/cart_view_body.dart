@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/views/widgets/cart_list_view.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/domain/entities/order_entity.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
@@ -26,7 +27,7 @@ class CartViewBody extends StatelessWidget {
                 centerTitle: true,
                 backgroundColor: Colors.transparent,
                 title: Text(
-                  'سلة التسوق',
+                  S.of(context).cartshopping,
                   style: AppStyle.styleBold19(context),
                 ),
               ),
@@ -39,7 +40,7 @@ class CartViewBody extends StatelessWidget {
                     color: const Color(0xffEBF9F1),
                     child: Center(
                       child: Text(
-                        'لديك ${state is CartSuccess ? state.cartList.length : 0} منتجات في سله التسوق',
+                        '${S.of(context).have} ${state is CartSuccess ? state.cartList.length : 0} ${S.of(context).productincart}',
                         style: AppStyle.styleRegular13(context).copyWith(
                           color: AppColor.primaryColor,
                         ),
@@ -67,7 +68,7 @@ class CartViewBody extends StatelessWidget {
                   builder: (context, state) {
                     return CustomButton(
                       title:
-                          'الدفع ${state is CartSuccess ? state.total : 0} جنيه',
+                          '${S.of(context).pay} ${state is CartSuccess ? state.total : 0} ${S.of(context).pound}',
                       onTap: () => Navigator.of(context).pushNamed(
                         RoutingName.checkout,
                         arguments: OrderEntity(

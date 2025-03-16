@@ -5,6 +5,7 @@ import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/cu
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_sign_with_Button.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_password_form_field.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/dont_have_account.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
@@ -38,7 +39,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 height: 6,
               ),
               CustomTextFormField(
-                hintText: 'البريد الاكترونى',
+                hintText: S.of(context).email,
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (value) {
                   email = value!;
@@ -49,7 +50,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 height: 16,
               ),
               CustomTextPasswordFormField(
-                hintText: 'كلمة المرور',
+                hintText: S.of(context).password,
                 keyboardType: TextInputType.visiblePassword,
                 icon: Icons.remove_red_eye,
                 onSaved: (value) {
@@ -68,7 +69,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       Navigator.pushNamed(context, RoutingName.forgetPass);
                     },
                     child: Text(
-                      'نسيت كلمة المرور؟',
+                      '${S.of(context).forgetpassword} ?',
                       style: AppStyle.styleSemibold13(context).copyWith(
                         color: const Color(0xff2D9F5D),
                       ),
@@ -80,7 +81,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 height: 30,
               ),
               CustomButton(
-                title: 'تسجيل دخول',
+                title: S.of(context).signin,
                 onTap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
@@ -107,7 +108,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 height: 24,
               ),
               CustomSignWithButton(
-                title: 'تسجيل بواسطة جوجل',
+                title: S.of(context).signgoogle,
                 icon: Assets.imagesGoogle,
                 onTap: () {
                   BlocProvider.of<SignInCubit>(context).signInWithGoogle();
@@ -116,8 +117,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              const CustomSignWithButton(
-                title: 'تسجيل بواسطة أبل',
+              CustomSignWithButton(
+                title: S.of(context).signinapple,
                 icon: Assets.imagesApple,
               ),
               const SizedBox(
@@ -127,7 +128,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 onTap: () {
                   BlocProvider.of<SignInCubit>(context).signInWithFacebook();
                 },
-                title: 'تسجيل بواسطة فيسبوك',
+                title: S.of(context).signfacebook,
                 icon: Assets.imagesFacbook,
               ),
             ],

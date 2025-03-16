@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
+import 'package:fruits_ecommerce_app/features/profile/presentation/view_models/profile_edit/profile_edit_cubit.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -10,26 +12,28 @@ class PersonalInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profileEditCubit = ProfileEditCubit.get(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'المعلومات الشخصيه',
+            S.of(context).personalinformation,
             style: AppStyle.styleSemibold13(context).copyWith(
               color: AppColor.headerTextColor,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           CustomTextFormField(
+            controller: profileEditCubit.nameController,
             icon: Icons.edit,
             hintText: getUser().name,
             keyboardType: TextInputType.name,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           CustomTextFormField(
-            icon: Icons.edit,
+            isReadOnly: true,
             hintText: getUser().email,
             keyboardType: TextInputType.emailAddress,
           ),

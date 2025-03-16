@@ -5,6 +5,8 @@ import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
 
@@ -20,7 +22,7 @@ class CustomHomeAppBar extends StatelessWidget {
         Column(
           children: [
             Text(
-              'صباح الخير !..',
+              S.of(context).goodmorning,
               style: AppStyle.styleRegular16(context),
             ),
             Text(

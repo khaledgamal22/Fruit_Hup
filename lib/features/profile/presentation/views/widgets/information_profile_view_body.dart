@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/change_password_section.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/personal_info_section.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 class InformationProfileViewBody extends StatelessWidget {
@@ -14,7 +15,7 @@ class InformationProfileViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10),
-          buildCustomAppBar(context, 'الملف الشخصي', null),
+          buildCustomAppBar(context, S.of(context).personalprofile, null),
           SizedBox(height: 20),
           PersonalInfoSection(),
           SizedBox(height: 20),
@@ -23,7 +24,7 @@ class InformationProfileViewBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CustomButton(
-              title: 'حفظ التغييرات',
+              title: S.of(context).savechanges,
               onTap: () {},
             ),
           ),

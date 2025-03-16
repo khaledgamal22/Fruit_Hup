@@ -19,7 +19,7 @@ class ProfileInfoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
             color: Color(0xffF2F3F3),
@@ -37,7 +37,7 @@ class ProfileInfoItem extends StatelessWidget {
         title: Text(
           title,
           style: AppStyle.styleSemibold13(context).copyWith(
-            color: Color(0xff949D9E),
+            color: const Color(0xff949D9E),
           ),
         ),
         trailing: trailing,

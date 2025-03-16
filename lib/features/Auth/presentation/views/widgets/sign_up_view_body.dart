@@ -5,6 +5,7 @@ import 'package:fruits_ecommerce_app/features/Auth/presentation/view_models/cubi
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_password_form_field.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/have_already_account.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/terms_and_condition_widget.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_button.dart';
 
 import 'custom_text_form_field.dart';
@@ -36,7 +37,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 6,
               ),
               CustomTextFormField(
-                hintText: 'الاسم كامل',
+                hintText: S.of(context).fullname,
                 keyboardType: TextInputType.name,
                 onSaved: (value) {
                   setState(() {
@@ -48,7 +49,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 16,
               ),
               CustomTextFormField(
-                hintText: 'البريد الاكترونى',
+                hintText: S.of(context).email,
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (value) {
                   setState(() {
@@ -60,7 +61,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 16,
               ),
               CustomTextPasswordFormField(
-                hintText: 'كلمة المرور',
+                hintText: S.of(context).password,
                 icon: Icons.remove_red_eye,
                 keyboardType: TextInputType.visiblePassword,
                 onSaved: (value) {
@@ -81,7 +82,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 24,
               ),
               CustomButton(
-                title: 'إنشاء حساب جديد',
+                title: S.of(context).signup,
                 onTap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
@@ -93,8 +94,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         name: name!,
                       );
                     } else {
-                      showSnackBarMessage(
-                          context, 'يجب عليك الموافقه على الشروط والأحكام');
+                      showSnackBarMessage(context, S.of(context).havetoaccept);
                     }
                   } else {
                     autovalidateMode = AutovalidateMode.always;

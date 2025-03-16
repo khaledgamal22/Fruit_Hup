@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../../uitilits/widgets/custom_button.dart';
 import 'payment_method_widget.dart';
@@ -32,9 +33,9 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
                 });
               },
               child: PaymentMethodWidget(
-                title: 'الدفع عند الاستلام',
-                subtitle: 'التسليم من المكان',
-                price: '40 جنيه',
+                title: S.of(context).cod,
+                subtitle: S.of(context).recievefromplace,
+                price: '40 ${S.of(context).pound}',
                 isChecked: isfirst,
               ),
             ),
@@ -47,9 +48,9 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
                 });
               },
               child: PaymentMethodWidget(
-                title: 'ادفع الان',
-                subtitle: 'يرجي تحديد طريقه الدفع',
-                price: 'مجاني',
+                title: S.of(context).paynow,
+                subtitle: S.of(context).paymentmethod,
+                price: S.of(context).free,
                 isChecked: issecond,
               ),
             ),
@@ -61,7 +62,7 @@ class _ChargeViewBodyState extends State<ChargeViewBody> {
           ),
         ),
         CustomButton(
-          title: 'التالي',
+          title: S.of(context).next,
           onTap: () {
             widget.pageController.animateToPage(
               widget.pageController.page!.round() + 1,
