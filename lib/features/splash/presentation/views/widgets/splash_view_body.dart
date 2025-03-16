@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/constant.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_images.dart';
 import '../../../../../uitilits/routing_name.dart';
@@ -21,7 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   void executeNavigation() {
     bool isAuth = isAuthenticated();
-    bool isOnboardingSeeen = SharedPref.getBool(kIsOnBoardingSeen);
+    bool isOnboardingSeeen = getIt.get<SharedPref>().getBool(kIsOnBoardingSeen);
     Future.delayed(
       const Duration(seconds: 2),
       () {

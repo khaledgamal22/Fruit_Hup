@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:fruits_ecommerce_app/constant.dart';
 import 'package:fruits_ecommerce_app/core/errors/failure.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/core/services/firebase_auth_service.dart';
 import 'package:fruits_ecommerce_app/core/services/firebase_store_service.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
@@ -79,7 +81,7 @@ class SignInRepoImpl implements SignInRepo {
   @override
   Future<void> saveUserData(UserEntity user) async {
     var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
-    await SharedPref.setString('userData', jsonData);
+    await getIt.get<SharedPref>().setString(kUserData, jsonData);
   }
 
   @override

@@ -1,18 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:fruits_ecommerce_app/core/global_cubits/cubit/change_language_cubit.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
-import 'package:fruits_ecommerce_app/core/helper_functions/on_generate_routes.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
-import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:fruits_ecommerce_app/firebase_options.dart';
-import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/stripe_keys.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'features/profile/data/models/favorite_model.dart';
-import 'uitilits/routing_name.dart';
+import 'fruit_hup_app.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -21,39 +19,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await SharedPref.init();
   setupGetIt();
+  await getIt.get<SharedPref>().init();
   Stripe.publishableKey = StripeKeys.publishableKey;
   runApp(
-    FruitHup(),
+    BlocProvider(
+      create: (context) => ChangeLanguageCubit(),
+      child: const FruitHup(),
+    ),
   );
-}
-
-class FruitHup extends StatelessWidget {
-  const FruitHup({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.light,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      locale: Locale('en'),
-      home: const SplashView(),
-      onGenerateRoute: onGenerateRoutes,
-      initialRoute: RoutingName.splash,
-    );
-  }
 }

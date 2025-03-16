@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addtocart": MessageLookupByLibrary.simpleMessage("اضف الى السلة"),
         "applyconditions": MessageLookupByLibrary.simpleMessage(
             "من خلال إنشاء حساب  , فإنك توافق على"),
+        "arabic": MessageLookupByLibrary.simpleMessage("عربى"),
         "bestseller": MessageLookupByLibrary.simpleMessage("الاكثر مبيعا"),
         "calory": MessageLookupByLibrary.simpleMessage("كالورى"),
         "cancel": MessageLookupByLibrary.simpleMessage("لا ارغب"),
@@ -67,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "هذا البريد الالكتروني غير موجود"),
         "emptysearch": MessageLookupByLibrary.simpleMessage(
             "عفوًا... هذه المعلومات غير متوفرة للحظة"),
+        "english": MessageLookupByLibrary.simpleMessage("انجليزى"),
         "expiry": MessageLookupByLibrary.simpleMessage("الصلاحيه"),
         "expirydate": MessageLookupByLibrary.simpleMessage("تاريخ الصلاحيه"),
         "fieldrequired":

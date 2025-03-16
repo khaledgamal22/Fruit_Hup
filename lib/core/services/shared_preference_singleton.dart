@@ -1,25 +1,34 @@
+import 'package:fruits_ecommerce_app/constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
-  static late SharedPreferences _instance;
+  late SharedPreferences instance;
 
-  static Future<void> init() async {
-    _instance = await SharedPreferences.getInstance();
+  Future<void> init() async {
+    instance = await SharedPreferences.getInstance();
   }
 
-  static setBool(String key, bool value) {
-    _instance.setBool(key, value);
+  setBool(String key, bool value) {
+    instance.setBool(key, value);
   }
 
-  static setString(String key, String data) async {
-    await _instance.setString(key, data);
+  setString(String key, String data) {
+    instance.setString(key, data);
   }
 
-  static getBool(String key) {
-    return _instance.getBool(key) ?? false;
+  getBool(String key) {
+    return instance.getBool(key) ?? false;
   }
 
-  static getString(String key) {
-    return _instance.getString(key) ?? '';
+  getString(String key) {
+    return instance.getString(key) ?? '';
+  }
+
+  setCurrentLanguage({required String lang}) async {
+    instance.setString(kLanguage, lang);
+  }
+
+  getCurrentLanguage() {
+    return instance.getString(kLanguage) ?? 'ar';
   }
 }

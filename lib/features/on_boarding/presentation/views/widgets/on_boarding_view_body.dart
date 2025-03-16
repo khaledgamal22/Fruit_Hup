@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/constant.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/widgets/on_boarding_pageview.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
@@ -71,7 +72,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
             child: GestureDetector(
               onTap: () {
-                SharedPref.setBool(kIsOnBoardingSeen, true);
+                getIt.get<SharedPref>().setBool(kIsOnBoardingSeen, true);
                 Navigator.pushReplacementNamed(context, RoutingName.signIn);
               },
               child: CustomButton(

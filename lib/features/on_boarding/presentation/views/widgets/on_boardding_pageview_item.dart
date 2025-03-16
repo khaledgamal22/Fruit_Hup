@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/constant.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
@@ -55,7 +56,7 @@ class OnBoarddingPageviewItem extends StatelessWidget {
                   top: 12,
                   child: GestureDetector(
                     onTap: () {
-                      SharedPref.setBool(kIsOnBoardingSeen, true);
+                      getIt.get<SharedPref>().setBool(kIsOnBoardingSeen, true);
                       Navigator.pushReplacementNamed(
                           context, RoutingName.signIn);
                     },

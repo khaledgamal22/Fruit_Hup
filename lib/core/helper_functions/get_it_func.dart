@@ -2,6 +2,7 @@ import 'package:fruits_ecommerce_app/core/services/database_service.dart';
 import 'package:fruits_ecommerce_app/core/services/firebase_auth_service.dart';
 import 'package:fruits_ecommerce_app/core/services/firebase_store_service.dart';
 import 'package:fruits_ecommerce_app/core/services/hive_service.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/core/services/stripe_service.dart';
 import 'package:fruits_ecommerce_app/features/Auth/data/repos/sign_up_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/Auth/domain/repos/sign_in_repo.dart';
@@ -33,6 +34,7 @@ void setupGetIt() {
   getIt.registerSingleton<DatabaseServices>(FirebaseStoreService());
   getIt.registerSingleton<HiveService>(HiveService());
   getIt.registerSingleton<StripeService>(StripeService());
+  getIt.registerSingleton<SharedPref>(SharedPref());
 
   getIt.registerSingleton<FavoriteRepo>(
     FavoriteRepoImpl(

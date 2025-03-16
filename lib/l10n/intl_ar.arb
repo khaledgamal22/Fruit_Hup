@@ -116,6 +116,7 @@
     "cardnumber":"رقم البطاقه",
     "expirydate":"تاريخ الصلاحيه",
     "cvv":"CVV",
-    "addnewcard":"اضافه بطاقه جديده"
-
+    "addnewcard":"اضافه بطاقه جديده",
+    "arabic":"عربى",
+    "english":"انجليزى"
 }

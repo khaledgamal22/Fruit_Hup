@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addtocart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
         "applyconditions": MessageLookupByLibrary.simpleMessage(
             "By creating an account, you agree to"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "bestseller": MessageLookupByLibrary.simpleMessage("Best Sellers"),
         "calory": MessageLookupByLibrary.simpleMessage("Calory"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -67,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("This email does not exist"),
         "emptysearch": MessageLookupByLibrary.simpleMessage(
             "Oops... This information is not available at the moment"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "expiry": MessageLookupByLibrary.simpleMessage("expiry"),
         "expirydate": MessageLookupByLibrary.simpleMessage("Expiration Date"),
         "fieldrequired": MessageLookupByLibrary.simpleMessage("field required"),

@@ -59,9 +59,10 @@ class ProfileInFoList extends StatelessWidget {
           trailing: SwitchButton(),
         ),
         ProfileInfoItem(
+          onTap: () => Navigator.pushNamed(context, RoutingName.language),
           image: Assets.imagesGlobal,
           title: S.of(context).language,
-          trailing: Icon(
+          trailing: const Icon(
             Icons.arrow_forward_ios,
             size: 18,
           ),

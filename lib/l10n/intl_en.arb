@@ -116,6 +116,8 @@
     "cardnumber": "Card Number",
     "expirydate": "Expiration Date",
     "cvv": "CVV",
-    "addnewcard": "Add a New Card"
+    "addnewcard": "Add a New Card",
+    "arabic": "Arabic",
+    "english": "English"
 
 }

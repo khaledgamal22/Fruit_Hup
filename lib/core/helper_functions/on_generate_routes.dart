@@ -13,6 +13,7 @@ import 'package:fruits_ecommerce_app/features/notification/presentation/views/no
 import 'package:fruits_ecommerce_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/about_us_view.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/information_profile_view.dart';
+import 'package:fruits_ecommerce_app/features/profile/presentation/views/language_view.dart';
 import 'package:fruits_ecommerce_app/features/search/presentation/views/search_view.dart';
 import 'package:fruits_ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:fruits_ecommerce_app/uitilits/routing_name.dart';
@@ -117,6 +118,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         builder: (context) => ProductReviewsView(
           productEntity: productEntity,
         ),
+      );
+    case RoutingName.language:
+      return MaterialPageRoute(
+        builder: (context) => LanguageView(),
       );
     default:
       return MaterialPageRoute(
