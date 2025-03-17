@@ -11,9 +11,11 @@ class ProductEntity {
   final int calory;
   final List<ReviewEntity> reviews;
   final bool isFeatured;
+  final String englishName;
 
   ProductEntity({
     required this.name,
+    required this.englishName,
     required this.image,
     required this.price,
     required this.rating,

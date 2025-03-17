@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/features/cart/presentation/view_models/cubit/cart_cubit.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/view_models/home/home_cubit.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/add_to_cart_button.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/price_per_amount_widget.dart';
-import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/view_models/favorite/favorite_cubit.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -15,6 +15,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../uitilits/routing_name.dart';
 import '../../../../cart/domain/entities/cart_entity.dart';
 import '../../../../cart/domain/repos/cart_repo.dart';
+import '../../../../profile/data/models/favorite_model.dart';
 import '../../../../profile/domain/repos/favorite_repo.dart';
 
 class ProductCard extends StatelessWidget {
@@ -46,6 +47,7 @@ class ProductCard extends StatelessWidget {
                   child: FavoriteIcon(
                     favoriteModel: FavoriteModel(
                       name: productEntity.name,
+                      english: productEntity.englishName,
                       image: productEntity.image,
                       price: productEntity.price,
                       id: productEntity.id,
@@ -70,7 +72,9 @@ class ProductCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          productEntity.name,
+                          getIt.get<SharedPref>().getCurrentLanguage() == 'ar'
+                              ? productEntity.name
+                              : productEntity.englishName,
                           style: AppStyle.styleSemibold13(context).copyWith(
                             color: AppColor.headerTextColor,
                           ),
@@ -84,6 +88,7 @@ class ProductCard extends StatelessWidget {
                       child: AddToCartButton(
                         cartEntity: CartEntity(
                           nameProduct: productEntity.name,
+                          nameProductEn: productEntity.englishName,
                           priceProduct: productEntity.price,
                           imageProduct: productEntity.image,
                           id: productEntity.id,

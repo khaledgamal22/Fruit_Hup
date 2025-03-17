@@ -3,6 +3,7 @@ import '../../domain/entities/cart_entity.dart';
 class CartModel extends CartEntity {
   CartModel({
     required super.nameProduct,
+    required super.nameProductEn,
     required super.imageProduct,
     required super.priceProduct,
     required super.id,
@@ -12,6 +13,7 @@ class CartModel extends CartEntity {
   factory CartModel.fromFirebase(Map<String, dynamic> map) {
     return CartModel(
       nameProduct: map['nameProduct'] as String,
+      nameProductEn: map['nameProductEn'] as String,
       imageProduct: map['imageProduct'] as String,
       priceProduct: map['priceProduct'] as num,
       amount: map['amount'] as int,

@@ -5,6 +5,7 @@ import 'review_model.dart';
 class ProductModel extends ProductEntity {
   ProductModel({
     required super.name,
+    required super.englishName,
     required super.image,
     required super.price,
     required super.rating,
@@ -19,6 +20,7 @@ class ProductModel extends ProductEntity {
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       name: json['name'] as String,
+      englishName: json['englishName'] as String,
       image: json['image'] as String,
       price: json['price'] as num,
       rating: json['rating'] as num,

@@ -43,6 +43,7 @@ class ProductGridView extends StatelessWidget {
               itemBuilder: (context, index) => ProductCard(
                 productEntity: ProductEntity(
                   name: 'watermelon',
+                  englishName: 'watermelon',
                   image:
                       'https://static.vecteezy.com/system/resources/previews/029/228/581/non_2x/apricot-transparent-background-free-png.png',
                   price: 0,

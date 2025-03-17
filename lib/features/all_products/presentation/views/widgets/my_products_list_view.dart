@@ -38,6 +38,7 @@ class MyProductsListView extends StatelessWidget {
                 child: MayProductsListItem(
                   productEntity: ProductEntity(
                       name: '',
+                      englishName: '',
                       image:
                           'https://i.pinimg.com/originals/91/74/3a/91743a1fb224cfd949c4ae45da846d13.png',
                       price: 0,

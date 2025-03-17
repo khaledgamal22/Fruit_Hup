@@ -18,7 +18,7 @@ class SummeryProductReview extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'الملخص',
+          S.of(context).summery,
           style: AppStyle.styleSemibold16(context),
         ),
         const SizedBox(

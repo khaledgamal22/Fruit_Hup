@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/repos/cart_repo.dart';
-import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/helper_functions/get_it_func.dart';
 import '../../../../../uitilits/app_colors.dart';
@@ -10,6 +10,7 @@ import '../../../../cart/domain/entities/cart_entity.dart';
 import '../../../../cart/presentation/view_models/cubit/cart_cubit.dart';
 import '../../../../home/presentation/views/widgets/add_to_cart_button.dart';
 import '../../../../home/presentation/views/widgets/price_per_amount_widget.dart';
+import '../../../data/models/favorite_model.dart';
 import '../../view_models/favorite/favorite_cubit.dart';
 
 class MyFaviorateItem extends StatelessWidget {
@@ -35,7 +36,7 @@ class MyFaviorateItem extends StatelessWidget {
                     favoriteModel.delete();
                     context.read<FavoriteCubit>().getFavorite();
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   ),
@@ -50,7 +51,7 @@ class MyFaviorateItem extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               flex: 1,
               child: SizedBox(height: 10),
             ),
@@ -61,7 +62,9 @@ class MyFaviorateItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      favoriteModel.name,
+                      getIt.get<SharedPref>().getCurrentLanguage() == 'ar'
+                          ? favoriteModel.name
+                          : favoriteModel.english,
                       style: AppStyle.styleSemibold13(context).copyWith(
                         color: AppColor.headerTextColor,
                       ),
@@ -77,6 +80,7 @@ class MyFaviorateItem extends StatelessWidget {
                     child: AddToCartButton(
                       cartEntity: CartEntity(
                         nameProduct: favoriteModel.name,
+                        nameProductEn: favoriteModel.english,
                         priceProduct: 100,
                         imageProduct: favoriteModel.image,
                         id: favoriteModel.id,

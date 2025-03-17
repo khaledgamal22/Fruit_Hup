@@ -1,5 +1,6 @@
 class CartEntity {
   final String nameProduct;
+  final String nameProductEn;
   final String imageProduct;
   final num priceProduct;
   final int? amount;
@@ -7,6 +8,7 @@ class CartEntity {
 
   CartEntity({
     required this.nameProduct,
+    required this.nameProductEn,
     required this.imageProduct,
     required this.priceProduct,
     required this.id,
@@ -16,6 +18,7 @@ class CartEntity {
   toMap() {
     return {
       'nameProduct': nameProduct,
+      'nameProductEn': nameProductEn,
       'imageProduct': imageProduct,
       'priceProduct': priceProduct,
       'amount': amount ?? 1,

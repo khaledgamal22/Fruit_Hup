@@ -1,7 +1,6 @@
-import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
-
 import '../../../../core/services/hive_service.dart';
 import '../../domain/repos/favorite_repo.dart';
+import '../models/favorite_model.dart';
 
 class FavoriteRepoImpl implements FavoriteRepo {
   final HiveService hiveService;

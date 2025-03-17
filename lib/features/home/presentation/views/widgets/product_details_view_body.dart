@@ -205,6 +205,7 @@ class _AddToCartState extends State<AddToCart> {
           context.read<CartCubit>().addCartData(
                 cartEntity: CartEntity(
                   nameProduct: widget.productEntity.name,
+                  nameProductEn: widget.productEntity.englishName,
                   imageProduct: widget.productEntity.image,
                   priceProduct: widget.productEntity.price,
                   id: widget.productEntity.id,

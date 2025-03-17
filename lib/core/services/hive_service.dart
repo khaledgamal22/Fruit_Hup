@@ -1,6 +1,7 @@
 import 'package:fruits_ecommerce_app/core/helper_functions/get_user.dart';
-import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:hive/hive.dart';
+
+import '../../features/profile/data/models/favorite_model.dart';
 
 class HiveService {
   Future<void> addFavorite({required FavoriteModel favoriteModel}) async {

@@ -50,6 +50,7 @@ class CartListView extends StatelessWidget {
               itemBuilder: (context, index) => CartItem(
                 cartEntity: CartEntity(
                     id: 'lmnbvghcgfcclk',
+                    nameProductEn: 'cjdk',
                     amount: 1,
                     nameProduct: 'lkjuhg',
                     priceProduct: 100,

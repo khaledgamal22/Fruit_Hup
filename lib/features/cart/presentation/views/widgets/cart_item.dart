@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_dialog.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/increase_decrease_amount.dart';
@@ -67,7 +69,9 @@ class _CartItemState extends State<CartItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.cartEntity.nameProduct,
+                  getIt.get<SharedPref>().getCurrentLanguage() == 'ar'
+                      ? widget.cartEntity.nameProduct
+                      : widget.cartEntity.nameProductEn,
                   style: AppStyle.styleBold13(context).copyWith(
                     color: AppColor.headerTextColor,
                   ),

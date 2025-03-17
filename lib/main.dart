@@ -5,11 +5,11 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:fruits_ecommerce_app/core/global_cubits/cubit/change_language_cubit.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
+import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:fruits_ecommerce_app/firebase_options.dart';
 import 'package:fruits_ecommerce_app/stripe_keys.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'features/profile/data/models/favorite_model.dart';
 import 'fruit_hup_app.dart';
 
 void main() async {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_ecommerce_app/features/profile/data/models/favorite_model.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/view_models/favorite/favorite_cubit.dart';
 
+import '../../../data/models/favorite_model.dart';
 import 'my_faviorate_item.dart';
 
 class MyFaviorateGridView extends StatefulWidget {

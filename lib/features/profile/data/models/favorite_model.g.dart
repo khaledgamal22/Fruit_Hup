@@ -19,15 +19,16 @@ class FavoriteModelAdapter extends TypeAdapter<FavoriteModel> {
     return FavoriteModel(
       name: fields[0] as String,
       image: fields[1] as String,
-      price: fields[2] as double,
+      price: fields[2] as num,
       id: fields[3] as String,
+      english: fields[4] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, FavoriteModel obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class FavoriteModelAdapter extends TypeAdapter<FavoriteModel> {
       ..writeByte(2)
       ..write(obj.price)
       ..writeByte(3)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(4)
+      ..write(obj.english);
   }
 
   @override
