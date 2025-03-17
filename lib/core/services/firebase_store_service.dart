@@ -58,15 +58,24 @@ class FirebaseStoreService implements DatabaseServices {
   }
 
   @override
-  Future<QuerySnapshot> searchForData({
+  Future<List<QueryDocumentSnapshot>> searchForData({
     required String path,
-    required String searchKey,
+    required String searchKey1,
+    required String searchKey2,
     required dynamic searchValue,
   }) async {
-    var data = await firestore
+    String searchEndValue = '$searchValue\uf8ff';
+    var data1 = await firestore
         .collection(path)
-        .where(searchKey, isEqualTo: searchValue)
+        .where(searchKey1, isGreaterThanOrEqualTo: searchValue)
+        .where(searchKey1, isLessThan: searchEndValue)
         .get();
-    return data;
+    var data2 = await firestore
+        .collection(path)
+        .where(searchKey2, isGreaterThanOrEqualTo: searchValue)
+        .where(searchKey2, isLessThan: searchEndValue)
+        .get();
+    var combinedDocs = data1.docs + data2.docs;
+    return combinedDocs;
   }
 }

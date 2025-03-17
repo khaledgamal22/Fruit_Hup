@@ -5,6 +5,9 @@ import 'package:fruits_ecommerce_app/features/my_orders/presentation/view_models
 import 'package:fruits_ecommerce_app/features/my_orders/presentation/views/widgets/my_order_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../generated/l10n.dart';
+import '../../../../../uitilits/app_style.dart';
+
 class MyOrdersListView extends StatelessWidget {
   const MyOrdersListView({super.key});
 
@@ -13,6 +16,17 @@ class MyOrdersListView extends StatelessWidget {
     return BlocBuilder<OrdersCubit, OrdersState>(
       builder: (context, state) {
         if (state is OrdersSuccess) {
+          if (state.orders.isEmpty) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              child: Center(
+                child: Text(
+                  S.of(context).noordersyet,
+                  style: AppStyle.styleBold19(context),
+                ),
+              ),
+            );
+          }
           return ListView.builder(
             itemCount: state.orders.length,
             physics: const NeverScrollableScrollPhysics(),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
+import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
 import 'package:fruits_ecommerce_app/features/cart/domain/entities/cart_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/feature_product_card.dart';
@@ -80,7 +82,9 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.productEntity.name,
+                            getIt.get<SharedPref>().getCurrentLanguage() == 'ar'
+                                ? widget.productEntity.name
+                                : widget.productEntity.englishName,
                             style: AppStyle.styleBold16(context).copyWith(
                               color: AppColor.headerTextColor,
                             ),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/features/search/presentation/views/widgets/search_empty_widget.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_colors.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../../uitilits/app_style.dart';
 import '../../../../home/presentation/views/widgets/product_card.dart';
 import '../../view_models/search/search_cubit.dart';
@@ -25,7 +26,7 @@ class SearchBody extends StatelessWidget {
                 horizontal: 16,
               ),
               child: Text(
-                'نتائج البحث ',
+                S.of(context).searchresults,
                 style: AppStyle.styleRegular13(context),
               ),
             ),

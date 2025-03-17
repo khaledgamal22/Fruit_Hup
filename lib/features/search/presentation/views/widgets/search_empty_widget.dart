@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_ecommerce_app/generated/l10n.dart';
 
 import '../../../../../uitilits/app_images.dart';
 import '../../../../../uitilits/app_style.dart';
@@ -29,7 +30,7 @@ class SearchEmpty extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
             child: Text(
-              'لاتوجد نتائج بحث',
+              S.of(context).notresultsearch,
               style: AppStyle.styleRegular13(context),
             ),
           ),
@@ -47,7 +48,7 @@ class SearchEmpty extends StatelessWidget {
                   height: 50,
                 ),
                 Text(
-                  'البحث',
+                  S.of(context).search,
                   style: AppStyle.styleBold16(context).copyWith(
                     color: const Color(0xff616A6B),
                   ),
@@ -56,7 +57,7 @@ class SearchEmpty extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'عفوًا... هذه المعلومات غير متوفرة للحظة',
+                  S.of(context).emptysearch,
                   style: AppStyle.styleRegular13(context),
                 ),
               ],

@@ -108,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "newpassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "next": MessageLookupByLibrary.simpleMessage("التالى"),
+        "noordersyet":
+            MessageLookupByLibrary.simpleMessage("لا يوجد طلبات حتى الان"),
         "noprodincart": MessageLookupByLibrary.simpleMessage(
             "لا يوجد منتجات في سلة التسوق"),
         "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),

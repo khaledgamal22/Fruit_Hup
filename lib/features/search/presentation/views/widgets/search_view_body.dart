@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_custom_appBar.dart';
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/search_text_filed.dart';
 import 'package:fruits_ecommerce_app/uitilits/widgets/custom_notification_icon.dart';
+import '../../../../../generated/l10n.dart';
 import '../../view_models/search/search_cubit.dart';
 import 'search_body.dart';
 
@@ -25,7 +26,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             children: [
               buildCustomAppBar(
                 context,
-                'البحث',
+                S.of(context).search,
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: CustomNotificationIcon(),
@@ -40,6 +41,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                   onSubmitted: (value) async {
                     setState(() async {
                       searchText = value;
+                      searchText = searchText.characters.first.toUpperCase();
                       await BlocProvider.of<SearchCubit>(context)
                           .searchProducts(query: searchText);
                     });

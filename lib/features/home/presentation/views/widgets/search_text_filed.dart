@@ -33,6 +33,7 @@ class SearchTextField extends StatelessWidget {
         onTap: onTap,
         readOnly: isReadOnly,
         onSubmitted: onSubmitted,
+        cursorColor: AppColor.primaryColor,
         decoration: InputDecoration(
             enabledBorder: buildBorder(
               Colors.white,

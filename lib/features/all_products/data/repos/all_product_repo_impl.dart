@@ -13,20 +13,21 @@ class AllProductRepoImpl implements AllProductRepo {
   @override
   Future<List<ProductEntity>> getFeaturedProducts() async {
     try {
-      final QuerySnapshot querySnapshot = await databaseServices.searchForData(
+      List<QueryDocumentSnapshot<Map<String, dynamic>>> querySnapshot =
+          await databaseServices.searchForData(
         path: BackendEndpoints.getproducts,
-        searchKey: 'isFeatured',
+        searchKey1: 'isFeatured',
+        searchKey2: 'description',
         searchValue: true,
       );
 
       // Map the retrieved documents to a list of ProductEntity
-      List<ProductEntity> featuredProducts = querySnapshot.docs.map((doc) {
-        return ProductModel.fromJson(doc.data() as Map<String, dynamic>);
-      }).toList();
+      List<ProductEntity> featuredProducts = querySnapshot
+          .map((doc) => ProductModel.fromJson(doc.data()))
+          .toList();
 
       return featuredProducts;
     } catch (e) {
-      print('Error getting featured products: $e');
       return [];
     }
   }

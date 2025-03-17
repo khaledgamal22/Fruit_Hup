@@ -13,18 +13,17 @@ class SearchRepoImpl implements SearchRepo {
   @override
   Future<List<ProductEntity>> searchForProducts(
       {required String searchValue}) async {
-    QuerySnapshot data = await databaseServices.searchForData(
+    List<QueryDocumentSnapshot<Map<String, dynamic>>> data =
+        await databaseServices.searchForData(
       path: BackendEndpoints.getproducts,
-      searchKey: 'name',
+      searchKey1: 'name',
+      searchKey2: 'englishName',
       searchValue: searchValue,
     );
 
-    if (data.docs.isNotEmpty) {
-      List<ProductEntity> products = data.docs
-          .map(
-            (doc) => ProductModel.fromJson(doc.data() as Map<String, dynamic>),
-          )
-          .toList();
+    if (data.isNotEmpty) {
+      List<ProductEntity> products =
+          data.map((doc) => ProductModel.fromJson(doc.data())).toList();
 
       return products;
     }

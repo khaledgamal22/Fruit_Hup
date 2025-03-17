@@ -106,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "newaccount": MessageLookupByLibrary.simpleMessage("New Account"),
         "newpassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noordersyet": MessageLookupByLibrary.simpleMessage("No orders yet"),
         "noprodincart":
             MessageLookupByLibrary.simpleMessage("No products in the cart"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
