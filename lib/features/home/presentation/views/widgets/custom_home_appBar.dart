@@ -16,7 +16,7 @@ class CustomHomeAppBar extends StatelessWidget {
       children: [
         const CircleAvatar(
           radius: 25,
-          backgroundImage: AssetImage(Assets.imagesPineappleCuate1),
+          backgroundImage: AssetImage(Assets.imagesNoProfilePicture),
         ),
         const SizedBox(width: 10),
         Column(

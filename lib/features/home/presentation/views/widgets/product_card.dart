@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/get_it_func.dart';
@@ -44,21 +45,25 @@ class ProductCard extends StatelessWidget {
                   create: (context) => FavoriteCubit(
                     favoriteRepo: getIt.get<FavoriteRepo>(),
                   ),
-                  child: FavoriteIcon(
-                    favoriteModel: FavoriteModel(
-                      name: productEntity.name,
-                      english: productEntity.englishName,
-                      image: productEntity.image,
-                      price: productEntity.price,
-                      id: productEntity.id,
+                  child: Skeleton.ignore(
+                    child: FavoriteIcon(
+                      favoriteModel: FavoriteModel(
+                        name: productEntity.name,
+                        english: productEntity.englishName,
+                        image: productEntity.image,
+                        price: productEntity.price,
+                        id: productEntity.id,
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
                   flex: 4,
-                  child: Image.network(
-                    productEntity.image,
+                  child: CachedNetworkImage(
+                    imageUrl: productEntity.image,
                     fit: BoxFit.fill,
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 const Expanded(
@@ -164,3 +169,8 @@ class _FavoriteIconState extends State<FavoriteIcon> {
     );
   }
 }
+
+// Image.network(
+//                     productEntity.image,
+//                     fit: BoxFit.fill,
+//                   )

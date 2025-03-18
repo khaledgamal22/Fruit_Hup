@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/services/shared_preference_singleton.dart';
@@ -46,9 +47,12 @@ class MyFaviorateItem extends StatelessWidget {
             Expanded(
               flex: 4,
               child: SizedBox(
-                child: Image.network(
-                  favoriteModel.image,
-                ),
+                child: CachedNetworkImage(
+                    imageUrl: favoriteModel.image,
+                    fit: BoxFit.fill,
+                    errorWidget: (context, url, error) => const Icon(
+                          Icons.error,
+                        )),
               ),
             ),
             const Expanded(

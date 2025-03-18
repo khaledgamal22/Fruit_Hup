@@ -179,4 +179,9 @@ class Assets {
   /// Assets for images Pay
   /// assets/images/ Pay.png
   static const String imagesPay = "assets/images/ Pay.png";
+
+  /// Assets for imagesNoProfilePicture
+  /// assets/images/blank-profile-picture-973460_960_720.webp
+  static const String imagesNoProfilePicture =
+      "assets/images/blank-profile-picture-973460_960_720.webp";
 }

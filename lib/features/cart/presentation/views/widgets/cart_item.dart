@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_ecommerce_app/core/helper_functions/build_dialog.dart';
@@ -54,9 +55,12 @@ class _CartItemState extends State<CartItem> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Skeleton.ignore(
-                child: Image.network(
-                  widget.cartEntity.imageProduct,
-                ),
+                child: CachedNetworkImage(
+                    imageUrl: widget.cartEntity.imageProduct,
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => const Icon(
+                          Icons.error,
+                        )),
               ),
             ),
           ),

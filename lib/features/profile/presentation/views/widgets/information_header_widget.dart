@@ -15,10 +15,10 @@ class InformationHeaderWidget extends StatelessWidget {
         Stack(
           clipBehavior: Clip.none,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 35,
               backgroundImage: AssetImage(
-                Assets.imagesPineappleCuate1,
+                Assets.imagesNoProfilePicture,
               ),
             ),
             Positioned(
@@ -28,14 +28,14 @@ class InformationHeaderWidget extends StatelessWidget {
               child: Container(
                 width: 32,
                 height: 32,
-                decoration: ShapeDecoration(
+                decoration: const ShapeDecoration(
                   shape: CircleBorder(),
                   color: Colors.white,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(2),
                   child: Container(
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                       shape: CircleBorder(),
                       color: Color(0xffF9F9F9),
                     ),
@@ -48,20 +48,20 @@ class InformationHeaderWidget extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               getUser().name,
               style: AppStyle.styleBold13(context).copyWith(
-                color: Color(0xff131F46),
+                color: const Color(0xff131F46),
               ),
             ),
             Text(
               getUser().email,
               style: AppStyle.styleRegular13(context).copyWith(
-                color: Color(0xff888FA0),
+                color: const Color(0xff888FA0),
               ),
             )
           ],

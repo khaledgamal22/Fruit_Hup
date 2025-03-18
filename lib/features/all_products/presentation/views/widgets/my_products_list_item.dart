@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/home/domain/entities/product_entity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -19,17 +20,20 @@ class MayProductsListItem extends StatelessWidget {
       child: Container(
         width: 70,
         height: 70,
-        decoration: ShapeDecoration(
+        decoration: const ShapeDecoration(
           shape: CircleBorder(),
           color: Color(0xffF3F5F7),
         ),
         child: Skeleton.ignore(
           child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Image.network(
-              productEntity.image,
-            ),
-          ),
+              padding: const EdgeInsets.all(16),
+              child: CachedNetworkImage(
+                imageUrl: productEntity.image,
+                fit: BoxFit.fill,
+                errorWidget: (context, url, error) => const Icon(
+                  Icons.error,
+                ),
+              )),
         ),
       ),
     );
