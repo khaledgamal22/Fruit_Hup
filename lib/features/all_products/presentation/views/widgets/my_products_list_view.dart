@@ -13,6 +13,11 @@ class MyProductsListView extends StatelessWidget {
     return BlocBuilder<FeaturedProductsCubit, FeaturedProductsState>(
       builder: (context, state) {
         if (state is FeaturedProductsSuccess) {
+          if (state.products.isEmpty) {
+            return const Center(
+              child: Text('No Products'),
+            );
+          }
           return ListView.builder(
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(left: 10),

@@ -78,4 +78,17 @@ class FirebaseStoreService implements DatabaseServices {
     var combinedDocs = data1.docs + data2.docs;
     return combinedDocs;
   }
+
+  @override
+  Future<QuerySnapshot> searchForDataByAtrribute({
+    required String path,
+    required String searchKey,
+    required searchValue,
+  }) async {
+    var data = await firestore
+        .collection(path)
+        .where(searchKey, isEqualTo: searchValue)
+        .get();
+    return data;
+  }
 }

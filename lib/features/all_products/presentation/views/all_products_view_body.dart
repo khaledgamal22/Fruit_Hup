@@ -6,6 +6,8 @@ import 'package:fruits_ecommerce_app/uitilits/widgets/custom_notification_icon.d
 import 'package:fruits_ecommerce_app/features/home/presentation/views/widgets/search_text_filed.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
 
+import '../../../../uitilits/routing_name.dart';
+
 class AllProductsViewBody extends StatelessWidget {
   const AllProductsViewBody({super.key});
 
@@ -34,7 +36,10 @@ class AllProductsViewBody extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const SearchTextField(),
+                SearchTextField(
+                  onTap: () => Navigator.pushNamed(context, RoutingName.search),
+                  isReadOnly: true,
+                ),
               ],
             ),
           ),

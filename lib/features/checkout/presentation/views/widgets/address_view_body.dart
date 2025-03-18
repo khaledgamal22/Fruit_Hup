@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_ecommerce_app/features/Auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fruits_ecommerce_app/features/checkout/presentation/view_models/cubit/checkout_cubit.dart';
 import 'package:fruits_ecommerce_app/features/profile/presentation/views/widgets/switch_button.dart';
 import 'package:fruits_ecommerce_app/generated/l10n.dart';
 import 'package:fruits_ecommerce_app/uitilits/app_style.dart';
@@ -13,6 +14,7 @@ class AddressViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final checkoutCubit = CheckoutCubit.get(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -30,6 +32,7 @@ class AddressViewBody extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               CustomTextFormField(
+                controller: checkoutCubit.addressController,
                 hintText: S.of(context).address,
                 keyboardType: TextInputType.name,
               ),
@@ -48,7 +51,7 @@ class AddressViewBody extends StatelessWidget {
                 children: [
                   Transform.rotate(
                     angle: 180 * 3.14 / 180,
-                    child: SwitchButton(),
+                    child: const SwitchButton(),
                   ),
                   Text(
                     S.of(context).saveaddress,

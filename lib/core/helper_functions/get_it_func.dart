@@ -18,7 +18,9 @@ import 'package:fruits_ecommerce_app/features/home/domain/repos/reviews_repo.dar
 import 'package:fruits_ecommerce_app/features/my_orders/data/repos/orders_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/my_orders/domain/repos/orders_repo.dart';
 import 'package:fruits_ecommerce_app/features/profile/data/repos/favorite_repo_impl.dart';
+import 'package:fruits_ecommerce_app/features/profile/data/repos/profile_edit_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/profile/domain/repos/favorite_repo.dart';
+import 'package:fruits_ecommerce_app/features/profile/domain/repos/profile_edit_repo.dart';
 import 'package:fruits_ecommerce_app/features/search/data/repos/search_repo_impl.dart';
 import 'package:fruits_ecommerce_app/features/search/domain/repos/search_repo.dart';
 import 'package:get_it/get_it.dart';
@@ -86,6 +88,11 @@ void setupGetIt() {
   getIt.registerSingleton<CheckoutRepo>(
     CheckoutRepoImpl(
       stripeService: getIt.get<StripeService>(),
+    ),
+  );
+  getIt.registerSingleton<ProfileEditRepo>(
+    ProfileEditRepoImpl(
+      databaseServices: getIt.get<DatabaseServices>(),
     ),
   );
 }

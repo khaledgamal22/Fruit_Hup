@@ -15,9 +15,13 @@ import '../../../../../uitilits/routing_name.dart';
 // ignore: must_be_immutable
 class OrderReviewBody extends StatelessWidget {
   OrderReviewBody(
-      {super.key, required this.pageController, required this.orderEntity});
+      {super.key,
+      required this.pageController,
+      required this.orderEntity,
+      required this.address});
   final PageController pageController;
   final OrderEntity orderEntity;
+  final String address;
   double serviceFee = 30;
 
   @override
@@ -188,7 +192,8 @@ class OrderReviewBody extends StatelessWidget {
                             width: 10,
                           ),
                           Text(
-                            'شارع النيل، مبنى رقم ١٢٣',
+                            address,
+                            maxLines: 1,
                             style: AppStyle.styleRegular16(context).copyWith(
                               color: const Color(0xff4E5556),
                             ),

@@ -31,4 +31,12 @@ class SharedPref {
   getCurrentLanguage() {
     return instance.getString(kLanguage) ?? 'ar';
   }
+
+  setCurrebtUserDate({required String data}) {
+    instance.setString(kUserData, data);
+  }
+
+  getCurrentUserData() {
+    instance.get(kUserData);
+  }
 }

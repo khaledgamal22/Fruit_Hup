@@ -146,6 +146,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "review": MessageLookupByLibrary.simpleMessage("Review"),
         "saveaddress": MessageLookupByLibrary.simpleMessage("Save Address"),
         "savechanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
+        "savechangesdone":
+            MessageLookupByLibrary.simpleMessage(" Changes saved successfully"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "searchfor": MessageLookupByLibrary.simpleMessage("Search for ....."),
         "searchresults": MessageLookupByLibrary.simpleMessage("Search Results"),

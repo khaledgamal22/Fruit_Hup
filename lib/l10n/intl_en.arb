@@ -119,6 +119,7 @@
     "addnewcard": "Add a New Card",
     "arabic": "Arabic",
     "english": "English",
-    "noordersyet":"No orders yet"
+    "noordersyet":"No orders yet",
+    "savechangesdone":" Changes saved successfully"
 
 }

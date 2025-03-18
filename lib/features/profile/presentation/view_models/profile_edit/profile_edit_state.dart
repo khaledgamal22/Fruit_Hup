@@ -4,3 +4,5 @@ part of 'profile_edit_cubit.dart';
 sealed class ProfileEditState {}
 
 final class ProfileEditInitial extends ProfileEditState {}
+
+final class ProfileEditSuccess extends ProfileEditState {}
