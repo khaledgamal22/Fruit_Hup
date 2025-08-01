@@ -1,16 +1,56 @@
-# fruits_ecommerce_app
+# 🍎 Fruit Hup – The Ultimate Fruit Shopping Experience!
 
-A new Flutter project.
+**Fruit Hup** is a modern fruit shopping mobile app built with Flutter that provides users with a smooth and intuitive experience when buying fresh fruits. The app combines Firebase, Hive, and Cubit to deliver fast performance and robust features.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 **Authentication**
+  - Sign in with **Firebase Authentication**
+  - Support for **Google Sign-In**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 🛒 **Shopping Experience**
+  - Browse a wide variety of fresh fruits
+  - Advanced **search functionality**
+  - Add items to **shopping cart** with quantity control
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 💳 **Secure Payments**
+  - Integrated with **Stripe** for seamless and secure checkout
+
+- ❤️ **Favorites & 📦 Orders**
+  - Save your **favorite fruits** for quick access
+  - Track all your **previous orders**
+
+- 🌐 **Multi-language Support**
+  - Supports **Arabic** 🇸🇦 and **English** 🇺🇸 with full localization
+
+- ⚙️ **Performance & Architecture**
+  - Built using **MVVM architecture**
+  - **Cubit (Bloc library)** for state management
+  - **Hive** for local offline data storage
+  - **SharedPreferences** for lightweight key-value storage
+
+---
+
+## 📱 Demo
+
+<!-- Add screenshots in the assets directory and reference here -->
+<!-- Example: -->
+<!-- ![Home Screen](assets/screenshots/home.png) -->
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology       | Description                         |
+|------------------|-------------------------------------|
+| Flutter          | Cross-platform mobile SDK           |
+| Firebase Auth    | Authentication & Google Sign-In     |
+| Cloud Firestore  | Realtime NoSQL database             |
+| Stripe           | Secure online payments              |
+| Hive             | Lightweight & fast local storage    |
+| SharedPreferences| Simple local key-value storage      |
+| Bloc (Cubit)     | State management                    |
+| MVVM             | Clean architecture pattern          |
+| Intl             | Localization support for multi-lang |
